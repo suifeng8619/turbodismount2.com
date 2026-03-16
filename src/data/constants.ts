@@ -1,0 +1,17 @@
+export const GAME = {
+  name: 'Turbo Dismount 2',
+  price: '$19.99',
+  salePrice: '$13.99',
+  discountPercent: '30',
+  steamUrl: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/',
+  steamAppId: '2280350',
+  releaseDate: '2026-03-13',
+  releaseDateHuman: 'March 13, 2026',
+  reviewScore: '96',
+  reviewCount: '542',
+  downloadSize: '1.05 GB',
+  developer: 'Secret Exit Ltd',
+  developerUrl: 'https://secretexit.com/',
+  steamCommunityUrl: 'https://steamcommunity.com/app/2280350',
+  workshopUrl: 'https://steamcommunity.com/app/2280350/workshop/',
+} as const;
