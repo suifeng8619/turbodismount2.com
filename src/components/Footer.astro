@@ -1,0 +1,126 @@
+---
+const footerLinks = {
+  guides: [
+    { label: 'How to Play', href: '/guides/how-to-play/' },
+    { label: 'Tips & Tricks', href: '/guides/tips/' },
+    { label: 'Achievements', href: '/guides/achievements/' },
+    { label: 'FAQ', href: '/faq/' },
+  ],
+  database: [
+    { label: 'All Vehicles', href: '/database/vehicles/' },
+    { label: 'All Levels', href: '/database/levels/' },
+    { label: 'Characters', href: '/database/characters/' },
+    { label: 'Power-ups', href: '/database/power-ups/' },
+  ],
+  workshop: [
+    { label: 'Featured Creations', href: '/workshop/' },
+    { label: 'Popular Mods', href: '/workshop/mods/' },
+    { label: 'Create Your Own', href: '/workshop/how-to-create/' },
+  ],
+  community: [
+    { label: 'Steam Community', href: 'https://steamcommunity.com/app/2280350' },
+    { label: 'Steam Workshop', href: 'https://steamcommunity.com/app/2280350/workshop/' },
+    { label: 'Secret Exit (Dev)', href: 'https://secretexit.com/' },
+  ],
+};
+---
+
+<footer class="relative mt-20 border-t border-[#2A2A33]" style="background: #0D0D0F;">
+  <!-- Speed line decoration -->
+  <div class="absolute top-0 left-0 right-0 h-px overflow-hidden">
+    <div class="h-full w-full" style="background: linear-gradient(90deg, transparent 0%, rgba(245,114,0,0.5) 50%, transparent 100%);"></div>
+  </div>
+
+  <div class="container py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+      <!-- Brand Column -->
+      <div class="col-span-2 md:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
+        <a href="/" class="inline-block mb-4">
+          <span class="font-[Orbitron] font-black text-base tracking-wider uppercase bg-gradient-to-r from-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+            TURBO DISMOUNT 2
+          </span>
+        </a>
+        <p class="text-sm text-[#6B6B80] leading-relaxed max-w-xs">
+          Your complete resource for Turbo Dismount 2 — guides, vehicle database, workshop creations, and community news.
+        </p>
+      </div>
+
+      <!-- Guides -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F0F0F2] mb-3">Guides</h3>
+        <ul class="space-y-2">
+          {footerLinks.guides.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-[#6B6B80] hover:text-[#FF8C12] transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Database -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F0F0F2] mb-3">Database</h3>
+        <ul class="space-y-2">
+          {footerLinks.database.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-[#6B6B80] hover:text-[#FF8C12] transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Workshop -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F0F0F2] mb-3">Workshop</h3>
+        <ul class="space-y-2">
+          {footerLinks.workshop.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-[#6B6B80] hover:text-[#FF8C12] transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Community -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#F0F0F2] mb-3">Community</h3>
+        <ul class="space-y-2">
+          {footerLinks.community.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                class="text-sm text-[#6B6B80] hover:text-[#FF8C12] transition-colors duration-200"
+              >
+                {link.label}
+                {link.href.startsWith('http') && (
+                  <svg class="inline w-3 h-3 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-10 pt-6 border-t border-[#1E1E24] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[#6B6B80]">
+        &copy; 2026 turbodismount2.com &mdash; Unofficial fan site. Not affiliated with Secret Exit Ltd.
+      </p>
+      <div class="flex items-center gap-4 text-xs text-[#6B6B80]">
+        <a href="/privacy/" class="hover:text-[#B0B0BE] transition-colors duration-200">Privacy</a>
+        <a href="/contact/" class="hover:text-[#B0B0BE] transition-colors duration-200">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,147 @@
+---
+const navItems = [
+  { label: 'Guides', href: '/guides/', children: [
+    { label: 'How to Play', href: '/guides/how-to-play/' },
+    { label: 'Tips & Tricks', href: '/guides/tips/' },
+    { label: 'Achievements', href: '/guides/achievements/' },
+  ]},
+  { label: 'Vehicles', href: '/database/vehicles/' },
+  { label: 'Levels', href: '/database/levels/' },
+  { label: 'Workshop', href: '/workshop/' },
+  { label: 'News', href: '/news/' },
+  { label: 'FAQ', href: '/faq/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(13,13,15,0.85); backdrop-filter: blur(16px);">
+  <div class="container flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="font-[Orbitron] font-black text-lg tracking-wider uppercase bg-gradient-to-r from-[#FF8C12] to-[#F57200] bg-clip-text text-transparent group-hover:from-[#FFAA44] group-hover:to-[#FF8C12] transition-all duration-300">
+        TURBO DISMOUNT 2
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-6">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm font-medium transition-colors duration-200 relative py-1',
+            currentPath.startsWith(item.href)
+              ? 'text-[#F57200]'
+              : 'text-[#B0B0BE] hover:text-[#F0F0F2]',
+          ]}
+        >
+          {item.label}
+          {currentPath.startsWith(item.href) && (
+            <span class="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F57200] rounded-full" />
+          )}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Right Side -->
+    <div class="flex items-center gap-3">
+      <!-- Search Button -->
+      <button
+        id="search-btn"
+        class="p-2 rounded-lg text-[#B0B0BE] hover:text-[#F0F0F2] hover:bg-[#1E1E24] transition-all duration-200"
+        aria-label="Search"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+
+      <!-- Steam CTA -->
+      <a
+        href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all duration-300 hover:-translate-y-0.5"
+        style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 16px rgba(245,114,0,0.3);"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        Get on Steam
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 rounded-lg text-[#B0B0BE] hover:text-[#F0F0F2] hover:bg-[#1E1E24] transition-all duration-200"
+        aria-label="Toggle menu"
+      >
+        <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-[#2A2A33]" style="background: rgba(13,13,15,0.98);">
+    <nav class="container py-4 flex flex-col gap-1">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200',
+            currentPath.startsWith(item.href)
+              ? 'text-[#F57200] bg-[rgba(245,114,0,0.08)]'
+              : 'text-[#B0B0BE] hover:text-[#F0F0F2] hover:bg-[#1E1E24]',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-2 flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white rounded-lg"
+        style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%);"
+      >
+        Get on Steam — $19.99
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    openIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  // Header background on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.style.setProperty('background', 'rgba(13,13,15,0.95)');
+      header?.style.setProperty('border-bottom', '1px solid rgba(245,114,0,0.15)');
+    } else {
+      header?.style.setProperty('background', 'rgba(13,13,15,0.85)');
+      header?.style.setProperty('border-bottom', 'none');
+    }
+  });
+</script>

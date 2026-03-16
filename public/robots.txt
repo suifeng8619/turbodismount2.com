@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://turbodismount2.com/sitemap-index.xml
+
+User-agent: AdsBot-Google
+Allow: /
