@@ -493,6 +493,48 @@ const statusConfig = {
     </div>
   </section>
 
+  <!-- Game Preview Video -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider text-center mb-6">See It in Action</h2>
+        <div class="relative rounded-xl overflow-hidden border border-[#2A2A33] bg-[#141417]" style="aspect-ratio: 16/9;">
+          <iframe
+            id="dl-trailer"
+            class="absolute inset-0 w-full h-full hidden"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+          <button
+            id="dl-play-btn"
+            class="absolute inset-0 w-full h-full flex flex-col items-center justify-center cursor-pointer group z-10"
+            style="background: linear-gradient(180deg, rgba(13,13,15,0.2) 0%, rgba(13,13,15,0.6) 100%);"
+            aria-label="Play Turbo Dismount 2 trailer"
+          >
+            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style="background: rgba(245,114,0,0.9); box-shadow: 0 0 24px rgba(245,114,0,0.4);">
+              <svg class="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="mt-3 text-xs font-medium text-[#B0B0BE] group-hover:text-white transition-colors">Watch Trailer</span>
+          </button>
+          <img src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg" alt="Turbo Dismount 2 gameplay trailer" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('dl-play-btn')?.addEventListener('click', () => {
+      const iframe = document.getElementById('dl-trailer');
+      const btn = document.getElementById('dl-play-btn');
+      if (iframe && btn) {
+        iframe.src = 'https://www.youtube-nocookie.com/embed/_eY5eaJG-1s?autoplay=1&rel=0';
+        iframe.classList.remove('hidden');
+        btn.classList.add('hidden');
+      }
+    });
+  </script>
+
   <!-- Related Pages -->
   <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
