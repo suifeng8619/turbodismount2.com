@@ -1,10 +1,7 @@
 ---
 const navItems = [
-  { label: 'Guides', href: '/guides/', children: [
-    { label: 'How to Play', href: '/guides/how-to-play/' },
-    { label: 'Tips & Tricks', href: '/guides/tips/' },
-    { label: 'Achievements', href: '/guides/achievements/' },
-  ]},
+  { label: 'How to Play', href: '/guides/how-to-play/' },
+  { label: 'Tips', href: '/guides/tips/' },
   { label: 'Vehicles', href: '/database/vehicles/' },
   { label: 'Levels', href: '/database/levels/' },
   { label: 'Workshop', href: '/workshop/' },
@@ -46,17 +43,6 @@ const currentPath = Astro.url.pathname;
 
     <!-- Right Side -->
     <div class="flex items-center gap-3">
-      <!-- Search Button -->
-      <button
-        id="search-btn"
-        class="p-2 rounded-lg text-[#B0B0BE] hover:text-[#F0F0F2] hover:bg-[#1E1E24] transition-all duration-200"
-        aria-label="Search"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </button>
-
       <!-- Steam CTA -->
       <a
         href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
@@ -65,10 +51,10 @@ const currentPath = Astro.url.pathname;
         class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all duration-300 hover:-translate-y-0.5"
         style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 16px rgba(245,114,0,0.3);"
       >
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-        </svg>
         Get on Steam
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
       </a>
 
       <!-- Mobile Menu Toggle -->

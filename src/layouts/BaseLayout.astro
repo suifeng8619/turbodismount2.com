@@ -63,18 +63,13 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Schema.org - VideoGame -->
+  <!-- Schema.org - WebSite -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Turbo Dismount 2 Wiki & Guides",
     "url": siteUrl,
-    "description": "Complete wiki, guides, vehicle database, and workshop resources for Turbo Dismount 2",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${siteUrl}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
+    "description": "Complete wiki, guides, vehicle database, and workshop resources for Turbo Dismount 2"
   })} />
 </head>
 <body class="min-h-screen flex flex-col">
