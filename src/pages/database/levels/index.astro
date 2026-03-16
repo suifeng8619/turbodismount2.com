@@ -1,0 +1,504 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 Levels — Complete Map Guide & Walkthroughs';
+const description = 'All Turbo Dismount 2 levels and maps. Walkthroughs, high score tips, secrets. Includes popular Workshop levels like Super-Speed, Going Down, Dismount Derby.';
+
+type Difficulty = 1 | 2 | 3 | 4 | 5;
+
+interface OfficialLevel {
+  name: string;
+  theme: string;
+  difficulty: Difficulty;
+  description: string;
+  highScoreTip: string;
+  type: string;
+  badge?: string;
+  badgeColor?: string;
+}
+
+interface WorkshopLevel {
+  name: string;
+  creator: string;
+  type: string;
+  description: string;
+  workshopUrl: string;
+}
+
+const officialLevels: OfficialLevel[] = [
+  {
+    name: 'Super-Speed',
+    theme: 'Floating Highway',
+    difficulty: 4,
+    description: 'The largest level in the game — a floating elevated highway with 4 lanes of AI traffic flowing at full speed. Designed for maximum carnage and chaos.',
+    highScoreTip: 'Use the Wedge vehicle for initial launch speed, aim for head-on AI collisions in the middle lanes for maximum impact scoring.',
+    type: 'Open World',
+    badge: 'Largest Level',
+    badgeColor: '#F57200',
+  },
+  {
+    name: 'Going Down',
+    theme: 'Elevator / Vertical',
+    difficulty: 3,
+    description: 'A vertical elevator-themed level where the action cascades downward through multiple floors. Known as one of the best high-score levels due to layered collision chains.',
+    highScoreTip: 'Position your character to clip every floor on the way down. Each contact adds to your combo multiplier — aim for unbroken contact chains.',
+    type: 'High Score',
+    badge: 'High Score Favorite',
+    badgeColor: '#22C55E',
+  },
+  {
+    name: 'Dismount Derby',
+    theme: 'Arena / Combat',
+    difficulty: 4,
+    description: 'A competitive arena-style level focused on vehicle-to-vehicle collisions and elimination. Multiple vehicles compete in a confined space.',
+    highScoreTip: 'Focus on T-bone collisions rather than head-on hits — side impacts transfer more rotational energy for better score multipliers.',
+    type: 'Arena Combat',
+  },
+  {
+    name: 'Mine Skydive Classic',
+    theme: 'Mine / Skydiving',
+    difficulty: 3,
+    description: 'A classic level combining a mine shaft drop with an open skydive sequence. The freefall section allows for significant speed buildup before impact.',
+    highScoreTip: 'Maximize your freefall distance before pulling into obstacles — velocity at impact is the key variable for score in this level.',
+    type: 'Skydive',
+  },
+  {
+    name: 'Daytona Speedway',
+    theme: 'Racing Circuit',
+    difficulty: 3,
+    description: 'An oval racing circuit inspired by the iconic American speedway. High-speed banked turns create opportunities for spectacular multi-vehicle incidents.',
+    highScoreTip: 'Use Pink Lightning for its sustained top speed. Target the tight banking turns where AI vehicles cluster before entering the straight.',
+    type: 'Racing Circuit',
+  },
+  {
+    name: 'Expressway',
+    theme: 'Freeway',
+    difficulty: 2,
+    description: 'A classic multi-lane freeway level with varied traffic density. Good introductory level that teaches the core collision mechanics.',
+    highScoreTip: 'Aim for the right-most lane at launch — traffic density is highest here, giving you the most collision opportunities in a single run.',
+    type: 'Freeway',
+    badge: 'Good for Beginners',
+    badgeColor: '#22C55E',
+  },
+  {
+    name: 'T-Junction',
+    theme: 'Intersection',
+    difficulty: 2,
+    description: 'A T-shaped intersection level where three streams of traffic converge. The crossing point creates consistent multi-vehicle pileup opportunities.',
+    highScoreTip: 'Time your launch to arrive at the intersection exactly when traffic from all three directions overlaps. The resulting chain reaction can clear an entire screen.',
+    type: 'Intersection',
+  },
+  {
+    name: 'Wobbles',
+    theme: 'Bumpy Terrain',
+    difficulty: 3,
+    description: 'An uneven, bumpy road surface that disrupts vehicle stability and creates unpredictable trajectories. Rewards creative use of the terrain geometry.',
+    highScoreTip: 'Use the Ranger or Sasquatch — their high durability means you survive the repeated terrain impacts while accumulating ongoing damage multipliers.',
+    type: 'Terrain Challenge',
+  },
+];
+
+const workshopLevels: WorkshopLevel[] = [
+  {
+    name: 'Highway Patrol Recreate',
+    creator: 'Community Creator',
+    type: 'Police Chase',
+    description: 'A faithful recreation of a high-speed police chase scenario. Includes patrol vehicles and detailed highway infrastructure.',
+    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
+  },
+  {
+    name: 'Crossy Road',
+    creator: 'Community Creator',
+    type: 'Cross-Platform Inspired',
+    description: 'Inspired by the mobile classic, this level reimagines Crossy Road as a physics-based dismount challenge with multiple lanes to cross.',
+    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
+  },
+  {
+    name: 'Hyperspeed Highway',
+    creator: 'Community Creator',
+    type: 'Extreme Speed',
+    description: 'A community-built highway level where all traffic moves at extreme speeds, creating near-instant massive collisions. For experienced players only.',
+    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
+  },
+  {
+    name: 'Atrocious Alley',
+    creator: 'Community Creator',
+    type: 'Urban Alley',
+    description: 'A tight urban alleyway packed with obstacles, traps, and hazards. Every run produces a different chain reaction of destruction.',
+    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
+  },
+  {
+    name: 'Road Trip',
+    creator: 'Community Creator',
+    type: 'Long Distance',
+    description: 'An extended route that takes you through varied terrain — city streets, rural roads, and highway sections in a single continuous level.',
+    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
+  },
+];
+
+const generalTips = [
+  {
+    title: 'Study AI Traffic Patterns First',
+    tip: 'Before optimizing your score, spend one run just observing where AI vehicles cluster and which lanes have the highest density. Traffic patterns repeat consistently.',
+  },
+  {
+    title: 'Replay is Your Best Teacher',
+    tip: 'The enhanced replay system in TD2 lets you review every collision in detail. After each run, watch the replay to identify which impacts scored well and which were wasted.',
+  },
+  {
+    title: 'Angle Matters More Than Speed Alone',
+    tip: 'A perpendicular (90-degree) hit transfers maximum energy. A glancing blow at 15 degrees might produce a dramatic visual but scores poorly. Aim to intercept traffic at right angles.',
+  },
+  {
+    title: 'Chain Reactions Multiply Scores',
+    tip: 'Single-vehicle collisions have a fixed score ceiling. Multi-vehicle chains where your primary hit causes secondary collisions between AI vehicles unlock major score multipliers.',
+  },
+  {
+    title: 'Level Height Adds Freefall Bonus',
+    tip: 'Levels with elevation — like Mine Skydive Classic and Going Down — reward you for freefall distance before impact. The velocity bonus from height is significant.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How many official levels are in Turbo Dismount 2?',
+    a: 'Turbo Dismount 2 includes at least 8 confirmed official levels at full release (March 2026). The Steam Workshop adds a continuously growing library of community-created levels. Total playable content expands significantly with Workshop subscriptions.',
+  },
+  {
+    q: 'Which level is best for getting high scores?',
+    a: 'Going Down is widely regarded as the top high-score level due to its multi-floor collision chain mechanic. Super-Speed is the best for raw damage accumulation thanks to constant high-speed AI traffic. Your optimal level depends on your playstyle.',
+  },
+  {
+    q: 'Are Workshop levels free?',
+    a: 'Yes. All Steam Workshop content for Turbo Dismount 2 is free. You simply subscribe to a level in the Steam Workshop and it automatically downloads and appears in your game. You need to own Turbo Dismount 2 on Steam to use Workshop content.',
+  },
+  {
+    q: 'Can I create my own levels?',
+    a: 'Absolutely. Turbo Dismount 2 includes the same developer-grade tools used to build all official levels. The Workshop system supports level creation, custom game modes, obstacles, traps, and power-ups. See our Workshop page for a creation guide.',
+  },
+  {
+    q: 'Do levels have difficulty ratings?',
+    a: 'The game does not display an official difficulty rating. The ratings on this page are community-based assessments of how challenging each level is to master and achieve a high score on. Beginner-friendly levels are marked accordingly.',
+  },
+];
+
+function renderStars(count: Difficulty) {
+  return Array.from({ length: 5 }, (_, i) => i < count ? '★' : '☆').join('');
+}
+
+const difficultyColors: Record<Difficulty, string> = {
+  1: '#22C55E',
+  2: '#86EFAC',
+  3: '#EAB308',
+  4: '#F97316',
+  5: '#E01C1C',
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  })} />
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #050F1A 0%, #0A1F35 40%, #101025 80%, #080D18 100%);"></div>
+    <div class="absolute top-1/2 right-1/4 w-[500px] h-[250px] opacity-10" style="background: radial-gradient(ellipse, rgba(0,128,245,0.5) 0%, transparent 70%);"></div>
+
+    <div class="container relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs text-[#6B6B80] mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/database/" class="hover:text-[#FF8C12] transition-colors">Database</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">Levels</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(0,128,245,0.3)] bg-[rgba(0,128,245,0.08)] text-[#2E9EFF]">
+          <span class="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse"></span>
+          {officialLevels.length} Official + {workshopLevels.length} Featured Workshop Levels
+        </div>
+
+        <h1 class="font-[Orbitron] font-black text-3xl md:text-5xl uppercase tracking-wider leading-tight mb-5">
+          <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+            Turbo Dismount 2
+          </span>
+          <br />
+          <span class="text-[#F0F0F2]">Level Guide</span>
+        </h1>
+
+        <p class="text-base md:text-lg text-[#B0B0BE] leading-relaxed max-w-2xl">
+          Complete breakdown of every official level — themes, difficulty ratings, and high score strategies.
+          Plus featured Workshop creations from the Steam community.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Levels -->
+  <section class="py-16 md:py-20 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-3 flex items-center gap-3">
+        <span class="w-1 h-7 rounded-full" style="background: #F57200;"></span>
+        Official Levels
+        <span class="text-sm font-normal text-[#6B6B80]">({officialLevels.length} levels)</span>
+      </h2>
+      <p class="text-sm text-[#6B6B80] mb-10 ml-4">Built-in levels available at game launch. Difficulty rated 1-5 stars based on community assessment.</p>
+
+      <div class="space-y-4">
+        {officialLevels.map((level) => {
+          const starColor = difficultyColors[level.difficulty];
+          return (
+            <div class="relative p-6 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.25)] transition-all duration-300 group">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+                <!-- Left: name + meta -->
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-center gap-3 mb-2">
+                    <h3 class="font-[Orbitron] text-lg font-bold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 uppercase tracking-wide">
+                      {level.name}
+                    </h3>
+                    {level.badge && (
+                      <span
+                        class="px-2 py-0.5 rounded-md text-xs font-bold uppercase tracking-wider"
+                        style={`background: ${level.badgeColor}22; color: ${level.badgeColor}; border: 1px solid ${level.badgeColor}44;`}
+                      >
+                        {level.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  <div class="flex flex-wrap items-center gap-4 mb-3">
+                    <span class="text-xs text-[#6B6B80] uppercase tracking-wider">{level.theme}</span>
+                    <span class="px-2 py-0.5 text-xs rounded-md bg-[#1E1E24] text-[#B0B0BE] border border-[#2A2A33]">
+                      {level.type}
+                    </span>
+                  </div>
+
+                  <p class="text-sm text-[#B0B0BE] leading-relaxed mb-4">{level.description}</p>
+
+                  <!-- High Score Tip -->
+                  <div class="flex gap-3 p-3 rounded-lg" style="background: rgba(245,114,0,0.06); border: 1px solid rgba(245,114,0,0.15);">
+                    <div class="shrink-0 w-5 h-5 mt-0.5 rounded-full flex items-center justify-center" style="background: rgba(245,114,0,0.2);">
+                      <svg class="w-3 h-3 text-[#F57200]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-[#F57200] uppercase tracking-wider mb-0.5">High Score Tip</p>
+                      <p class="text-xs text-[#B0B0BE] leading-relaxed">{level.highScoreTip}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: difficulty -->
+                <div class="shrink-0 text-center sm:text-right">
+                  <p class="text-xs text-[#6B6B80] uppercase tracking-wider mb-1">Difficulty</p>
+                  <div class="text-xl tracking-wider" style={`color: ${starColor};`} aria-label={`${level.difficulty} out of 5 stars`}>
+                    {renderStars(level.difficulty)}
+                  </div>
+                  <p class="text-xs text-[#6B6B80] mt-1">{level.difficulty}/5</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Workshop Levels -->
+  <section class="py-16 md:py-20 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="flex items-start justify-between flex-wrap gap-4 mb-3">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider flex items-center gap-3">
+          <span class="w-1 h-7 rounded-full" style="background: #A855F7;"></span>
+          Popular Workshop Levels
+        </h2>
+        <a
+          href="https://steamcommunity.com/workshop/browse/?appid=2280350"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-lg border border-[#2A2A33] bg-[#141417] text-[#B0B0BE] hover:border-[rgba(245,114,0,0.3)] hover:text-[#FF8C12] transition-all duration-200"
+        >
+          Browse All on Steam
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm text-[#6B6B80] mb-10 ml-4">Community-created levels available free on Steam Workshop. Requires owning Turbo Dismount 2.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {workshopLevels.map((level) => (
+          <a
+            href={level.workshopUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(168,85,247,0.3)] hover:bg-[#1E1E24] transition-all duration-300 hover:-translate-y-1 block"
+          >
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-[#F0F0F2] group-hover:text-[#A855F7] transition-colors duration-200">
+                  {level.name}
+                </h3>
+                <p class="text-xs text-[#6B6B80] mt-0.5">by {level.creator}</p>
+              </div>
+              <svg class="w-4 h-4 text-[#6B6B80] group-hover:text-[#A855F7] shrink-0 ml-2 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+
+            <span class="inline-block px-2 py-0.5 text-xs rounded-md mb-3" style="background: rgba(168,85,247,0.1); color: #A855F7; border: 1px solid rgba(168,85,247,0.2);">
+              {level.type}
+            </span>
+
+            <p class="text-sm text-[#B0B0BE] leading-relaxed">{level.description}</p>
+
+            <p class="text-xs text-[#A855F7] mt-3 font-medium">View on Steam Workshop &rarr;</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Level Tips -->
+  <section class="py-16 md:py-20 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-8">
+          Level Tips
+        </h2>
+
+        <div class="space-y-4">
+          {generalTips.map((item, i) => (
+            <div class="flex gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+              <div class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-[Orbitron] text-white" style="background: linear-gradient(135deg, #0080F5, #2E9EFF);">
+                {i + 1}
+              </div>
+              <div>
+                <p class="font-semibold text-[#F0F0F2] mb-1">{item.title}</p>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{item.tip}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Create Custom Levels -->
+  <section class="py-16 md:py-20 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-4">
+          How to Create Custom Levels
+        </h2>
+        <p class="text-[#B0B0BE] mb-6 text-sm leading-relaxed">
+          Turbo Dismount 2 gives every player access to the same Unity-based tools used by Secret Exit to build all official levels.
+          Creating and publishing your own level is straightforward — no programming required for basic levels.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+          {[
+            { step: '1', title: 'Install Workshop Tools', desc: 'Download the free Workshop SDK from your Steam library. It includes the same editor used by developers.' },
+            { step: '2', title: 'Open Level Editor', desc: 'Launch the Unity-based editor. You\'ll see the same interface used to build every official level.' },
+            { step: '3', title: 'Build Your Layout', desc: 'Place roads, obstacles, traps, power-ups, and spawn points using drag-and-drop tools.' },
+            { step: '4', title: 'Playtest Locally', desc: 'Test your level directly in-game before publishing. Iterate until the physics feel right.' },
+            { step: '5', title: 'Publish to Workshop', desc: 'Add a description and preview image, then click Publish. Your level goes live instantly for all subscribers.' },
+          ].map((item) => (
+            <div class="flex gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417]">
+              <div class="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold font-[Orbitron] text-[#F57200]" style="background: rgba(245,114,0,0.1);">
+                {item.step}
+              </div>
+              <div>
+                <p class="font-semibold text-[#F0F0F2] text-sm mb-1">{item.title}</p>
+                <p class="text-xs text-[#B0B0BE] leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="/workshop/"
+          class="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.3);"
+        >
+          Full Workshop Guide
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider text-center mb-10">
+          Level FAQ
+        </h2>
+
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
+                <span>{faq.q}</span>
+                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-4 text-sm text-[#B0B0BE] leading-relaxed border-t border-[#1E1E24]">
+                <p class="pt-4">{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(0,128,245,0.1) 0%, rgba(245,114,0,0.1) 100%); border: 1px solid rgba(0,128,245,0.2);">
+        <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-3">
+          Play Every Level on Steam
+        </h2>
+        <p class="text-[#B0B0BE] mb-5 text-sm max-w-md mx-auto">
+          All official levels plus unlimited Workshop content. One purchase unlocks everything.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a
+            href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+            style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
+          >
+            Get on Steam — $19.99
+          </a>
+          <a
+            href="/workshop/"
+            class="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-[#F0F0F2] rounded-xl border border-[#2A2A33] hover:border-[rgba(245,114,0,0.4)] bg-[#141417] hover:bg-[#1E1E24] transition-all duration-300"
+          >
+            Workshop Hub
+            <svg class="w-4 h-4 text-[#F57200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

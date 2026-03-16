@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 News — Updates, Patch Notes & Roadmap';
+const description = 'Latest Turbo Dismount 2 news, patch notes, and development roadmap. Track updates from Secret Exit. Full release March 2026.';
+
+const timeline = [
+  {
+    date: 'August 2024',
+    version: '',
+    title: 'Game Announced',
+    desc: 'Secret Exit officially announced Turbo Dismount 2 as the sequel to the original Turbo Dismount (2014), with over 8 years of development.',
+    type: 'announce',
+  },
+  {
+    date: 'January 23, 2025',
+    version: 'Early Access',
+    title: 'Early Access Launch on Steam',
+    desc: 'Turbo Dismount 2 entered Steam Early Access. First-person manual driving, advanced destruction physics, and Steam Workshop support available from day one.',
+    type: 'release',
+  },
+  {
+    date: 'January 31, 2025',
+    version: 'v0.2.37',
+    title: 'First Update',
+    desc: 'First post-launch Early Access update addressing initial player feedback on physics, collision, and UI elements.',
+    type: 'update',
+  },
+  {
+    date: 'February 19, 2025',
+    version: 'v0.2.47',
+    title: 'Continued Improvements',
+    desc: 'Ongoing iteration with gameplay tweaks, bug fixes, and performance improvements based on community feedback.',
+    type: 'update',
+  },
+  {
+    date: 'February 2026',
+    version: 'The BIG Update',
+    title: '"The BIG Update" — Major Feature Drop',
+    desc: 'Introduced new game modes, a fully revamped item unlock system, and significant gameplay improvements. One of the largest single updates during Early Access.',
+    type: 'major',
+  },
+  {
+    date: 'Early March 2026',
+    version: 'Open Beta',
+    title: 'Open Beta — Pre-Release Testing',
+    desc: 'Open Beta launched ahead of the Full Release, allowing all players to test the 1.0-ready build and report remaining issues.',
+    type: 'update',
+  },
+  {
+    date: 'March 13, 2026',
+    version: 'v1.0',
+    title: 'Full Release',
+    desc: 'Turbo Dismount 2 officially launched out of Early Access. Originally planned for February 27, delayed to March 13 to resolve final quality issues. Launched with 96% positive reviews on Steam.',
+    type: 'release',
+    highlight: true,
+  },
+];
+
+const roadmapItems = [
+  {
+    phase: 'Short Term',
+    timeframe: '3–6 months post-release',
+    color: '#22C55E',
+    items: [
+      'Bug fixes and stability improvements',
+      'Physics and collision refinements (Euphoria system)',
+      'Additional classic levels',
+      'Controller input optimization',
+      'UI and menu polish',
+    ],
+  },
+  {
+    phase: 'Medium Term',
+    timeframe: '6–12 months',
+    color: '#0080F5',
+    items: [
+      'Mobile release — iOS (App Store)',
+      'Mobile release — Android (Google Play)',
+      'macOS support',
+      'AI Racers (confirmed high-priority)',
+      'More game mode variety',
+    ],
+  },
+  {
+    phase: 'Long Term',
+    timeframe: '12+ months',
+    color: '#F57200',
+    items: [
+      'Workshop ecosystem expansion',
+      'vs. multiplayer mode (concept phase)',
+      'Additional level types and environments',
+      'Community-requested features',
+      'Console support — not currently planned',
+    ],
+  },
+];
+
+const v1Features = [
+  'Racing mode with competitive lap-based gameplay',
+  'Physics puzzle levels with structured objectives',
+  'Obstacle course stages (Escape the Police, Time Trials)',
+  'Chill Mode — free-form sandbox exploration',
+  'Item unlock system introduced in The BIG Update',
+  'Live webcam face tracking support',
+  'Enhanced replay system with new recording options',
+  'Steam Workshop with full developer toolset access',
+  'Steam Deck verified',
+  '30+ languages supported',
+];
+
+const typeColor: Record<string, string> = {
+  announce: '#EAB308',
+  release: '#22C55E',
+  update: '#0080F5',
+  major: '#F57200',
+};
+
+const typeLabel: Record<string, string> = {
+  announce: 'Announced',
+  release: 'Release',
+  update: 'Update',
+  major: 'Major Update',
+};
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #1A0A00 0%, #2D1200 40%, #0D0D0F 100%);"></div>
+    <div class="absolute top-1/2 left-1/4 w-[600px] h-[300px] -translate-y-1/2 opacity-15" style="background: radial-gradient(ellipse, rgba(245,114,0,0.4) 0%, transparent 70%);"></div>
+
+    <div class="container relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 text-sm text-[#6B6B80]" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a></li>
+          <li><span class="text-[#2A2A33]">/</span></li>
+          <li class="text-[#B0B0BE]">News & Updates</li>
+        </ol>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.08)] text-[#22C55E]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse"></span>
+        v1.0 Full Release — March 13, 2026
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-5xl uppercase tracking-wider leading-tight mb-4">
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+          Turbo Dismount 2
+        </span>
+        <br />
+        <span class="text-[#F0F0F2] text-xl md:text-3xl">News & Updates</span>
+      </h1>
+
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed">
+        Track every patch, major update, and roadmap milestone for Turbo Dismount 2.
+        All data sourced from official Secret Exit announcements and Steam community posts.
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest: v1.0 Highlight Card -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="relative overflow-hidden rounded-2xl p-6 md:p-8" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(34,197,94,0.06) 100%); border: 1px solid rgba(245,114,0,0.25);">
+        <div class="absolute top-0 right-0 w-64 h-64 opacity-10" style="background: radial-gradient(circle, rgba(245,114,0,0.5) 0%, transparent 70%);"></div>
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="px-2.5 py-0.5 text-xs font-bold rounded bg-[#22C55E] text-white uppercase tracking-wider">Latest</span>
+              <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full border border-[rgba(245,114,0,0.4)] text-[#FF8C12]">v1.0 Full Release</span>
+            </div>
+            <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider text-[#F0F0F2] mb-2">
+              Turbo Dismount 2 — Full Release
+            </h2>
+            <p class="text-[#B0B0BE] text-sm leading-relaxed max-w-xl">
+              After 14 months in Early Access and 8+ years of total development, Turbo Dismount 2 launched out of Early Access on
+              <strong class="text-[#F0F0F2]">March 13, 2026</strong>. The game shipped with a 96% positive rating on Steam from 542 reviews.
+              The original launch window was February 27 — delayed by two weeks to resolve final complexity issues.
+            </p>
+          </div>
+          <div class="shrink-0 text-center">
+            <div class="font-[Orbitron] font-black text-5xl text-[#F57200]">96%</div>
+            <div class="text-xs text-[#6B6B80] uppercase tracking-wider mt-1">Steam Positive</div>
+            <div class="text-xs text-[#6B6B80] mt-0.5">542 reviews</div>
+            <a
+              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block mt-4 px-5 py-2 text-sm font-bold text-white rounded-lg transition-all hover:-translate-y-0.5"
+              style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 4px 16px rgba(245,114,0,0.35);"
+            >
+              View on Steam
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Update Timeline -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+        Update Timeline
+      </h2>
+      <p class="text-[#B0B0BE] mb-10 max-w-xl">
+        Every major milestone from announcement to Full Release, based on official Steam posts and developer announcements.
+      </p>
+
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-5 md:left-8 top-0 bottom-0 w-px bg-[#2A2A33]"></div>
+
+        <div class="space-y-6">
+          {timeline.map((item) => (
+            <div class={`relative flex gap-4 md:gap-8 pl-14 md:pl-20 ${item.highlight ? 'ring-1 ring-[rgba(245,114,0,0.2)] rounded-xl p-4 -ml-4 bg-[rgba(245,114,0,0.04)]' : ''}`}>
+              <!-- Dot -->
+              <div
+                class="absolute left-3 md:left-5 top-4 w-5 h-5 rounded-full border-2 border-[#0D0D0F] flex items-center justify-center shrink-0"
+                style={`background-color: ${typeColor[item.type]}; box-shadow: 0 0 8px ${typeColor[item.type]}55;`}
+              >
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="text-xs font-semibold text-[#6B6B80]">{item.date}</span>
+                  {item.version && (
+                    <span
+                      class="px-2 py-0.5 text-xs font-bold rounded"
+                      style={`background-color: ${typeColor[item.type]}22; color: ${typeColor[item.type]}; border: 1px solid ${typeColor[item.type]}44;`}
+                    >
+                      {item.version}
+                    </span>
+                  )}
+                  <span
+                    class="px-2 py-0.5 text-xs rounded-full"
+                    style={`color: ${typeColor[item.type]}; background: ${typeColor[item.type]}15;`}
+                  >
+                    {typeLabel[item.type]}
+                  </span>
+                </div>
+                <h3 class="font-semibold text-[#F0F0F2] mb-1">{item.title}</h3>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's New in v1.0 -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+          What's New in v1.0
+        </h2>
+        <p class="text-[#B0B0BE] mb-8">
+          The Full Release includes all features developed across 14 months of Early Access, plus final content added in The BIG Update and Open Beta phase.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {v1Features.map((feature) => (
+            <div class="flex items-start gap-3 p-4 rounded-xl border border-[#2A2A33] bg-[#141417]">
+              <svg class="w-4 h-4 text-[#22C55E] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              <span class="text-sm text-[#B0B0BE]">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Development Roadmap -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+        Development Roadmap
+      </h2>
+      <p class="text-[#B0B0BE] mb-10 max-w-xl">
+        Secret Exit has stated that v1.0 is a milestone, not an endpoint. These are the confirmed and expected priorities post-Full Release.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {roadmapItems.map((phase) => (
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+            <div class="px-5 py-4 border-b border-[#2A2A33]" style={`border-left: 3px solid ${phase.color};`}>
+              <div class="text-xs font-semibold uppercase tracking-wider mb-0.5" style={`color: ${phase.color};`}>
+                {phase.phase}
+              </div>
+              <div class="text-[#6B6B80] text-xs">{phase.timeframe}</div>
+            </div>
+            <ul class="p-5 space-y-3">
+              {phase.items.map((item) => (
+                <li class="flex items-start gap-2.5 text-sm text-[#B0B0BE]">
+                  <span class="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={`background-color: ${phase.color};`}></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-6 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-sm text-[#6B6B80]">
+        <strong class="text-[#B0B0BE]">Note:</strong> Roadmap items reflect confirmed developer statements from Steam community posts and official announcements as of March 2026. Console support (PS5/Xbox/Switch) has not been confirmed or announced.
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Announcements -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+          Community Announcements
+        </h2>
+        <p class="text-[#B0B0BE] mb-8">
+          Join the official Turbo Dismount 2 community and follow developer updates directly.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a
+            href="https://store.steampowered.com/news/app/2280350/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-start gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-5 h-5 text-[#F57200]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2v-2zm0-10h2v8h-2V6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors text-sm">Steam News Hub</div>
+              <div class="text-xs text-[#6B6B80] mt-0.5">Official patch notes and dev updates</div>
+            </div>
+          </a>
+
+          <a
+            href="https://steamcommunity.com/app/2280350/discussions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-start gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-5 h-5 text-[#0080F5]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 6.5c0-2.49-2.01-4.5-4.5-4.5h-9C5.01 2 3 4.01 3 6.5v6C3 14.99 5.01 17 7.5 17H8v3l3-3h5.5c2.49 0 4.5-2.01 4.5-4.5v-6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors text-sm">Steam Community</div>
+              <div class="text-xs text-[#6B6B80] mt-0.5">Player discussions, bug reports, suggestions</div>
+            </div>
+          </a>
+
+          <a
+            href="https://x.com/secretexit"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-start gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-5 h-5 text-[#F0F0F2]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors text-sm">Secret Exit on X</div>
+              <div class="text-xs text-[#6B6B80] mt-0.5">Developer tweets and announcements</div>
+            </div>
+          </a>
+
+          <a
+            href="https://steamcommunity.com/workshop/browse/?appid=2280350"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-start gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-5 h-5 text-[#EAB308]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96a7.09 7.09 0 0 0-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.477.477 0 0 0-.59.22L2.74 8.87a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.07.63-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors text-sm">Steam Workshop</div>
+              <div class="text-xs text-[#6B6B80] mt-0.5">Community-created levels, modes, and mods</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schema: NewsArticle -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Turbo Dismount 2 Full Release — v1.0 Launches March 13, 2026",
+    "description": "Turbo Dismount 2 officially launched out of Early Access on March 13, 2026 with 96% positive Steam reviews. Track the full update timeline and development roadmap.",
+    "datePublished": "2026-03-13",
+    "dateModified": "2026-03-16",
+    "author": {
+      "@type": "Organization",
+      "name": "Secret Exit Ltd",
+      "url": "https://secretexit.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Turbo Dismount 2 Wiki & Guides",
+      "url": "https://turbodismount2.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://turbodismount2.com/news/"
+    }
+  })} />
+
+</BaseLayout>

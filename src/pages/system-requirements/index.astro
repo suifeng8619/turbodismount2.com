@@ -1,0 +1,359 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 System Requirements — Can You Run It?';
+const description = 'Turbo Dismount 2 PC system requirements. Minimum: Core 2 Duo, 16GB RAM. Only 1.05GB download. Check if your PC can run TD2.';
+
+const minSpecs = [
+  { label: 'OS', value: 'Windows 10 64-bit' },
+  { label: 'CPU', value: 'Intel Core 2 Duo Q6867 (2.5GHz dual-core)' },
+  { label: 'RAM', value: '16 GB' },
+  { label: 'GPU', value: 'DirectX 11 compatible' },
+  { label: 'Storage', value: '4 GB available space' },
+  { label: 'DirectX', value: 'Version 11' },
+];
+
+const recSpecs = [
+  { label: 'OS', value: 'Windows 10 / 11 64-bit' },
+  { label: 'CPU', value: 'Intel Core i5-1300F or better' },
+  { label: 'RAM', value: '16 GB (same — RAM is not the bottleneck)' },
+  { label: 'GPU', value: 'DirectX 11 compatible, dedicated GPU' },
+  { label: 'Storage', value: '10 GB available space' },
+  { label: 'DirectX', value: 'Version 11' },
+];
+
+const faqs = [
+  {
+    q: 'Can my PC run Turbo Dismount 2?',
+    a: 'If your PC runs Windows 10 64-bit, has a dual-core CPU at 2.5GHz or faster, 16GB RAM, and any DirectX 11 GPU (including older integrated graphics), you meet the minimum requirements. The game is only 1.05GB — most PCs from 2012 onward can run it.',
+  },
+  {
+    q: 'Does Turbo Dismount 2 require a dedicated graphics card?',
+    a: 'No. The minimum requirement is any DirectX 11 compatible GPU, which includes many integrated graphics chips. A dedicated GPU is recommended for better frame rates and visual quality, but not required.',
+  },
+  {
+    q: 'Can I play Turbo Dismount 2 on Mac?',
+    a: 'Not yet. macOS support is confirmed in the roadmap and planned for release after the PC Full Release (March 2026). There is no official release date for the Mac version.',
+  },
+  {
+    q: 'Why does the minimum spec list 16GB RAM if the CPU is a Core 2 Duo?',
+    a: 'This is an unusual spec combination — an older CPU but a relatively high RAM requirement. This reflects the Unity 6.3 LTS engine\'s memory usage for physics simulation. The CPU requirement is genuinely low, but RAM is non-negotiable.',
+  },
+  {
+    q: 'How large is the Turbo Dismount 2 download?',
+    a: 'The game installs at approximately 1.05 GB — very small by modern standards. Steam recommends keeping 4 GB free for the game itself, or 10 GB if you plan to use Workshop content and save replays.',
+  },
+];
+
+const performanceTips = [
+  'Lower shadow quality first — shadows are the biggest GPU cost in physics-heavy scenes',
+  'Reduce draw distance if frame rate drops during complex crashes with many objects',
+  'Close background applications to free RAM — 16 GB minimum means headroom is limited',
+  'Workshop maps vary widely in performance impact; simpler community maps run better on older hardware',
+  'Steam Deck players: game is Verified — default settings are optimized for the Deck hardware',
+  'Webcam face tracking uses CPU — disable it if running on minimum spec hardware',
+];
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #0D0A1A 0%, #1A1400 40%, #0D0D0F 100%);"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] opacity-10" style="background: radial-gradient(ellipse, rgba(245,114,0,0.4) 0%, transparent 70%);"></div>
+
+    <div class="container relative z-10">
+      <nav class="mb-6 text-sm text-[#6B6B80]" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a></li>
+          <li><span class="text-[#2A2A33]">/</span></li>
+          <li class="text-[#B0B0BE]">System Requirements</li>
+        </ol>
+      </nav>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-5xl uppercase tracking-wider leading-tight mb-4">
+        <span class="text-[#F0F0F2]">System</span>
+        <br />
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+          Requirements
+        </span>
+      </h1>
+
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed mb-6">
+        Turbo Dismount 2 is designed to run on a wide range of hardware. The game is only
+        <strong class="text-[#F0F0F2]">1.05 GB</strong> and runs on most PCs from 2012 onward.
+        Check if your machine meets the requirements below.
+      </p>
+
+      <!-- Quick stats -->
+      <div class="flex flex-wrap gap-3">
+        <div class="px-4 py-2 rounded-lg border border-[#2A2A33] bg-[#141417] text-sm">
+          <span class="text-[#6B6B80]">Download size: </span>
+          <span class="text-[#F0F0F2] font-semibold">~1.05 GB</span>
+        </div>
+        <div class="px-4 py-2 rounded-lg border border-[#2A2A33] bg-[#141417] text-sm">
+          <span class="text-[#6B6B80]">Platform: </span>
+          <span class="text-[#F0F0F2] font-semibold">Windows 10/11 64-bit</span>
+        </div>
+        <div class="px-4 py-2 rounded-lg border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.08)] text-sm">
+          <span class="text-[#22C55E] font-semibold">Steam Deck Verified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimum vs Recommended -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Minimum -->
+        <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+          <div class="px-6 py-4 border-b border-[#2A2A33] flex items-center gap-3" style="background: linear-gradient(90deg, rgba(234,179,8,0.08) 0%, transparent 100%);">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-[rgba(234,179,8,0.15)]">
+              <svg class="w-4 h-4 text-[#EAB308]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-[Orbitron] font-bold text-sm uppercase tracking-wider text-[#EAB308]">Minimum</div>
+              <div class="text-xs text-[#6B6B80]">Runs the game at low-medium settings</div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            {minSpecs.map((spec) => (
+              <div class="flex items-start justify-between gap-4 py-2 border-b border-[#1E1E24] last:border-0">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80] shrink-0 w-16">{spec.label}</span>
+                <span class="text-sm text-[#F0F0F2] text-right">{spec.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Recommended -->
+        <div class="rounded-xl border border-[rgba(245,114,0,0.25)] bg-[#141417] overflow-hidden">
+          <div class="px-6 py-4 border-b border-[rgba(245,114,0,0.2)] flex items-center gap-3" style="background: linear-gradient(90deg, rgba(245,114,0,0.08) 0%, transparent 100%);">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-[rgba(245,114,0,0.15)]">
+              <svg class="w-4 h-4 text-[#F57200]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-[Orbitron] font-bold text-sm uppercase tracking-wider text-[#FF8C12]">Recommended</div>
+              <div class="text-xs text-[#6B6B80]">Smooth gameplay at high settings</div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            {recSpecs.map((spec) => (
+              <div class="flex items-start justify-between gap-4 py-2 border-b border-[#1E1E24] last:border-0">
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80] shrink-0 w-16">{spec.label}</span>
+                <span class="text-sm text-[#F0F0F2] text-right">{spec.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- File size detail -->
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
+          <div class="font-[Orbitron] font-bold text-2xl text-[#F57200] mb-1">1.05 GB</div>
+          <div class="text-xs text-[#6B6B80] uppercase tracking-wider">Installed game size</div>
+        </div>
+        <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
+          <div class="font-[Orbitron] font-bold text-2xl text-[#0080F5] mb-1">4 GB</div>
+          <div class="text-xs text-[#6B6B80] uppercase tracking-wider">Minimum free space</div>
+        </div>
+        <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
+          <div class="font-[Orbitron] font-bold text-2xl text-[#EAB308] mb-1">10 GB</div>
+          <div class="text-xs text-[#6B6B80] uppercase tracking-wider">Recommended (with Workshop)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported OS & Platforms -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Supported Platforms
+        </h2>
+
+        <div class="rounded-xl border border-[#2A2A33] overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-[#2A2A33] bg-[#1E1E24]">
+                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Platform</th>
+                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Status</th>
+                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[#1E1E24] bg-[#141417]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">Windows 10 64-bit</td>
+                <td class="px-5 py-3"><span class="text-[#22C55E] font-semibold">Available</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">Full Release v1.0 — March 13, 2026</td>
+              </tr>
+              <tr class="border-b border-[#1E1E24] bg-[#0D0D0F]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">Windows 11 64-bit</td>
+                <td class="px-5 py-3"><span class="text-[#22C55E] font-semibold">Available</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">Fully supported</td>
+              </tr>
+              <tr class="border-b border-[#1E1E24] bg-[#141417]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">Steam Deck (SteamOS)</td>
+                <td class="px-5 py-3"><span class="text-[#22C55E] font-semibold">Verified</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">Steam Deck Verified badge — optimized controls and UI</td>
+              </tr>
+              <tr class="border-b border-[#1E1E24] bg-[#0D0D0F]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">Linux</td>
+                <td class="px-5 py-3"><span class="text-[#EAB308] font-semibold">Via Proton</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">Works through Steam Play/Proton (not natively tested)</td>
+              </tr>
+              <tr class="border-b border-[#1E1E24] bg-[#141417]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">macOS</td>
+                <td class="px-5 py-3"><span class="text-[#0080F5] font-semibold">Coming Soon</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">Confirmed in roadmap, no release date announced</td>
+              </tr>
+              <tr class="border-b border-[#1E1E24] bg-[#0D0D0F]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">iOS</td>
+                <td class="px-5 py-3"><span class="text-[#0080F5] font-semibold">Planned</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">After PC Full Release, no date announced</td>
+              </tr>
+              <tr class="border-b border-[#1E1E24] bg-[#141417]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">Android</td>
+                <td class="px-5 py-3"><span class="text-[#0080F5] font-semibold">Planned</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">After PC Full Release, no date announced</td>
+              </tr>
+              <tr class="bg-[#0D0D0F]">
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium">PS5 / Xbox / Switch</td>
+                <td class="px-5 py-3"><span class="text-[#6B6B80] font-semibold">No Plans</span></td>
+                <td class="px-5 py-3 text-[#6B6B80] text-xs">No console version confirmed or announced</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Tips -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-2">
+          Performance Tips
+        </h2>
+        <p class="text-[#B0B0BE] mb-8 text-sm">
+          Running on older hardware or minimum specs? These settings have the most impact on performance.
+        </p>
+
+        <div class="space-y-3">
+          {performanceTips.map((tip, i) => (
+            <div class="flex items-start gap-3 p-4 rounded-xl border border-[#2A2A33] bg-[#141417]">
+              <span class="shrink-0 font-[Orbitron] font-bold text-xs text-[#F57200] w-6 mt-0.5">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <p class="text-sm text-[#B0B0BE] leading-relaxed">{tip}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-8">
+          System Requirements FAQ
+        </h2>
+
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200 text-sm">
+                <span>{faq.q}</span>
+                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-4 text-sm text-[#B0B0BE] leading-relaxed border-t border-[#1E1E24]">
+                <p class="pt-4">{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(0,128,245,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
+        <h2 class="font-[Orbitron] text-xl font-bold uppercase tracking-wider mb-3">Your PC Can Run It</h2>
+        <p class="text-[#B0B0BE] mb-5 max-w-sm mx-auto text-sm">
+          1.05 GB download. Runs on almost any PC from 2012 onward. Steam Deck Verified.
+        </p>
+        <a
+          href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
+        >
+          Get on Steam — $19.99
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Turbo Dismount 2",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows 10, Windows 11",
+    "processorRequirements": "Intel Core 2 Duo Q6867 2.5GHz",
+    "memoryRequirements": "16 GB RAM",
+    "storageRequirements": "4 GB",
+    "softwareVersion": "1.0",
+    "datePublished": "2026-03-13",
+    "author": {
+      "@type": "Organization",
+      "name": "Secret Exit Ltd"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "19.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "96",
+      "bestRating": "100",
+      "ratingCount": "542"
+    }
+  })} />
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a,
+      },
+    })),
+  })} />
+
+</BaseLayout>

@@ -1,0 +1,576 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 Tips & Tricks — Score Higher, Crash Better';
+const description = '15 pro tips for Turbo Dismount 2. Master vehicle selection, launch angles, power bar timing, and score multipliers. From beginner to expert.';
+
+const tocItems = [
+  { id: 'vehicle-selection', label: 'Vehicle Selection' },
+  { id: 'power-angle', label: 'Power & Launch Angle' },
+  { id: 'scoring-strategies', label: 'Scoring Strategies' },
+  { id: 'character-pose', label: 'Character Pose' },
+  { id: 'level-tips', label: 'Level-Specific Tips' },
+  { id: 'workshop-tips', label: 'Workshop Tips' },
+  { id: 'advanced', label: 'Advanced Techniques' },
+];
+
+const vehicleTips = [
+  {
+    vehicle: 'Ranger',
+    tag: 'All-Around',
+    tagColor: '#22C55E',
+    tips: [
+      'Start here. The Ranger\'s balanced stats forgive setup errors that would wreck a specialist vehicle.',
+      'Works in every level type. If you\'re unsure what to pick, default to Ranger.',
+      'Its moderate mass keeps it stable enough to steer mid-air after ramps.',
+    ],
+  },
+  {
+    vehicle: 'Wedge',
+    tag: 'Speed',
+    tagColor: '#0080F5',
+    tips: [
+      'The Wedge\'s low profile minimizes air resistance — peak speed on straightaways.',
+      'Fragile body means it fragments earlier. In Racing and Time Trials this is irrelevant; in Physics Puzzles you may need to reach a destination intact.',
+      'Use Wedge when the level rewards distance or top speed over obstacle interaction.',
+    ],
+  },
+  {
+    vehicle: 'Heavy Trucks',
+    tag: 'Mass',
+    tagColor: '#F57200',
+    tips: [
+      'High mass transfers more momentum to objects on impact — useful in Physics Puzzle levels where you need to knock something over.',
+      'Slower top speed but harder to stop. Plan longer braking distances in Racing mode.',
+      'The elevated center of gravity makes rollovers more likely on sharp turns.',
+    ],
+  },
+];
+
+const scoringStrategies = [
+  {
+    title: 'Keep momentum between hits',
+    body: 'A multiplier chain only builds if you remain in motion. Design your approach so you roll or slide through multiple objects in sequence rather than stopping dead on the first hit. Even slow movement counts — you just need the physics engine to still classify you as "moving."',
+  },
+  {
+    title: 'Aim for secondary collisions',
+    body: 'The highest-value hits are often not the primary obstacle but the debris it creates. A car that hits a stack of barrels and sends them flying into a wall scores three times over: the initial hit, the barrel scatter, and the wall impact. This is called chaining secondaries.',
+  },
+  {
+    title: 'Use ramps to extend distance',
+    body: 'Air time between hits still counts as "in motion" for multiplier purposes. A ramp that launches you over a wide area where you can land and slide into more objects often outscores a ground-level direct path.',
+  },
+  {
+    title: 'Time Trial mode: optimize your line, not your speed',
+    body: 'In Time Trials, cutting a corner badly and losing 2 seconds recovering costs more than taking the slightly longer clean line. Consistent lap times come from smooth technique, not maximum acceleration.',
+  },
+  {
+    title: 'Racing mode: study the track first',
+    body: 'Use Chill Mode on the same map to drive it without the pressure. Identify the 2-3 corners where you consistently lose time, then focus practice there. Racing scores come from eliminating mistakes, not finding extra speed.',
+  },
+];
+
+const workshopTips = [
+  {
+    title: 'Subscribe before you create',
+    body: 'Before building your own level, subscribe to 10-15 well-rated Workshop items in different categories. Playing finished community work teaches you what the toolset can do — and what design choices players respond to.',
+  },
+  {
+    title: 'Use the official game modes as templates',
+    body: 'Every base-game level was built with the same tools you have access to. Load them in the editor and reverse-engineer how the developer structured objectives, obstacle placement, and checkpoint logic.',
+  },
+  {
+    title: 'Test physics extensively before publishing',
+    body: 'TD2\'s physics simulation is sensitive to object placement. A level that works in 8/10 test runs but glitches the other 2 will get negative community feedback. Test with multiple vehicle types and run counts.',
+  },
+  {
+    title: 'Tag your content accurately',
+    body: 'The Workshop search is tag-driven. Correct tags (Racing, Physics Puzzle, Beginner, etc.) put your content in front of the right players. Mistagged levels get low playtime and poor ratings regardless of quality.',
+  },
+];
+
+const advancedTechniques = [
+  {
+    title: 'Controlled under-power launches',
+    body: 'A full Power Bar is not always optimal. For tight Physics Puzzle levels, launching at 60-70% power gives you more control over where you stop and interact with objects. Precision beats raw speed in close-quarters situations.',
+  },
+  {
+    title: 'Using destroyed vehicle fragments',
+    body: 'When your vehicle fragments, each piece is an independent physics body. An experienced player can angle their vehicle at impact so fragments scatter into high-value targets — effectively using the debris as projectiles. This takes practice to execute deliberately.',
+  },
+  {
+    title: 'Slow Motion timing',
+    body: 'The slow motion toggle (Tab / LB) is most valuable during complex multi-object collisions. Activating it just before a critical impact gives you a clearer view of what went wrong and helps build intuition for future runs.',
+  },
+  {
+    title: 'Camera angle selection in replays',
+    body: 'Switching to the cinematic camera in replay mode often reveals physics interactions that the chase or cockpit camera obscures. Use it specifically to analyze crashes where you cannot identify the failure point.',
+  },
+  {
+    title: 'Police Chase: use traffic against pursuers',
+    body: 'In Police Chase mode, NPC traffic is not just an obstacle for you — police vehicles are affected by it too. Cutting across heavy traffic zones forces police into the same chaotic interactions, creating gaps you can exploit.',
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Turbo Dismount 2 Wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Turbo Dismount 2 Wiki",
+    "url": "https://turbodismount2.com"
+  },
+  "mainEntityOfPage": "https://turbodismount2.com/guides/tips/"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://turbodismount2.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "Tips & Tricks", "item": "https://turbodismount2.com/guides/tips/" },
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} type="article" publishedTime="2026-03-16" modifiedTime="2026-03-16">
+
+  <!-- Page Header -->
+  <section class="relative py-12 md:py-16 border-b border-[#2A2A33]" style="background: linear-gradient(180deg, #001A0A 0%, #0D0D0F 100%);">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-[#6B6B80] mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
+        <span>/</span>
+        <a href="/guides/" class="hover:text-[#FF8C12] transition-colors duration-200">Guides</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">Tips & Tricks</span>
+      </nav>
+
+      <!-- Article Meta -->
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[rgba(34,197,94,0.12)] text-[#22C55E] border border-[rgba(34,197,94,0.25)]">
+          Intermediate
+        </span>
+        <span class="text-sm text-[#6B6B80]">Updated: March 2026</span>
+        <span class="text-[#2A2A33]">|</span>
+        <span class="text-sm text-[#6B6B80]">Read time: 6 min</span>
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
+        Tips &amp; Tricks
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent block mt-1">
+          Turbo Dismount 2
+        </span>
+      </h1>
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed">
+        15 practical strategies covering vehicle selection, launch mechanics, score multipliers, Workshop creation,
+        and advanced physics exploitation. Based on real gameplay and Steam community knowledge.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <div class="container py-10 md:py-14">
+    <div class="flex gap-10 lg:gap-14">
+
+      <!-- Article Body -->
+      <article class="min-w-0 flex-1 max-w-3xl">
+
+        <!-- Mobile TOC -->
+        <details class="lg:hidden rounded-xl border border-[#2A2A33] bg-[#141417] mb-8 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-medium">
+            <span class="font-semibold">Table of Contents</span>
+            <svg class="w-4 h-4 text-[#6B6B80]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <nav class="px-5 pb-4 border-t border-[#1E1E24]">
+            <ol class="mt-3 space-y-2">
+              {tocItems.map((item, i) => (
+                <li>
+                  <a href={`#${item.id}`} class="flex items-center gap-2.5 text-sm text-[#B0B0BE] hover:text-[#FF8C12] transition-colors duration-200 py-0.5">
+                    <span class="text-[#F57200] font-mono text-xs w-4">{String(i + 1).padStart(2, '0')}</span>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </details>
+
+        <!-- Section: Vehicle Selection -->
+        <section id="vehicle-selection" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Vehicle Selection Tips
+          </h2>
+          <p class="text-[#B0B0BE] mb-6 leading-relaxed">
+            Vehicle choice is the first and most consequential decision before any level. Each vehicle has distinct mass, speed ceiling, fragility, and handling — wrong choice for a level type costs significant score.
+          </p>
+
+          <div class="space-y-5">
+            {vehicleTips.map((vt) => (
+              <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+                <div class="flex items-center gap-3 px-5 py-3 border-b border-[#1E1E24] bg-[#1E1E24]">
+                  <h3 class="font-[Orbitron] font-bold text-[#F0F0F2] text-sm uppercase tracking-wider">{vt.vehicle}</h3>
+                  <span class="text-xs font-medium px-2 py-0.5 rounded-full" style={`background: ${vt.tagColor}22; color: ${vt.tagColor}; border: 1px solid ${vt.tagColor}44;`}>
+                    {vt.tag}
+                  </span>
+                </div>
+                <ul class="px-5 py-4 space-y-2">
+                  {vt.tips.map((tip) => (
+                    <li class="flex items-start gap-2.5 text-sm text-[#B0B0BE]">
+                      <span class="text-[#F57200] shrink-0 mt-0.5">—</span>
+                      <span class="leading-relaxed">{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-5 p-5 rounded-xl border-l-4 border-[#F57200] bg-[rgba(245,114,0,0.06)]" role="note">
+            <p class="text-sm font-semibold text-[#FF8C12] uppercase tracking-wider mb-2">General Rule</p>
+            <p class="text-sm text-[#B0B0BE] leading-relaxed">
+              If a level's objective requires surviving to a destination, pick a durable vehicle. If it requires hitting something hard, pick a heavy one.
+              If it requires speed, pick a light one. When the objective is unclear, Ranger is always correct.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section: Power & Angle -->
+        <section id="power-angle" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Launch Power &amp; Angle
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            The green Power Bar and launch angle are the only pre-run variables you control.
+            Getting them right before the physics engine takes over is the highest-leverage skill in the game.
+          </p>
+
+          <div class="space-y-4">
+            {[
+              {
+                heading: 'Power Bar: full power is not always right',
+                body: 'A 100% Power Bar gives maximum initial velocity but reduces your ability to steer through complex obstacle layouts. For open Racing tracks, full power is correct. For Physics Puzzle levels with tight corridors or specific targets, 60–75% power often produces better results because you maintain steering authority longer.',
+              },
+              {
+                heading: 'Angle affects air time and landing zone',
+                body: 'A higher launch angle sends you further but lower horizontal speed at landing, reducing post-landing slide distance. A lower angle keeps you ground-level longer — better for consecutive hits on flat terrain but worse if there is a ramp early in the level.',
+              },
+              {
+                heading: 'Read the level layout before setting up',
+                body: 'Scroll the camera around the level before committing to a launch angle. Identify where the high-value objects are and plan a path that keeps you in motion through them. One 10-second planning pass before launch saves minutes of retrying.',
+              },
+              {
+                heading: 'The Power Bar sweet spot for most levels',
+                body: 'Based on community high-score runs, 80–90% Power Bar is the most common setup for general levels — enough speed to generate momentum chains, enough control to steer early hits. Reserve full power specifically for straight-line speed objectives.',
+              },
+            ].map((item) => (
+              <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+                <h3 class="font-semibold text-[#F0F0F2] mb-2 text-sm">{item.heading}</h3>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section: Scoring Strategies -->
+        <section id="scoring-strategies" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Scoring Strategies
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            The scoring system rewards sustained momentum and consecutive hits. Understanding how multiplier chains build — and break — is the key to topping leaderboards.
+          </p>
+
+          <div class="space-y-4">
+            {scoringStrategies.map((s, i) => (
+              <div class="flex gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+                <span class="font-[Orbitron] font-black text-2xl text-[rgba(245,114,0,0.2)] shrink-0 w-8 text-center leading-none pt-0.5">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-semibold text-[#F0F0F2] mb-1.5 text-sm">{s.title}</h3>
+                  <p class="text-sm text-[#B0B0BE] leading-relaxed">{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Score breakdown callout -->
+          <div class="mt-6 p-5 rounded-xl border-l-4 border-[#0080F5] bg-[rgba(0,128,245,0.06)]" role="note">
+            <p class="text-sm font-semibold text-[#2E9EFF] uppercase tracking-wider mb-3">Score Components</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+              {[
+                ['Base hit score', 'Per object contact'],
+                ['Multiplier chain', 'Consecutive hits x1.5–x4'],
+                ['Speed bonus', 'Impact velocity modifier'],
+                ['Time bonus', 'Faster = higher (Time Trials)'],
+                ['Completion bonus', 'Flat add for objective'],
+                ['Leaderboard delta', 'Personal best improvement'],
+              ].map(([label, desc]) => (
+                <div class="rounded-lg bg-[rgba(0,128,245,0.05)] border border-[rgba(0,128,245,0.1)] p-3">
+                  <p class="font-semibold text-[#2E9EFF] text-xs mb-0.5">{label}</p>
+                  <p class="text-[#6B6B80] text-xs">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Character Pose -->
+        <section id="character-pose" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Character Pose Tips
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            Your character's starting pose affects how the ragdoll interacts with the vehicle and environment at launch.
+            The Euphoria animation system is procedural — it calculates reactions from physics, not animations.
+          </p>
+
+          <div class="space-y-4">
+            {[
+              {
+                heading: 'Seated pose is the safest default',
+                body: 'The default seated position keeps the ragdoll low in the vehicle and reduces the chance of early ejection on rough terrain. For most level types, start seated.',
+              },
+              {
+                heading: 'Standing pose accelerates early ejection',
+                body: 'A standing character ejects from the vehicle sooner because the higher center of gravity tips over barriers more easily. Use this deliberately when you need the ragdoll to interact with obstacles the vehicle cannot reach.',
+              },
+              {
+                heading: 'Unusual poses interact with vehicles differently',
+                body: 'Some poses change where the character\'s body makes contact with the vehicle interior. This shifts weight distribution at launch — advanced players use this to slightly alter the launch angle without changing the Power Bar setup.',
+              },
+              {
+                heading: 'Mobile bug note: some poses can cause auto-eject',
+                body: 'On the original mobile Turbo Dismount, certain poses triggered automatic dismount. While TD2 on PC has better handling of edge-case poses, if you experience unexpected early ejection, switch pose and test again.',
+              },
+            ].map((item) => (
+              <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+                <h3 class="font-semibold text-[#F0F0F2] mb-2 text-sm">{item.heading}</h3>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section: Level-Specific Tips -->
+        <section id="level-tips" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Level-Specific Tips
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            General strategies by level objective type. Specific level walkthroughs are covered in the
+            <a href="/database/levels/" class="text-[#FF8C12] hover:text-[#FFAA44]">Level Guide database</a>.
+          </p>
+
+          <div class="space-y-4">
+            {[
+              {
+                mode: 'Racing Levels',
+                modeColor: '#0080F5',
+                tips: [
+                  'Memorize the first three corners before attempting a scored run. The opening sequence determines if the rest of the lap is recoverable.',
+                  'Handbrake (Space/A) is more useful for late-entry tight hairpins than for general braking.',
+                  'Drafting behind AI traffic briefly reduces air resistance — use it on long straights.',
+                ],
+              },
+              {
+                mode: 'Physics Puzzle Levels',
+                modeColor: '#EAB308',
+                tips: [
+                  'If the objective involves knocking over a specific object, aim slightly past it so the vehicle body or a fragment hits it on the way through.',
+                  'When a puzzle seems impossible, try a different vehicle — sometimes the required mass or profile is specific.',
+                  'Secondary fragment scattering often solves the puzzle when the primary impact does not. Let the physics resolve fully before restarting.',
+                ],
+              },
+              {
+                mode: 'Police Chase Levels',
+                modeColor: '#E01C1C',
+                tips: [
+                  'NPC traffic works against you and the police equally. Use dense traffic zones to slow pursuers.',
+                  'Tight turns are your advantage — police AI has difficulty with rapid direction changes.',
+                  'The edge of the map is a trap. Stay toward the center where escape routes remain open.',
+                ],
+              },
+              {
+                mode: 'Obstacle Course Levels',
+                modeColor: '#A855F7',
+                tips: [
+                  'Watch a full replay of a failed run before retrying. Workshop obstacle courses often have one specific trick or sequence that only becomes visible in replay.',
+                  'Momentum conservation through gaps is critical — enter obstacles at the correct angle rather than maximum speed.',
+                ],
+              },
+            ].map((section) => (
+              <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+                <div class="px-5 py-3 border-b border-[#1E1E24]" style={`background: ${section.modeColor}11;`}>
+                  <h3 class="font-semibold text-sm" style={`color: ${section.modeColor};`}>{section.mode}</h3>
+                </div>
+                <ul class="px-5 py-4 space-y-2">
+                  {section.tips.map((tip) => (
+                    <li class="flex items-start gap-2.5 text-sm text-[#B0B0BE]">
+                      <span class="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-[#F57200] opacity-70"></span>
+                      <span class="leading-relaxed">{tip}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section: Workshop Tips -->
+        <section id="workshop-tips" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Workshop Tips
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            Whether you're a player looking for community content or a creator building levels, these Workshop practices will save time.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {workshopTips.map((tip) => (
+              <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+                <h3 class="font-semibold text-[#F0F0F2] mb-2 text-sm">{tip.title}</h3>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{tip.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-5 p-5 rounded-xl border-l-4 border-[#EAB308] bg-[rgba(234,179,8,0.06)]" role="note">
+            <p class="text-sm font-semibold text-[#EAB308] uppercase tracking-wider mb-2">Workshop Power Users</p>
+            <p class="text-sm text-[#B0B0BE] leading-relaxed">
+              TD2's Workshop tools are identical to Secret Exit's internal development tools. This means a sufficiently skilled community creator can,
+              in principle, build content that is indistinguishable in scope from official DLC. Known Workshop collections worth subscribing to:
+              Codeman's Turbo Dismount Levels, The Road of Terror Collection, and City Map Collection by Cemny Judasz.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section: Advanced Techniques -->
+        <section id="advanced" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Advanced Techniques
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            Techniques used by top leaderboard players. These require deliberate practice — do not expect them to work immediately.
+          </p>
+
+          <div class="space-y-4">
+            {advancedTechniques.map((tech, i) => (
+              <div class="flex gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.2)] transition-colors duration-200">
+                <span class="font-[Orbitron] font-black text-2xl text-[rgba(245,114,0,0.2)] shrink-0 w-8 text-center leading-none pt-0.5">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-semibold text-[#F0F0F2] mb-1.5 text-sm">{tech.title}</h3>
+                  <p class="text-sm text-[#B0B0BE] leading-relaxed">{tech.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Related Guides -->
+        <section class="pt-8 border-t border-[#2A2A33]">
+          <h2 class="font-[Orbitron] text-lg font-bold uppercase tracking-wider mb-5">Related Guides</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { href: '/guides/how-to-play/', label: 'How to Play', desc: 'Complete beginner guide — controls, modes, scoring, Workshop' },
+              { href: '/database/vehicles/', label: 'Vehicle Database', desc: 'Full stats for every vehicle in the game' },
+              { href: '/database/levels/', label: 'Level Guide', desc: 'Per-level walkthroughs with high score strategies' },
+              { href: '/faq/', label: 'FAQ', desc: 'Price, platforms, system requirements, and more' },
+            ].map((link) => (
+              <a href={link.href} class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200">
+                <div class="flex-1 min-w-0">
+                  <p class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 text-sm">{link.label}</p>
+                  <p class="text-xs text-[#6B6B80] mt-0.5 leading-relaxed">{link.desc}</p>
+                </div>
+                <svg class="w-4 h-4 text-[#6B6B80] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </section>
+
+      </article>
+
+      <!-- Desktop Sticky TOC -->
+      <aside class="hidden lg:block w-60 shrink-0">
+        <div class="sticky top-6">
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+            <div class="px-4 py-3 border-b border-[#2A2A33] bg-[#1E1E24]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Contents</p>
+            </div>
+            <nav aria-label="Article table of contents">
+              <ol class="py-3">
+                {tocItems.map((item, i) => (
+                  <li>
+                    <a
+                      href={`#${item.id}`}
+                      class="flex items-center gap-2.5 px-4 py-2 text-xs text-[#B0B0BE] hover:text-[#FF8C12] hover:bg-[rgba(245,114,0,0.05)] transition-all duration-150"
+                    >
+                      <span class="text-[#F57200] font-mono w-4 shrink-0 opacity-60">{String(i + 1).padStart(2, '0')}</span>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="mt-4 rounded-xl border border-[#2A2A33] bg-[#141417] p-4">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80] mb-3">Guide Stats</p>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span class="text-[#6B6B80]">Tips covered</span>
+                <span class="text-[#F0F0F2] font-mono font-bold">15</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#6B6B80]">Sections</span>
+                <span class="text-[#F0F0F2] font-mono font-bold">7</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#6B6B80]">Difficulty</span>
+                <span class="text-[#22C55E] font-semibold text-xs">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Steam CTA -->
+          <div class="mt-4 rounded-xl border border-[rgba(245,114,0,0.2)] bg-[rgba(245,114,0,0.06)] p-4 text-center">
+            <p class="text-xs text-[#B0B0BE] mb-3 leading-relaxed">Apply these tips in-game</p>
+            <a
+              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block w-full py-2.5 text-xs font-bold text-white rounded-lg text-center transition-all duration-200 hover:-translate-y-0.5"
+              style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 2px 12px rgba(245,114,0,0.3);"
+            >
+              Get on Steam
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+</BaseLayout>

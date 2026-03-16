@@ -1,0 +1,582 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = 'How to Play Turbo Dismount 2 — Complete Beginner\'s Guide';
+const description = 'Learn how to play Turbo Dismount 2. Controls, game modes, vehicle physics, scoring system, and pro tips. Updated March 2026.';
+
+const tocItems = [
+  { id: 'overview', label: 'Game Overview' },
+  { id: 'game-modes', label: 'Game Modes' },
+  { id: 'controls', label: 'Controls' },
+  { id: 'vehicle-physics', label: 'Vehicle Physics' },
+  { id: 'scoring', label: 'Scoring System' },
+  { id: 'replay', label: 'Replay System' },
+  { id: 'workshop', label: 'Steam Workshop' },
+  { id: 'pro-tips', label: 'Pro Tips' },
+  { id: 'faq', label: 'FAQ' },
+];
+
+const gameModes = [
+  {
+    name: 'Racing',
+    desc: 'Complete stunt tracks in the fastest time possible. Driving skill matters here — manual vehicle control lets you take precise lines through corners and manage speed on jumps.',
+    badge: 'Competitive',
+    badgeColor: '#0080F5',
+  },
+  {
+    name: 'Physics Puzzles',
+    desc: 'Solve objectives using the game\'s destruction physics. You might need to knock over specific objects, reach a zone, or cause a chain reaction — creativity counts as much as speed.',
+    badge: 'Puzzle',
+    badgeColor: '#EAB308',
+  },
+  {
+    name: 'Police Chase',
+    desc: 'Evade pursuing police vehicles for as long as possible. Use the environment, traffic, and physics to your advantage. One wrong turn and the chase ends.',
+    badge: 'Action',
+    badgeColor: '#E01C1C',
+  },
+  {
+    name: 'Time Trials',
+    desc: 'Beat the clock to complete a course or reach a checkpoint. Precision matters more than chaos here. Study the layout before your run.',
+    badge: 'Skill',
+    badgeColor: '#22C55E',
+  },
+  {
+    name: 'Obstacle Courses',
+    desc: 'Navigate through or survive a gauntlet of hazards. Obstacles include barriers, ramps, explosives, and physics traps. Many Workshop levels use this format.',
+    badge: 'Survival',
+    badgeColor: '#A855F7',
+  },
+  {
+    name: 'Chill Mode',
+    desc: 'No objectives, no timers. Drive around, crash things, and experiment with the physics sandbox. Good for learning how vehicles handle before tackling scored levels.',
+    badge: 'Sandbox',
+    badgeColor: '#6B6B80',
+  },
+];
+
+const keyboardControls = [
+  { action: 'Accelerate', kb: 'W / Up Arrow', gamepad: 'Right Trigger (RT)' },
+  { action: 'Brake / Reverse', kb: 'S / Down Arrow', gamepad: 'Left Trigger (LT)' },
+  { action: 'Steer Left', kb: 'A / Left Arrow', gamepad: 'Left Stick Left' },
+  { action: 'Steer Right', kb: 'D / Right Arrow', gamepad: 'Left Stick Right' },
+  { action: 'Handbrake', kb: 'Space', gamepad: 'A / X Button' },
+  { action: 'Camera Look', kb: 'Mouse', gamepad: 'Right Stick' },
+  { action: 'Restart Level', kb: 'R', gamepad: 'Start / Menu' },
+  { action: 'Pause', kb: 'Escape', gamepad: 'Start / Menu' },
+  { action: 'Slow Motion', kb: 'Tab', gamepad: 'Left Bumper (LB)' },
+  { action: 'Save Replay', kb: 'F5', gamepad: 'Y / Triangle' },
+];
+
+const proTips = [
+  {
+    title: 'Start with Chill Mode',
+    body: 'Before attempting scored levels, spend time in Chill Mode to learn how your chosen vehicle handles. Each vehicle has distinct mass, turning radius, and suspension behavior.',
+  },
+  {
+    title: 'Use the Power Bar fully',
+    body: 'The green Power Bar at launch sets your initial velocity. For most levels, a full or near-full bar gives you the most control. Only hold back if a short-range precision launch is needed.',
+  },
+  {
+    title: 'Understand the Ranger first',
+    body: 'The Ranger is the default balanced vehicle — average speed, stable handling, medium durability. Master it before moving to specialist vehicles like the Wedge (fast, fragile) or heavy trucks.',
+  },
+  {
+    title: 'Watch your first replay',
+    body: 'After any crash, review the replay before restarting. The multi-angle playback often reveals exactly what went wrong — a bad angle of impact, wrong timing, or a physics trap you missed.',
+  },
+  {
+    title: 'Look for score multipliers',
+    body: 'Hitting objects in sequence without coming to rest builds a multiplier chain. Aim to keep momentum through the level rather than making one big hit.',
+  },
+  {
+    title: 'Subscribe to beginner Workshop levels',
+    body: 'The Steam Workshop has beginner-friendly maps specifically designed to teach mechanics. Search for "tutorial" or "beginner" in the Workshop browser to find them.',
+  },
+  {
+    title: 'Gamepad is highly recommended',
+    body: 'Analog triggers give you far more precise throttle and brake control than keyboard keys. A basic USB gamepad (Xbox or PlayStation) significantly improves lap times in Racing mode.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is Turbo Dismount 2 just a crash simulator?',
+    a: 'Not anymore. The original game was primarily about crashes, but TD2 adds six distinct game modes including Racing, Police Chase, Time Trials, and Physics Puzzles. Crashing is still fun, but there are structured objectives and scoring systems.',
+  },
+  {
+    q: 'How long does it take to complete the game?',
+    a: 'The base game has enough content for 10-20 hours for most players. If you dig into the Steam Workshop, community levels add hundreds more hours. There is no traditional "story completion" — it is more of a sandbox with high-score goals.',
+  },
+  {
+    q: 'Can I play with a keyboard or do I need a controller?',
+    a: 'Keyboard and mouse work fine, especially for non-racing modes. For Racing and Time Trials, a gamepad\'s analog triggers give meaningfully more precise control. Both input methods are fully supported.',
+  },
+  {
+    q: 'What is Mr. Dismount?',
+    a: 'Mr. Dismount is the default player character — the ragdoll figure you place in the vehicle. There are multiple characters available in the roster, each with different visual styles but identical physics behavior.',
+  },
+  {
+    q: 'Does the game have online multiplayer?',
+    a: 'Turbo Dismount 2 does not currently have live online multiplayer. The social element comes through Steam Workshop — you share levels and compete on leaderboards. The developers have listed a vs. multiplayer mode as a planned future feature.',
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Play Turbo Dismount 2 — Complete Beginner's Guide",
+  "description": description,
+  "datePublished": "2026-03-16",
+  "dateModified": "2026-03-16",
+  "author": {
+    "@type": "Organization",
+    "name": "Turbo Dismount 2 Wiki"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Turbo Dismount 2 Wiki",
+    "url": "https://turbodismount2.com"
+  },
+  "mainEntityOfPage": "https://turbodismount2.com/guides/how-to-play/"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://turbodismount2.com/guides/" },
+    { "@type": "ListItem", "position": 3, "name": "How to Play", "item": "https://turbodismount2.com/guides/how-to-play/" },
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} type="article" publishedTime="2026-03-16" modifiedTime="2026-03-16">
+
+  <!-- Page Header -->
+  <section class="relative py-12 md:py-16 border-b border-[#2A2A33]" style="background: linear-gradient(180deg, #1A0A00 0%, #0D0D0F 100%);">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-[#6B6B80] mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
+        <span>/</span>
+        <a href="/guides/" class="hover:text-[#FF8C12] transition-colors duration-200">Guides</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">How to Play</span>
+      </nav>
+
+      <!-- Article Meta -->
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[rgba(245,114,0,0.12)] text-[#FF8C12] border border-[rgba(245,114,0,0.25)]">
+          Beginner
+        </span>
+        <span class="text-sm text-[#6B6B80]">Updated: March 2026</span>
+        <span class="text-[#2A2A33]">|</span>
+        <span class="text-sm text-[#6B6B80]">Read time: 8 min</span>
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
+        How to Play
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent block mt-1">
+          Turbo Dismount 2
+        </span>
+      </h1>
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed">
+        Everything you need to go from zero to crashing with purpose. This guide covers all six game modes, controls, vehicle physics, the scoring system, and the Steam Workshop.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <div class="container py-10 md:py-14">
+    <div class="flex gap-10 lg:gap-14">
+
+      <!-- Article Body -->
+      <article class="min-w-0 flex-1 max-w-3xl">
+
+        <!-- Mobile TOC -->
+        <details class="lg:hidden rounded-xl border border-[#2A2A33] bg-[#141417] mb-8 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-semibold">
+            <span>Table of Contents</span>
+            <svg class="w-4 h-4 text-[#6B6B80] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <nav class="px-5 pb-4 border-t border-[#1E1E24]">
+            <ol class="mt-3 space-y-2">
+              {tocItems.map((item, i) => (
+                <li>
+                  <a href={`#${item.id}`} class="flex items-center gap-2.5 text-sm text-[#B0B0BE] hover:text-[#FF8C12] transition-colors duration-200 py-0.5">
+                    <span class="text-[#F57200] font-mono text-xs w-4">{String(i + 1).padStart(2, '0')}</span>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </details>
+
+        <!-- Section: Game Overview -->
+        <section id="overview" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Game Overview
+          </h2>
+          <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+            <p>
+              <strong class="text-[#F0F0F2]">Turbo Dismount 2</strong> is a comedy physics racing sandbox developed by
+              <strong class="text-[#F0F0F2]">Secret Exit Ltd</strong> (Finland). Released on Steam on March 13, 2026 after 8+ years of development,
+              it builds on the original Turbo Dismount — which accumulated 71 million downloads across mobile and PC — with a completely overhauled engine
+              (Unity 6.3 LTS), new game modes, and a powerful Steam Workshop toolset.
+            </p>
+            <p>
+              The core loop is straightforward: choose a character (Mr. Dismount by default), select a vehicle, set your launch angle and power,
+              then drive or crash through the level while the game's destruction physics engine calculates every collision in real time.
+              What separates TD2 from its predecessor is the shift from pure crash simulation to structured gameplay with six distinct mode types.
+            </p>
+            <p>
+              The game features <strong class="text-[#F0F0F2]">fully manual first-person vehicle controls</strong>, meaning you steer, accelerate,
+              and brake — not just set an angle and watch. This adds a skill ceiling that the original lacked, and it's what makes Racing mode genuinely competitive.
+            </p>
+          </div>
+
+          <!-- Key Facts Callout -->
+          <div class="mt-6 p-5 rounded-xl border-l-4 border-[#F57200] bg-[rgba(245,114,0,0.06)]" role="note">
+            <p class="text-sm font-semibold text-[#FF8C12] uppercase tracking-wider mb-3">Key Facts</p>
+            <ul class="space-y-1.5 text-sm text-[#B0B0BE]">
+              <li class="flex items-start gap-2"><span class="text-[#F57200] mt-0.5 shrink-0">—</span> Developer: Secret Exit Ltd (Finland), self-published</li>
+              <li class="flex items-start gap-2"><span class="text-[#F57200] mt-0.5 shrink-0">—</span> Engine: Unity 6.3 LTS with custom destruction physics</li>
+              <li class="flex items-start gap-2"><span class="text-[#F57200] mt-0.5 shrink-0">—</span> Price: $19.99 USD on Steam (30% launch discount available)</li>
+              <li class="flex items-start gap-2"><span class="text-[#F57200] mt-0.5 shrink-0">—</span> Platform: PC (Windows) and Linux via Steam Play; Mac/mobile planned</li>
+              <li class="flex items-start gap-2"><span class="text-[#F57200] mt-0.5 shrink-0">—</span> Steam rating: 96% positive (Overwhelmingly Positive)</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section: Game Modes -->
+        <section id="game-modes" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Game Modes
+          </h2>
+          <p class="text-[#B0B0BE] mb-6 leading-relaxed">
+            TD2 ships with six level objective types. Each changes how you interact with the physics engine, so understanding the goal before launching is critical.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {gameModes.map((mode) => (
+              <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.25)] transition-colors duration-200">
+                <div class="flex items-center justify-between mb-3">
+                  <h3 class="font-semibold text-[#F0F0F2] text-base">{mode.name}</h3>
+                  <span class="text-xs font-medium px-2 py-0.5 rounded-full" style={`background: ${mode.badgeColor}22; color: ${mode.badgeColor}; border: 1px solid ${mode.badgeColor}44;`}>
+                    {mode.badge}
+                  </span>
+                </div>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{mode.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section: Controls -->
+        <section id="controls" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Controls
+          </h2>
+          <p class="text-[#B0B0BE] mb-5 leading-relaxed">
+            TD2 supports keyboard/mouse and gamepad. Controls can be remapped in Settings. The table below shows defaults.
+          </p>
+
+          <div class="overflow-x-auto rounded-xl border border-[#2A2A33]">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-[#1E1E24] border-b border-[#2A2A33]">
+                  <th class="text-left px-4 py-3 text-[#B0B0BE] font-semibold uppercase tracking-wider text-xs">Action</th>
+                  <th class="text-left px-4 py-3 text-[#B0B0BE] font-semibold uppercase tracking-wider text-xs">Keyboard</th>
+                  <th class="text-left px-4 py-3 text-[#B0B0BE] font-semibold uppercase tracking-wider text-xs">Gamepad</th>
+                </tr>
+              </thead>
+              <tbody class="bg-[#141417]">
+                {keyboardControls.map((row, i) => (
+                  <tr class={`border-b border-[#1E1E24] ${i % 2 === 0 ? '' : 'bg-[rgba(255,255,255,0.02)]'}`}>
+                    <td class="px-4 py-3 text-[#F0F0F2] font-medium">{row.action}</td>
+                    <td class="px-4 py-3">
+                      <code class="px-2 py-0.5 rounded bg-[#1E1E24] text-[#FF8C12] font-mono text-xs">{row.kb}</code>
+                    </td>
+                    <td class="px-4 py-3 text-[#B0B0BE]">{row.gamepad}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-xs text-[#6B6B80] mt-3">Default bindings as of v1.0. All keys can be remapped in Settings &gt; Controls.</p>
+        </section>
+
+        <!-- Section: Vehicle Physics -->
+        <section id="vehicle-physics" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Vehicle Physics
+          </h2>
+          <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+            <p>
+              TD2's physics system runs on <strong class="text-[#F0F0F2]">Unity 6.3 LTS</strong> with a custom destruction layer.
+              Every vehicle has distinct mass, center of gravity, suspension stiffness, and tire grip values that determine real-time behavior
+              on every surface type and collision.
+            </p>
+            <p>
+              When a vehicle takes a hit, the destruction system fragments it into multiple pieces, each with their own physics body.
+              Fragments interact with each other, with the environment, and with the player ragdoll simultaneously. This is why collisions at
+              identical angles can produce wildly different results — small variations in speed and impact point change which fragments separate first.
+            </p>
+            <p>
+              The <strong class="text-[#F0F0F2]">Euphoria animation system</strong> drives the ragdoll character. It is procedural, not scripted —
+              Mr. Dismount reacts differently to every impact. Some players report occasional ragdoll freezes or ground-clipping with this system,
+              which the developers are actively patching.
+            </p>
+          </div>
+
+          <!-- Vehicle class callout -->
+          <div class="mt-6 p-5 rounded-xl border-l-4 border-[#0080F5] bg-[rgba(0,128,245,0.06)]" role="note">
+            <p class="text-sm font-semibold text-[#2E9EFF] uppercase tracking-wider mb-3">Vehicle Selection Guidance</p>
+            <ul class="space-y-2 text-sm text-[#B0B0BE]">
+              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Ranger</span><span class="text-[#6B6B80] mx-1">—</span>Balanced stats, forgiving handling. Best starting vehicle.</li>
+              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Wedge</span><span class="text-[#6B6B80] mx-1">—</span>High top speed, fragile body. Good for Racing mode on open tracks.</li>
+              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Heavy Trucks</span><span class="text-[#6B6B80] mx-1">—</span>High mass, lower speed. Excels at pushing through obstacle courses.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section: Scoring -->
+        <section id="scoring" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Scoring System
+          </h2>
+          <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+            <p>
+              Score is calculated from multiple factors depending on the level type. In general:
+            </p>
+            <ul class="space-y-2 list-none">
+              {[
+                ['Base score', 'Points awarded for hitting objects, reaching zones, and completing objectives.'],
+                ['Multiplier chain', 'Hitting consecutive objects without fully stopping builds a multiplier. Chains reset when momentum drops to near-zero.'],
+                ['Speed at impact', 'Faster impacts generate higher base scores. Use your launch power and the terrain to maintain speed.'],
+                ['Time bonus', 'In Time Trial and Racing modes, finishing faster adds a time bonus on top of your object score.'],
+                ['Completion bonus', 'Meeting the level\'s primary objective (finishing a race, escaping police, solving a puzzle) triggers a flat completion bonus.'],
+              ].map(([term, def]) => (
+                <li class="flex flex-col sm:flex-row sm:gap-3 py-2 border-b border-[#1E1E24]">
+                  <span class="font-semibold text-[#F0F0F2] sm:w-40 shrink-0">{term}</span>
+                  <span>{def}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="mt-6 p-5 rounded-xl border-l-4 border-[#F57200] bg-[rgba(245,114,0,0.06)]" role="note">
+            <p class="text-sm font-semibold text-[#FF8C12] uppercase tracking-wider mb-2">Important</p>
+            <p class="text-sm text-[#B0B0BE]">
+              Scores are saved to Steam leaderboards per level. Your personal best is always stored locally even without a network connection.
+              Comparing scores with friends is one of the main long-term engagement loops.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section: Replay -->
+        <section id="replay" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Replay System
+          </h2>
+          <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+            <p>
+              TD2's enhanced replay system records every run automatically. After a level ends, press the replay button (or <code class="px-1.5 py-0.5 rounded bg-[#1E1E24] text-[#FF8C12] font-mono text-xs">F5</code> on keyboard)
+              to enter the replay viewer.
+            </p>
+            <p>
+              In the viewer you can switch between multiple camera angles, scrub forward and backward through the timeline, and pause on specific frames.
+              This is the fastest way to understand why a crash went differently than expected — physics interactions that are invisible at real speed become
+              clear frame by frame.
+            </p>
+            <p>
+              Replay files can be saved and shared. This is how most Workshop highlight compilations and leaderboard run videos are produced.
+            </p>
+          </div>
+
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              ['Multi-angle cameras', 'Chase cam, cockpit, cinematic, and static options'],
+              ['Timeline scrubbing', 'Step through frames or jump to any point in the run'],
+              ['Shareable files', 'Save and share .replay files with the community'],
+            ].map(([title, desc]) => (
+              <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
+                <p class="font-semibold text-[#F0F0F2] text-sm mb-1">{title}</p>
+                <p class="text-xs text-[#6B6B80] leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section: Workshop -->
+        <section id="workshop" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Steam Workshop
+          </h2>
+          <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+            <p>
+              Steam Workshop support is one of TD2's standout features. The Workshop uses the same Unity-based toolset the developers use internally —
+              meaning players have access to the full creation pipeline, not a simplified editor.
+            </p>
+            <p>
+              With Workshop tools you can create custom levels using any of the six game mode types, design new power-ups and obstacles,
+              build obstacle courses, and even write entirely new game rules and mechanics. All content created by developers uses these same tools,
+              so the ceiling on community content is essentially the same as the ceiling on official content.
+            </p>
+          </div>
+
+          <div class="mt-5 space-y-3">
+            <p class="text-sm font-semibold text-[#F0F0F2] uppercase tracking-wider">How to subscribe to Workshop content:</p>
+            <ol class="space-y-3">
+              {[
+                'Open Steam and navigate to Turbo Dismount 2 in your library.',
+                'Click "Workshop" in the right-hand sidebar, or visit the Steam Workshop page directly.',
+                'Browse or search for content. Click "Subscribe" on any item.',
+                'Launch the game — subscribed content is automatically available in the level select menu.',
+                'To remove content, unsubscribe via Steam Workshop and restart the game.',
+              ].map((step, i) => (
+                <li class="flex gap-3 text-sm text-[#B0B0BE]">
+                  <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(245,114,0,0.15)] text-[#F57200] font-mono font-bold text-xs flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <span class="pt-0.5">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <!-- Section: Pro Tips -->
+        <section id="pro-tips" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Pro Tips for Beginners
+          </h2>
+          <div class="space-y-4">
+            {proTips.map((tip, i) => (
+              <div class="flex gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.2)] transition-colors duration-200">
+                <span class="font-[Orbitron] font-black text-2xl text-[rgba(245,114,0,0.25)] shrink-0 w-8 text-center leading-none pt-0.5">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-semibold text-[#F0F0F2] mb-1.5">{tip.title}</h3>
+                  <p class="text-sm text-[#B0B0BE] leading-relaxed">{tip.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Section: FAQ -->
+        <section id="faq" class="mb-12 scroll-mt-20">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-5 pb-3 border-b border-[#2A2A33]">
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-3">
+            {faqs.map((faq) => (
+              <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+                <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
+                  <span>{faq.q}</span>
+                  <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                </summary>
+                <div class="px-5 pb-4 text-sm text-[#B0B0BE] leading-relaxed border-t border-[#1E1E24]">
+                  <p class="pt-4">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <!-- Related Guides -->
+        <section class="pt-8 border-t border-[#2A2A33]">
+          <h2 class="font-[Orbitron] text-lg font-bold uppercase tracking-wider mb-5">Related Guides</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { href: '/guides/tips/', label: 'Tips & Tricks', desc: 'Score higher and crash better with 15 pro strategies' },
+              { href: '/database/vehicles/', label: 'Vehicle Database', desc: 'Full stats for every vehicle — speed, handling, durability' },
+              { href: '/faq/', label: 'Full FAQ', desc: '25+ questions about price, platforms, Workshop, and more' },
+              { href: '/workshop/', label: 'Workshop Picks', desc: 'Best community-made levels and game modes' },
+            ].map((link) => (
+              <a href={link.href} class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200">
+                <div class="flex-1 min-w-0">
+                  <p class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 text-sm">{link.label}</p>
+                  <p class="text-xs text-[#6B6B80] mt-0.5 leading-relaxed">{link.desc}</p>
+                </div>
+                <svg class="w-4 h-4 text-[#6B6B80] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </section>
+
+      </article>
+
+      <!-- Desktop Sticky TOC -->
+      <aside class="hidden lg:block w-60 shrink-0">
+        <div class="sticky top-6">
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+            <div class="px-4 py-3 border-b border-[#2A2A33] bg-[#1E1E24]">
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Contents</p>
+            </div>
+            <nav aria-label="Article table of contents">
+              <ol class="py-3">
+                {tocItems.map((item, i) => (
+                  <li>
+                    <a
+                      href={`#${item.id}`}
+                      class="flex items-center gap-2.5 px-4 py-2 text-xs text-[#B0B0BE] hover:text-[#FF8C12] hover:bg-[rgba(245,114,0,0.05)] transition-all duration-150"
+                    >
+                      <span class="text-[#F57200] font-mono w-4 shrink-0 opacity-60">{String(i + 1).padStart(2, '0')}</span>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </div>
+
+          <!-- Steam CTA -->
+          <div class="mt-4 rounded-xl border border-[rgba(245,114,0,0.2)] bg-[rgba(245,114,0,0.06)] p-4 text-center">
+            <p class="text-xs text-[#B0B0BE] mb-3 leading-relaxed">Get Turbo Dismount 2 on Steam</p>
+            <a
+              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block w-full py-2.5 text-xs font-bold text-white rounded-lg text-center transition-all duration-200 hover:-translate-y-0.5"
+              style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 2px 12px rgba(245,114,0,0.3);"
+            >
+              $19.99 on Steam
+            </a>
+            <p class="text-xs text-[#6B6B80] mt-2">30% launch discount available</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a,
+      },
+    })),
+  })} />
+
+</BaseLayout>

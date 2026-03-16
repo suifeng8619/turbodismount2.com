@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 FAQ — 25+ Common Questions Answered';
+const description = 'Answers to the most common Turbo Dismount 2 questions. Price, platforms, system requirements, mobile release, Workshop, mods, and more.';
+
+const faqCategories = [
+  {
+    id: 'general',
+    heading: 'General',
+    questions: [
+      {
+        q: 'What is Turbo Dismount 2?',
+        a: 'Turbo Dismount 2 is a comedy physics racing sandbox game developed and published by Secret Exit Ltd, an independent studio based in Finland. Players place characters (led by the series mascot Mr. Dismount) into vehicles, then drive through levels with objectives ranging from competitive racing to physics puzzles to police chase scenarios. The destruction physics engine is built on Unity 6.3 LTS and supports real-time vehicle fragmentation and ragdoll character simulation.',
+      },
+      {
+        q: 'Who developed Turbo Dismount 2?',
+        a: 'Secret Exit Ltd, a Finnish independent game studio, developed and self-published Turbo Dismount 2. They also developed the original Turbo Dismount (2014), which accumulated over 71 million downloads across iOS, Android, and PC. The sequel spent over 8 years in development before reaching full release on March 13, 2026.',
+      },
+      {
+        q: 'How is Turbo Dismount 2 different from the original?',
+        a: 'The original Turbo Dismount (2014) was primarily a crash simulator where players set a launch angle and watched physics play out. TD2 adds fully manual vehicle controls (you drive in real time, not just set an angle), six distinct game mode types (Racing, Physics Puzzles, Police Chase, Time Trials, Obstacle Courses, Chill Mode), a complete visual overhaul with Unity 6.3 LTS, live webcam face tracking, an enhanced multi-angle replay system, and a Steam Workshop toolset that uses the same tools the developers use internally.',
+      },
+      {
+        q: 'What is the Steam review score?',
+        a: 'Turbo Dismount 2 launched on March 13, 2026 with an "Overwhelmingly Positive" rating on Steam — 96% positive out of 542 reviews as of March 16, 2026. The original Turbo Dismount has a "Very Positive" rating at 93% positive from 4,240 reviews.',
+      },
+      {
+        q: 'How long was Turbo Dismount 2 in development?',
+        a: 'The game was in development for over 8 years. It entered Steam Early Access on January 23, 2025 and reached full release (v1.0) on March 13, 2026 — a roughly 14-month Early Access period. The development team stated that v1.0 is a milestone rather than an endpoint, and they plan to continue adding features and content.',
+      },
+    ],
+  },
+  {
+    id: 'price',
+    heading: 'Price & Purchase',
+    questions: [
+      {
+        q: 'How much does Turbo Dismount 2 cost?',
+        a: 'Turbo Dismount 2 costs $19.99 USD on Steam. A 30% launch discount is currently available, bringing the price to $13.99 USD. Prices in other currencies are set by Steam based on regional pricing. There is no subscription or additional platform fee beyond the one-time purchase.',
+      },
+      {
+        q: 'Is there a free version or free trial?',
+        a: 'There is no free version of Turbo Dismount 2. The original Turbo Dismount (2014) is available free on iOS and Android. An unofficial browser-based game called "Turbo Dismounting" exists on third-party sites like CrazyGames, but it is not an official product from Secret Exit Ltd.',
+      },
+      {
+        q: 'Where can I buy Turbo Dismount 2?',
+        a: 'Turbo Dismount 2 is sold exclusively on Steam (store.steampowered.com/app/2280350). It is not currently available on console storefronts, the Epic Games Store, GOG, or any other PC launcher. Key reseller sites may carry Steam keys, but verify these are from reputable sellers.',
+      },
+      {
+        q: 'Does Turbo Dismount 2 have in-game purchases?',
+        a: 'No confirmed in-game purchases (DLC, microtransactions, or battle passes) have been announced as of March 2026. All gameplay content is included with the base purchase. The Steam Workshop provides unlimited free community-made content.',
+      },
+    ],
+  },
+  {
+    id: 'platforms',
+    heading: 'Platforms',
+    questions: [
+      {
+        q: 'What platforms can I play Turbo Dismount 2 on?',
+        a: 'As of March 2026, Turbo Dismount 2 is available on PC (Windows 10/11 64-bit) via Steam. Linux is supported through Steam Play (Proton compatibility layer). Mac, iOS, and Android versions are planned for future release but have no confirmed dates. There are no announced plans for PlayStation, Xbox, or Nintendo Switch.',
+      },
+      {
+        q: 'Is Turbo Dismount 2 coming to Mac?',
+        a: 'A macOS version is planned. Secret Exit confirmed it would be developed after the PC version left Early Access. There is no release date as of March 2026.',
+      },
+      {
+        q: 'Will Turbo Dismount 2 come to mobile (iOS/Android)?',
+        a: 'Yes, mobile versions are planned for both iOS (App Store) and Android (Google Play). The developer confirmed the mobile release would follow the PC Full Release. Given that the original Turbo Dismount was downloaded over 71 million times on mobile, this is a high-priority platform for Secret Exit. No release date has been announced.',
+      },
+      {
+        q: 'Is Turbo Dismount 2 on console (PS5, Xbox, Switch)?',
+        a: 'No. There are no confirmed plans for PS5, Xbox Series X/S, or Nintendo Switch as of March 2026. Only PC (via Steam) is officially supported.',
+      },
+      {
+        q: 'Does Turbo Dismount 2 work on Steam Deck?',
+        a: 'The game has been designed with Steam Deck in mind and is Steam Deck compatible. Gamepad controls map naturally to Steam Deck inputs. Performance on Deck is generally good given the game\'s modest system requirements (1.05 GB install size).',
+      },
+    ],
+  },
+  {
+    id: 'gameplay',
+    heading: 'Gameplay',
+    questions: [
+      {
+        q: 'What game modes does Turbo Dismount 2 have?',
+        a: 'TD2 has six level objective types: Racing (stunt track completion), Physics Puzzles (objective-based physics challenges), Police Chase (evading police vehicles), Time Trials (beat-the-clock courses), Obstacle Courses (survive or navigate hazards), and Chill Mode (no objectives, pure sandbox). Steam Workshop levels can use any of these as their base.',
+      },
+      {
+        q: 'Does Turbo Dismount 2 have online multiplayer?',
+        a: 'Not currently. TD2 does not have real-time online multiplayer as of v1.0. Competition happens through Steam leaderboards where you compare scores on the same levels. The developers have mentioned a versus multiplayer concept as a future planned feature, but no release timeline has been given.',
+      },
+      {
+        q: 'Does Turbo Dismount 2 support gamepads?',
+        a: 'Yes. Full gamepad support is included with button prompts in-game. Xbox and PlayStation controllers work plug-and-play via Steam Input. Analog triggers provide meaningfully more precise throttle/brake control than keyboard keys, which is especially noticeable in Racing and Time Trial modes. All controls are remappable.',
+      },
+      {
+        q: 'What is the Steam Workshop and how do I use it?',
+        a: 'Steam Workshop lets community creators publish custom levels, game modes, obstacles, traps, and power-ups. To use Workshop content: open Steam, go to the Turbo Dismount 2 Workshop page, click Subscribe on any item, then launch the game — subscribed content appears automatically in level select. Workshop tools in TD2 are the same tools Secret Exit uses internally, so community content can match the scope of official levels.',
+      },
+      {
+        q: 'Can I create my own levels?',
+        a: 'Yes. The Workshop creation tools are available to all players. TD2 uses a Unity 6.3-based editor — the same toolset the developers use. You can create any of the six level objective types, design custom obstacles and power-ups, set rules, and publish directly to Steam Workshop. No prior game development experience is required, though the tools have depth for experienced creators.',
+      },
+    ],
+  },
+  {
+    id: 'technical',
+    heading: 'Technical',
+    questions: [
+      {
+        q: 'What are the minimum system requirements?',
+        a: 'Minimum: CPU — Intel Core 2 Duo Q6867 (2.5GHz dual-core or equivalent); RAM — 16 GB; GPU — DirectX 11 compatible; Storage — 4 GB available (10 GB recommended); OS — Windows 10 64-bit. Recommended: CPU — Intel Core i5-1300F or better; same RAM and GPU requirements. The installed game is approximately 1.05 GB.',
+      },
+      {
+        q: 'How large is the game download?',
+        a: 'The installed game is approximately 1.05 GB. Steam recommends reserving 4 GB minimum free space (10 GB to be safe, including Workshop content and save files). This is a notably small install for a modern 3D physics game.',
+      },
+      {
+        q: 'What languages does Turbo Dismount 2 support?',
+        a: 'TD2 supports 30+ languages including English, French, German, Italian, Spanish (Spain and Latin America), Portuguese (Portugal and Brazil), Dutch, Polish, Russian, Ukrainian, Turkish, Simplified Chinese, Traditional Chinese, Japanese, Korean, Thai, Vietnamese, Indonesian, and several other European languages. Steam also has a community translation reporting feature for catching errors.',
+      },
+      {
+        q: 'Does the game require an internet connection?',
+        a: 'An internet connection is required to download the game and access Steam Workshop. Once installed, the base game can be played offline. Leaderboard score submissions and Workshop content browsing/downloading require an internet connection.',
+      },
+    ],
+  },
+  {
+    id: 'community',
+    heading: 'Community',
+    questions: [
+      {
+        q: 'Is there an official Turbo Dismount 2 Discord?',
+        a: 'There is no confirmed official Discord server for Turbo Dismount 2 as of March 2026. The primary community hub is the Steam Community Discussion board at steamcommunity.com/app/2280350/discussions/ — the developers are actively present there and respond to feedback and bug reports.',
+      },
+      {
+        q: 'Where can I find the best Workshop content?',
+        a: 'The Steam Workshop page for TD2 (steamcommunity.com/workshop/about/?appid=2280350) is the main discovery hub. Filter by rating and subscriber count to find well-received content. Notable community collections include Codeman\'s Turbo Dismount Levels, The Road of Terror Collection by hkeishmarie, and City Map Collection by Cemny Judasz.',
+      },
+      {
+        q: 'How can I contact the developers?',
+        a: 'Secret Exit Ltd can be reached through the Steam Discussion board (the most responsive channel), their official website at secretexit.com, and their X (Twitter) account at x.com/secretexit. They are known for active community engagement — the AI racing opponents feature and additional classic levels were both added to the roadmap directly in response to community requests.',
+      },
+    ],
+  },
+];
+
+// Flatten all FAQs for schema
+const allFaqs = faqCategories.flatMap(cat => cat.questions);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+    { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://turbodismount2.com/faq/" },
+  ]
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": allFaqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a,
+    },
+  })),
+};
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Page Header -->
+  <section class="relative py-12 md:py-16 border-b border-[#2A2A33]" style="background: linear-gradient(180deg, #0D001A 0%, #0D0D0F 100%);">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-[#6B6B80] mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">FAQ</span>
+      </nav>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[rgba(168,85,247,0.12)] text-[#A855F7] border border-[rgba(168,85,247,0.25)]">
+          25+ Questions
+        </span>
+        <span class="text-sm text-[#6B6B80]">Updated: March 2026</span>
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
+        Turbo Dismount 2
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent block mt-1">
+          FAQ
+        </span>
+      </h1>
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed">
+        Answers to the most commonly asked questions about Turbo Dismount 2 — covering price, platforms, system requirements,
+        game modes, Workshop, multiplayer, and how to contact the developers.
+      </p>
+
+      <!-- Category quick-links -->
+      <div class="flex flex-wrap gap-2 mt-6">
+        {faqCategories.map((cat) => (
+          <a
+            href={`#${cat.id}`}
+            class="px-3 py-1.5 rounded-lg text-xs font-medium text-[#B0B0BE] border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:text-[#FF8C12] transition-all duration-200"
+          >
+            {cat.heading}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <div class="container py-10 md:py-14">
+    <div class="max-w-3xl mx-auto space-y-14">
+
+      {faqCategories.map((cat) => (
+        <section id={cat.id} class="scroll-mt-20">
+          <!-- Category heading -->
+          <div class="flex items-center gap-4 mb-6">
+            <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider">{cat.heading}</h2>
+            <div class="flex-1 h-px bg-[#2A2A33]"></div>
+            <span class="text-xs font-mono text-[#6B6B80]">{cat.questions.length} questions</span>
+          </div>
+
+          <!-- Questions -->
+          <div class="space-y-3">
+            {cat.questions.map((faq) => (
+              <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+                <summary class="flex items-start justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200 list-none">
+                  <span class="pr-4 leading-relaxed">{faq.q}</span>
+                  <svg
+                    class="w-5 h-5 text-[#6B6B80] shrink-0 mt-0.5 transition-transform duration-200 group-open:rotate-45"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 border-t border-[#1E1E24]">
+                  <p class="pt-4 text-sm text-[#B0B0BE] leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <!-- Bottom CTA -->
+      <section class="pt-6 border-t border-[#2A2A33]">
+        <div class="rounded-xl border border-[rgba(245,114,0,0.2)] bg-[rgba(245,114,0,0.06)] p-6 md:p-8">
+          <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-3">
+            Still have questions?
+          </h2>
+          <p class="text-[#B0B0BE] text-sm leading-relaxed mb-5">
+            The Steam Community Discussion board is the fastest way to get answers from other players and the development team.
+            Secret Exit Ltd is active in the community and responds to feedback directly.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://steamcommunity.com/app/2280350/discussions/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-bold text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+              style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 2px 12px rgba(245,114,0,0.3);"
+            >
+              Steam Community
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <a
+              href="/guides/how-to-play/"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-[#F0F0F2] rounded-lg border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+            >
+              Read Beginner Guide
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Links -->
+      <section>
+        <h2 class="font-[Orbitron] text-lg font-bold uppercase tracking-wider mb-5">Explore More</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { href: '/guides/how-to-play/', label: 'How to Play', desc: 'Complete beginner guide with controls, modes, and scoring' },
+            { href: '/guides/tips/', label: 'Tips & Tricks', desc: '15 strategies for scoring higher and crashing smarter' },
+            { href: '/database/vehicles/', label: 'Vehicle Database', desc: 'Stats, speed, handling and durability for every vehicle' },
+            { href: '/workshop/', label: 'Workshop Picks', desc: 'Best community-made levels and game modes' },
+          ].map((link) => (
+            <a href={link.href} class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200">
+              <div class="flex-1 min-w-0">
+                <p class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 text-sm">{link.label}</p>
+                <p class="text-xs text-[#6B6B80] mt-0.5 leading-relaxed">{link.desc}</p>
+              </div>
+              <svg class="w-4 h-4 text-[#6B6B80] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+</BaseLayout>
+
+<style>
+  /* Remove default summary marker across browsers */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

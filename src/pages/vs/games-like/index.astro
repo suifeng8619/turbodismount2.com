@@ -1,0 +1,469 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = '12 Games Like Turbo Dismount 2 — Best Car Crash & Physics Games';
+const description = 'Looking for games like Turbo Dismount? Compare BeamNG.drive, Wreckfest, Happy Wheels, and more. Ratings, prices, and platform info for each alternative.';
+
+interface Game {
+  name: string;
+  price: string;
+  platforms: string[];
+  rating: string | null;
+  ratingScore: number;
+  ratingLabel: string;
+  developer: string;
+  genre: string;
+  desc: string;
+  highlight: string;
+  url: string;
+  tag: string;
+  tagColor: string;
+  priceType: 'paid' | 'free';
+}
+
+const games: Game[] = [
+  {
+    name: 'BeamNG.drive',
+    price: '$24.99',
+    platforms: ['PC (Steam)'],
+    rating: '97%',
+    ratingScore: 97,
+    ratingLabel: 'Overwhelmingly Positive',
+    developer: 'BeamNG GmbH',
+    genre: 'Physics Sandbox',
+    desc: 'The most advanced soft-body vehicle physics simulation available. Every component of every car deforms in real time across 12 open-world environments. 50+ fully customizable vehicles.',
+    highlight: 'Best physics engine — more realistic than TD2, steeper learning curve',
+    url: 'https://store.steampowered.com/app/284160/BeamNGdrive/',
+    tag: 'Best Alternative',
+    tagColor: '#F57200',
+    priceType: 'paid',
+  },
+  {
+    name: 'Wreckfest',
+    price: '$29.99',
+    platforms: ['PC (Steam)', 'PS4/PS5', 'Xbox'],
+    rating: '87%',
+    ratingScore: 87,
+    ratingLabel: 'Very Positive',
+    developer: 'Bugbear Entertainment',
+    genre: 'Demolition Racing',
+    desc: 'Structured demolition derby racing with a soft-body damage model. Deep vehicle upgrade system, competitive tracks and arenas. More race-oriented than TD2.',
+    highlight: 'More competitive structure — racing-focused vs TD2\'s sandbox focus',
+    url: 'https://store.steampowered.com/app/228380/Wreckfest/',
+    tag: 'Competitive Racing',
+    tagColor: '#0080F5',
+    priceType: 'paid',
+  },
+  {
+    name: 'Instruments of Destruction',
+    price: '$34.99',
+    platforms: ['PC (Steam)', 'PS5', 'Xbox Series X/S'],
+    rating: '92%',
+    ratingScore: 92,
+    ratingLabel: 'Very Positive',
+    developer: 'Radiangames',
+    genre: 'Physics Destruction',
+    desc: '130+ unique vehicles. Destroy buildings and structures across campaign and sandbox modes. Inspired by 1997\'s Blast Corps. Solo dev project with strong community reception.',
+    highlight: 'More focused on demolishing buildings — less driving, more destruction',
+    url: 'https://store.steampowered.com/app/1428100/Instruments_of_Destruction/',
+    tag: 'Multi-Platform',
+    tagColor: '#22C55E',
+    priceType: 'paid',
+  },
+  {
+    name: 'Carmageddon: Rogue Shift',
+    price: '$39.99',
+    platforms: ['PC (Steam)'],
+    rating: '60%',
+    ratingScore: 60,
+    ratingLabel: 'Mixed',
+    developer: 'Stainless Games',
+    genre: 'Combat Racing',
+    desc: 'Post-apocalyptic vehicular combat racing from the classic Carmageddon IP. Detailed visual damage model, Steam Deck certified. Released February 2026 — still finding its audience.',
+    highlight: 'IP-driven nostalgia — weaker reception than TD2\'s 96%, higher price',
+    url: 'https://store.steampowered.com/app/1712100/Carmageddon_Rogue_Shift/',
+    tag: 'IP Franchise',
+    tagColor: '#EAB308',
+    priceType: 'paid',
+  },
+  {
+    name: 'Happy Wheels',
+    price: 'Free',
+    platforms: ['Browser'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'Unrated',
+    developer: 'Jim Bonacci',
+    genre: 'Ragdoll Physics',
+    desc: 'Browser-based ragdoll obstacle course game with violent slapstick physics. One of the most-played browser games ever. Massive user-created level library. No graphics to speak of — all gameplay.',
+    highlight: 'Free in-browser — no download needed, massive nostalgia factor',
+    url: 'https://www.totaljerkface.com/happy_wheels.tjf',
+    tag: 'Free to Play',
+    tagColor: '#22C55E',
+    priceType: 'free',
+  },
+  {
+    name: 'Stair Dismount (Porrasturvat)',
+    price: 'Free / $2.99',
+    platforms: ['iOS', 'Android', 'PC'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'Secret Exit Ltd',
+    genre: 'Physics Ragdoll',
+    desc: 'The original game from Turbo Dismount\'s developer. Push a ragdoll character down stairs and obstacles. Free on mobile. The direct predecessor to the Turbo Dismount series.',
+    highlight: 'Same developer (Secret Exit) — the spiritual origin of TD2',
+    url: 'https://secretexit.com/',
+    tag: 'Same Developer',
+    tagColor: '#F57200',
+    priceType: 'free',
+  },
+  {
+    name: 'Ragdoll Dismounting',
+    price: 'Free',
+    platforms: ['iOS', 'Android'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'Independent',
+    genre: 'Mobile Physics',
+    desc: 'Mobile ragdoll physics game with wall collision and bone-breaking simulation. One of many mobile games directly inspired by the Turbo Dismount formula. Free with ads.',
+    highlight: 'Free mobile ragdoll game — similar concept, much lower production quality',
+    url: 'https://play.google.com/store/apps/details?id=com.stickman.ragdoll.turbo.dismount.physics',
+    tag: 'Mobile Free',
+    tagColor: '#6B6B80',
+    priceType: 'free',
+  },
+  {
+    name: 'Stunt Car Crash',
+    price: 'Free',
+    platforms: ['iOS', 'Android'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'Simonas Leisis',
+    genre: 'Mobile Crash Sim',
+    desc: 'Mobile car crash physics game with realistic collision simulation, ragdoll jumps, and multiple tracks and missions. Vehicle tuning system included. Free-to-play with in-app purchases.',
+    highlight: 'Free mobile crash game — vehicle tuning system, mission-based structure',
+    url: 'https://apps.apple.com/us/app/stunt-car-crash/id1583258137',
+    tag: 'Mobile Free',
+    tagColor: '#6B6B80',
+    priceType: 'free',
+  },
+  {
+    name: 'Trials Frontier',
+    price: 'Free',
+    platforms: ['iOS', 'Android'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'RedLynx / Ubisoft',
+    genre: 'Physics Racing',
+    desc: 'Physics-based motorcycle racing game. Balance, momentum, and crash mechanics are core gameplay. Mobile entry in the well-known Trials series. Lighter on destruction, heavier on precision.',
+    highlight: 'Official Ubisoft property — physics racing with less emphasis on crashes',
+    url: 'https://apps.apple.com/app/trials-frontier/id650369527',
+    tag: 'Physics Racing',
+    tagColor: '#0080F5',
+    priceType: 'free',
+  },
+  {
+    name: 'Kill the Dummy',
+    price: 'Free',
+    platforms: ['Browser', 'Mobile'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'Various',
+    genre: 'Ragdoll Physics',
+    desc: 'A series of browser and mobile games where the goal is to abuse a ragdoll crash test dummy using various hazards and vehicles. Simple, accessible, zero barrier to entry.',
+    highlight: 'Casual ragdoll abuse — simpler mechanics, no progression or Workshop',
+    url: '#',
+    tag: 'Casual',
+    tagColor: '#6B6B80',
+    priceType: 'free',
+  },
+  {
+    name: 'LEGO Bricktales',
+    price: '$29.99',
+    platforms: ['PC', 'Console', 'Mobile'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'ClockStone Studio',
+    genre: 'Physics Puzzle',
+    desc: 'Physics-based puzzle game where you build LEGO structures that must survive real physics simulation. Very different tone — family-friendly, constructive rather than destructive.',
+    highlight: 'Physics puzzle — constructive vs TD2\'s destructive, family audience',
+    url: 'https://store.steampowered.com/app/1898830/LEGO_Bricktales/',
+    tag: 'Physics Puzzle',
+    tagColor: '#EAB308',
+    priceType: 'paid',
+  },
+  {
+    name: 'CCO Car Crash Online Simulator',
+    price: 'Free',
+    platforms: ['PC (Steam)', 'Browser'],
+    rating: null,
+    ratingScore: 0,
+    ratingLabel: 'N/A',
+    developer: 'Independent',
+    genre: 'Online Crash Sim',
+    desc: 'Free-to-play Steam car crash simulator with online multiplayer. Focuses purely on collision physics between vehicles. Minimal production value but free and playable immediately on Steam.',
+    highlight: 'Free on Steam with online multiplayer — lowest barrier to entry on PC',
+    url: 'https://store.steampowered.com/app/1499110/',
+    tag: 'Free on Steam',
+    tagColor: '#22C55E',
+    priceType: 'free',
+  },
+];
+
+const ratingColor = (score: number) => {
+  if (score >= 90) return '#22C55E';
+  if (score >= 70) return '#EAB308';
+  if (score > 0) return '#E01C1C';
+  return '#6B6B80';
+};
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #0A1A0A 0%, #0D1A2E 40%, #0D0D0F 100%);"></div>
+    <div class="absolute top-1/2 right-1/4 w-[500px] h-[300px] -translate-y-1/2 opacity-10" style="background: radial-gradient(ellipse, rgba(0,128,245,0.5) 0%, transparent 70%);"></div>
+
+    <div class="container relative z-10">
+      <nav class="mb-6 text-sm text-[#6B6B80]" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a></li>
+          <li><span class="text-[#2A2A33]">/</span></li>
+          <li class="text-[#B0B0BE]">Games Like Turbo Dismount 2</li>
+        </ol>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(0,128,245,0.3)] bg-[rgba(0,128,245,0.08)] text-[#2E9EFF]">
+        12 Alternatives Compared
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-5xl uppercase tracking-wider leading-tight mb-4">
+        Games Like
+        <br />
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+          Turbo Dismount 2
+        </span>
+      </h1>
+
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed mb-6">
+        If you enjoy Turbo Dismount 2's physics carnage, here are 12 games across PC, mobile, and browser that scratch the same itch.
+        Ratings, prices, and how each compares to TD2.
+      </p>
+
+      <div class="flex flex-wrap gap-3 text-sm">
+        <span class="px-3 py-1 rounded-full bg-[#141417] border border-[#2A2A33] text-[#B0B0BE]">4 Paid PC games</span>
+        <span class="px-3 py-1 rounded-full bg-[#141417] border border-[#2A2A33] text-[#B0B0BE]">6 Free mobile games</span>
+        <span class="px-3 py-1 rounded-full bg-[#141417] border border-[#2A2A33] text-[#B0B0BE]">2 Free browser/Steam</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick comparison table -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+        Quick Comparison
+      </h2>
+
+      <div class="overflow-x-auto rounded-xl border border-[#2A2A33]">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-[#2A2A33] bg-[#141417]">
+              <th class="text-left px-4 py-3 text-[#6B6B80] font-semibold uppercase tracking-wider text-xs">Game</th>
+              <th class="text-left px-4 py-3 text-[#6B6B80] font-semibold uppercase tracking-wider text-xs">Price</th>
+              <th class="text-left px-4 py-3 text-[#6B6B80] font-semibold uppercase tracking-wider text-xs">Platform</th>
+              <th class="text-left px-4 py-3 text-[#6B6B80] font-semibold uppercase tracking-wider text-xs">Steam Rating</th>
+              <th class="text-left px-4 py-3 text-[#6B6B80] font-semibold uppercase tracking-wider text-xs">Genre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- TD2 reference row -->
+            <tr class="border-b border-[#2A2A33] bg-[rgba(245,114,0,0.05)]">
+              <td class="px-4 py-3">
+                <span class="font-semibold text-[#FF8C12]">Turbo Dismount 2</span>
+                <span class="ml-2 px-1.5 py-0.5 text-[10px] bg-[#F57200] text-white rounded font-bold">YOU ARE HERE</span>
+              </td>
+              <td class="px-4 py-3 text-[#F0F0F2]">$19.99</td>
+              <td class="px-4 py-3 text-[#B0B0BE]">PC (Steam)</td>
+              <td class="px-4 py-3"><span class="text-[#22C55E] font-semibold">96%</span></td>
+              <td class="px-4 py-3 text-[#B0B0BE]">Physics Sandbox</td>
+            </tr>
+            {games.map((game, i) => (
+              <tr class={`border-b border-[#1E1E24] ${i % 2 === 0 ? 'bg-[#0D0D0F]' : 'bg-[#141417]'} hover:bg-[#1E1E24] transition-colors`}>
+                <td class="px-4 py-3">
+                  <a href={game.url} target="_blank" rel="noopener noreferrer" class="text-[#F0F0F2] hover:text-[#FF8C12] font-medium transition-colors">
+                    {game.name}
+                  </a>
+                </td>
+                <td class="px-4 py-3 text-[#B0B0BE]">{game.price}</td>
+                <td class="px-4 py-3 text-[#B0B0BE] text-xs">{game.platforms.join(', ')}</td>
+                <td class="px-4 py-3">
+                  {game.rating ? (
+                    <span style={`color: ${ratingColor(game.ratingScore)};`} class="font-semibold">{game.rating}</span>
+                  ) : (
+                    <span class="text-[#6B6B80]">—</span>
+                  )}
+                </td>
+                <td class="px-4 py-3 text-[#B0B0BE] text-xs">{game.genre}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Cards Grid -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-2">
+        Detailed Breakdown
+      </h2>
+      <p class="text-[#B0B0BE] mb-10 max-w-xl text-sm">
+        Each game compared directly to TD2 — price, platform, rating, and what makes it different.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {games.map((game) => (
+          <div class="group relative flex flex-col rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200">
+            <!-- Tag -->
+            <div class="px-5 pt-5 pb-0">
+              <span
+                class="inline-block px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded"
+                style={`background: ${game.tagColor}20; color: ${game.tagColor}; border: 1px solid ${game.tagColor}40;`}
+              >
+                {game.tag}
+              </span>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col">
+              <!-- Name & developer -->
+              <h3 class="text-lg font-bold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors mb-0.5">
+                {game.name}
+              </h3>
+              <div class="text-xs text-[#6B6B80] mb-3">{game.developer} · {game.genre}</div>
+
+              <!-- Stats row -->
+              <div class="flex flex-wrap gap-3 mb-4 text-xs">
+                <span class="px-2.5 py-1 rounded-lg bg-[#0D0D0F] border border-[#2A2A33] text-[#F0F0F2] font-semibold">
+                  {game.price}
+                </span>
+                <span class="px-2.5 py-1 rounded-lg bg-[#0D0D0F] border border-[#2A2A33] text-[#B0B0BE]">
+                  {game.platforms[0]}{game.platforms.length > 1 ? ` +${game.platforms.length - 1}` : ''}
+                </span>
+                {game.rating && (
+                  <span
+                    class="px-2.5 py-1 rounded-lg bg-[#0D0D0F] border font-semibold"
+                    style={`color: ${ratingColor(game.ratingScore)}; border-color: ${ratingColor(game.ratingScore)}33;`}
+                  >
+                    {game.rating} Steam
+                  </span>
+                )}
+              </div>
+
+              <!-- Description -->
+              <p class="text-sm text-[#B0B0BE] leading-relaxed mb-4 flex-1">{game.desc}</p>
+
+              <!-- VS TD2 highlight -->
+              <div class="mt-auto p-3 rounded-lg bg-[#0D0D0F] border border-[#2A2A33] text-xs text-[#6B6B80] leading-relaxed">
+                <span class="text-[#FF8C12] font-semibold">vs TD2: </span>{game.highlight}
+              </div>
+            </div>
+
+            <!-- Footer link -->
+            <a
+              href={game.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-between px-5 py-3 border-t border-[#2A2A33] text-xs text-[#6B6B80] hover:text-[#FF8C12] hover:bg-[rgba(245,114,0,0.05)] transition-all"
+            >
+              <span>View game</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Verdict section -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Which Should You Play?
+        </h2>
+
+        <div class="space-y-4">
+          <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+            <div class="font-semibold text-[#F0F0F2] mb-1">If you want the most realistic physics simulation</div>
+            <p class="text-sm text-[#B0B0BE]">
+              <strong class="text-[#FF8C12]">BeamNG.drive ($24.99)</strong> — No competition. The soft-body engine is unmatched. Much deeper simulation but significantly steeper learning curve than TD2.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+            <div class="font-semibold text-[#F0F0F2] mb-1">If you want competitive demolition racing</div>
+            <p class="text-sm text-[#B0B0BE]">
+              <strong class="text-[#FF8C12]">Wreckfest ($29.99)</strong> — Structured tracks, upgrades, online multiplayer. Less sandbox, more competitive.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+            <div class="font-semibold text-[#F0F0F2] mb-1">If you want a free mobile alternative</div>
+            <p class="text-sm text-[#B0B0BE]">
+              <strong class="text-[#FF8C12]">Stair Dismount (mobile, free)</strong> — From the same developer (Secret Exit). The original game that TD2 grew out of.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+            <div class="font-semibold text-[#F0F0F2] mb-1">If you want to play right now for free</div>
+            <p class="text-sm text-[#B0B0BE]">
+              <strong class="text-[#FF8C12]">Happy Wheels (browser)</strong> — No install, no cost, massive level library. Much simpler mechanics but instant access.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-[rgba(245,114,0,0.2)] bg-[rgba(245,114,0,0.04)]">
+            <div class="font-semibold text-[#FF8C12] mb-1">The honest verdict</div>
+            <p class="text-sm text-[#B0B0BE]">
+              Turbo Dismount 2 sits in a unique niche: comedy physics sandbox with workshop tools, accessible controls, and strong developer support. At $19.99 with a 96% positive rating, it competes well on value vs. BeamNG ($24.99) and Wreckfest ($29.99). No direct competitor matches TD2's combination of humor, accessibility, and Workshop depth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(0,128,245,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
+        <h2 class="font-[Orbitron] text-xl font-bold uppercase tracking-wider mb-3">
+          Play Turbo Dismount 2
+        </h2>
+        <p class="text-[#B0B0BE] mb-5 max-w-md mx-auto text-sm">
+          96% positive on Steam. $19.99 with Steam Workshop and 30+ languages. Full Release March 2026.
+        </p>
+        <a
+          href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
+        >
+          Get on Steam — $19.99
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

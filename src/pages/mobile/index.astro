@@ -1,0 +1,513 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 Mobile — iOS & Android Release Date & News';
+const description = 'When is Turbo Dismount 2 coming to mobile? Track iOS and Android release date. Play the original Turbo Dismount free on mobile now.';
+
+const platformStatus = [
+  {
+    platform: 'PC — Steam (Windows 10/11)',
+    status: 'Available',
+    statusType: 'available',
+    detail: 'Full Release v1.0 — March 13, 2026',
+    url: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/',
+    urlLabel: 'Buy on Steam — $19.99',
+  },
+  {
+    platform: 'Steam Deck (SteamOS)',
+    status: 'Available',
+    statusType: 'available',
+    detail: 'Steam Deck Verified — optimized controls and UI',
+    url: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/',
+    urlLabel: 'Buy on Steam',
+  },
+  {
+    platform: 'macOS',
+    status: 'Coming Soon',
+    statusType: 'soon',
+    detail: 'Confirmed in roadmap, no release date announced',
+    url: null,
+    urlLabel: null,
+  },
+  {
+    platform: 'iOS (iPhone & iPad)',
+    status: 'Planned',
+    statusType: 'planned',
+    detail: 'Planned after PC Full Release — no date confirmed',
+    url: null,
+    urlLabel: null,
+  },
+  {
+    platform: 'Android (Google Play)',
+    status: 'Planned',
+    statusType: 'planned',
+    detail: 'Planned after PC Full Release — no date confirmed',
+    url: null,
+    urlLabel: null,
+  },
+  {
+    platform: 'PS5 / Xbox Series X/S',
+    status: 'No Plans',
+    statusType: 'none',
+    detail: 'No console version confirmed or announced by Secret Exit',
+    url: null,
+    urlLabel: null,
+  },
+  {
+    platform: 'Nintendo Switch',
+    status: 'No Plans',
+    statusType: 'none',
+    detail: 'No console version confirmed or announced',
+    url: null,
+    urlLabel: null,
+  },
+];
+
+const statusColors: Record<string, string> = {
+  available: '#22C55E',
+  soon: '#0080F5',
+  planned: '#EAB308',
+  none: '#6B6B80',
+};
+
+const statusBg: Record<string, string> = {
+  available: 'rgba(34,197,94,0.1)',
+  soon: 'rgba(0,128,245,0.1)',
+  planned: 'rgba(234,179,8,0.1)',
+  none: 'rgba(107,107,128,0.1)',
+};
+
+const mobileFaqs = [
+  {
+    q: 'Is Turbo Dismount 2 available on iOS or Android?',
+    a: 'No. As of March 2026, Turbo Dismount 2 is only available on PC via Steam (Windows 10/11) and is Steam Deck Verified. The mobile (iOS and Android) version is confirmed in the roadmap but has no announced release date.',
+  },
+  {
+    q: 'When will Turbo Dismount 2 come to mobile?',
+    a: 'Secret Exit has confirmed mobile is planned for after the PC Full Release (March 13, 2026). Based on developer statements, mobile is a medium-term priority (approximately 6–12 months post-Full Release). No specific date has been announced.',
+  },
+  {
+    q: 'Can I play the original Turbo Dismount on mobile now?',
+    a: 'Yes. The original Turbo Dismount (2014) by Secret Exit is available for free on the App Store (iOS) and Google Play (Android). It has been downloaded over 50 million times on Android alone. It is not the same as TD2 but offers similar ragdoll physics gameplay.',
+  },
+  {
+    q: 'Will Turbo Dismount 2 mobile be free?',
+    a: 'No pricing has been announced for the mobile version. The original mobile TD was free with ads and optional purchases. TD2 on PC is $19.99. Mobile pricing will likely differ from the PC version — but nothing has been confirmed.',
+  },
+  {
+    q: 'Will the mobile version have Steam Workshop?',
+    a: 'Steam Workshop is a PC/Steam-specific feature. A mobile version would likely have a different content ecosystem. Secret Exit has not announced what content creation tools (if any) will be available in the mobile version.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #0A1A10 0%, #0D1A2E 40%, #0D0D0F 100%);"></div>
+    <div class="absolute top-1/2 right-0 w-[500px] h-[400px] -translate-y-1/2 opacity-10" style="background: radial-gradient(ellipse, rgba(0,128,245,0.5) 0%, transparent 70%);"></div>
+
+    <div class="container relative z-10">
+      <nav class="mb-6 text-sm text-[#6B6B80]" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a></li>
+          <li><span class="text-[#2A2A33]">/</span></li>
+          <li class="text-[#B0B0BE]">Mobile</li>
+        </ol>
+      </nav>
+
+      <!-- Status badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(234,179,8,0.3)] bg-[rgba(234,179,8,0.08)] text-[#EAB308]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#EAB308]"></span>
+        Mobile Version — Not Yet Released
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-5xl uppercase tracking-wider leading-tight mb-4">
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+          Turbo Dismount 2
+        </span>
+        <br />
+        <span class="text-[#F0F0F2] text-xl md:text-3xl">Mobile</span>
+      </h1>
+
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed">
+        Turbo Dismount 2 is currently <strong class="text-[#F0F0F2]">PC only</strong> (Steam, Windows 10/11).
+        iOS and Android versions are planned for after the Full Release. Here's everything we know.
+      </p>
+    </div>
+  </section>
+
+  <!-- Current Status Banner -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- TD2 Status -->
+        <div class="relative rounded-2xl p-6 overflow-hidden" style="background: linear-gradient(135deg, rgba(234,179,8,0.08) 0%, rgba(0,128,245,0.05) 100%); border: 1px solid rgba(234,179,8,0.2);">
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-[rgba(234,179,8,0.15)]">
+              <svg class="w-6 h-6 text-[#EAB308]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-[Orbitron] font-bold text-sm uppercase tracking-wider text-[#EAB308] mb-2">Turbo Dismount 2 Mobile</h2>
+              <p class="text-[#B0B0BE] text-sm leading-relaxed">
+                <strong class="text-[#F0F0F2]">Not yet released.</strong> Secret Exit has confirmed iOS and Android versions are planned for release
+                after the PC Full Release (March 13, 2026). Development is in the planning stage — no screenshots, release date,
+                or pricing have been announced.
+              </p>
+              <div class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#EAB308]">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#EAB308]"></span>
+                Status: Planned (No Release Date)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Original TD Available Now -->
+        <div class="relative rounded-2xl p-6 overflow-hidden" style="background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(245,114,0,0.05) 100%); border: 1px solid rgba(34,197,94,0.2);">
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-[rgba(34,197,94,0.15)]">
+              <svg class="w-6 h-6 text-[#22C55E]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-[Orbitron] font-bold text-sm uppercase tracking-wider text-[#22C55E] mb-2">Original Turbo Dismount — Free Now</h2>
+              <p class="text-[#B0B0BE] text-sm leading-relaxed">
+                The original <strong class="text-[#F0F0F2]">Turbo Dismount (2014)</strong> by Secret Exit is available right now, for free,
+                on both iOS and Android. Over 50 million downloads on Android alone. Same developer, same core ragdoll physics concept.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <a
+                  href="https://apps.apple.com/app/turbo-dismount/id490913956"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-all hover:-translate-y-0.5"
+                  style="background: #1C1C1E; border: 1px solid #3A3A3C;"
+                >
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  App Store (iOS)
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.secretexit.turbodismount"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-all hover:-translate-y-0.5"
+                  style="background: #1C2A1C; border: 1px solid #2A3A2A;"
+                >
+                  <svg class="w-3.5 h-3.5 text-[#22C55E]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3.18 23.76a2 2 0 0 0 2.72.75l10.02-5.9-2.91-2.91L3.18 23.76zm17.35-10.41a2 2 0 0 0 0-2.7L18.1 8.22l-3.07 3.07 3.07 3.07 2.43-1.01zM1.5.48A2 2 0 0 0 .5 2.16v19.68c0 .74.42 1.38 1.01 1.67l11.5-11.5L1.5.48zm14.52 8.61l-2.91-2.91L3.18.25A1.96 1.96 0 0 0 .5 1l11.54 11.54 3.98-3.45z"/>
+                  </svg>
+                  Google Play (Android)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Status Table -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+        Platform Availability
+      </h2>
+
+      <div class="rounded-xl border border-[#2A2A33] overflow-hidden">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-[#2A2A33] bg-[#1E1E24]">
+              <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Platform</th>
+              <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">TD2 Status</th>
+              <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80] hidden sm:table-cell">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {platformStatus.map((item, i) => (
+              <tr class={`border-b border-[#1E1E24] ${i % 2 === 0 ? 'bg-[#141417]' : 'bg-[#0D0D0F]'}`}>
+                <td class="px-5 py-3 text-[#F0F0F2] font-medium text-sm">{item.platform}</td>
+                <td class="px-5 py-3">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold"
+                    style={`color: ${statusColors[item.statusType]}; background: ${statusBg[item.statusType]};`}
+                  >
+                    {item.statusType === 'available' && (
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    )}
+                    {item.status}
+                  </span>
+                </td>
+                <td class="px-5 py-3 hidden sm:table-cell">
+                  {item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs text-[#FF8C12] hover:text-[#FFAA44] transition-colors"
+                    >
+                      {item.urlLabel}
+                    </a>
+                  ) : (
+                    <span class="text-xs text-[#6B6B80]">{item.detail}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notify section (placeholder) -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-2">
+          Get Notified When Mobile Launches
+        </h2>
+        <p class="text-[#B0B0BE] text-sm leading-relaxed mb-6">
+          The best way to track the Turbo Dismount 2 mobile release is to follow official Secret Exit channels.
+          No third-party notification service is currently available for this specific release.
+        </p>
+
+        <div class="space-y-3">
+          <a
+            href="https://x.com/secretexit"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-4 h-4 text-[#F0F0F2]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors">Follow @secretexit on X</div>
+              <div class="text-xs text-[#6B6B80]">Official developer — mobile announcements will appear here first</div>
+            </div>
+            <svg class="w-4 h-4 text-[#6B6B80] ml-auto shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+
+          <a
+            href="https://store.steampowered.com/news/app/2280350/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-4 h-4 text-[#F57200]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2v-2zm0-10h2v8h-2V6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors">Steam News Hub</div>
+              <div class="text-xs text-[#6B6B80]">Official patch notes and platform announcements</div>
+            </div>
+            <svg class="w-4 h-4 text-[#6B6B80] ml-auto shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+
+          <a
+            href="https://steamcommunity.com/app/2280350/discussions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200"
+          >
+            <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center bg-[#1E1E24]">
+              <svg class="w-4 h-4 text-[#0080F5]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 6.5c0-2.49-2.01-4.5-4.5-4.5h-9C5.01 2 3 4.01 3 6.5v6C3 14.99 5.01 17 7.5 17H8v3l3-3h5.5c2.49 0 4.5-2.01 4.5-4.5v-6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors">Steam Community Discussions</div>
+              <div class="text-xs text-[#6B6B80]">Players often post news faster than official channels</div>
+            </div>
+            <svg class="w-4 h-4 text-[#6B6B80] ml-auto shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Original TD Mobile Downloads -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-2">
+          Play the Original Turbo Dismount on Mobile
+        </h2>
+        <p class="text-[#B0B0BE] mb-8 text-sm leading-relaxed">
+          While you wait for TD2 mobile, the original Turbo Dismount (2014) by the same developer is free and available right now.
+          It has been downloaded <strong class="text-[#F0F0F2]">50 million+ times on Android</strong> and reached the Top 10 on the App Store within two weeks of launch.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- iOS -->
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+            <div class="p-5 border-b border-[#2A2A33]">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-[#1C1C1E]">
+                  <svg class="w-5 h-5 text-[#F0F0F2]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-[#F0F0F2] text-sm">Turbo Dismount</div>
+                  <div class="text-xs text-[#6B6B80]">iPhone & iPad</div>
+                </div>
+              </div>
+              <div class="space-y-1.5 text-xs text-[#B0B0BE]">
+                <div class="flex justify-between">
+                  <span class="text-[#6B6B80]">Developer</span>
+                  <span>Secret Exit Ltd</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[#6B6B80]">Price</span>
+                  <span class="text-[#22C55E] font-semibold">Free</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[#6B6B80]">Released</span>
+                  <span>2014</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <a
+                href="https://apps.apple.com/app/turbo-dismount/id490913956"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-lg border border-[#2A2A33] text-[#F0F0F2] hover:border-[rgba(245,114,0,0.4)] hover:text-[#FF8C12] transition-all"
+              >
+                Download on App Store
+              </a>
+            </div>
+          </div>
+
+          <!-- Android -->
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+            <div class="p-5 border-b border-[#2A2A33]">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-[#1C2A1C]">
+                  <svg class="w-5 h-5 text-[#22C55E]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3.18 23.76a2 2 0 0 0 2.72.75l10.02-5.9-2.91-2.91L3.18 23.76zm17.35-10.41a2 2 0 0 0 0-2.7L18.1 8.22l-3.07 3.07 3.07 3.07 2.43-1.01zM1.5.48A2 2 0 0 0 .5 2.16v19.68c0 .74.42 1.38 1.01 1.67l11.5-11.5L1.5.48zm14.52 8.61l-2.91-2.91L3.18.25A1.96 1.96 0 0 0 .5 1l11.54 11.54 3.98-3.45z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-[#F0F0F2] text-sm">Turbo Dismount</div>
+                  <div class="text-xs text-[#6B6B80]">Android</div>
+                </div>
+              </div>
+              <div class="space-y-1.5 text-xs text-[#B0B0BE]">
+                <div class="flex justify-between">
+                  <span class="text-[#6B6B80]">Developer</span>
+                  <span>Secret Exit Ltd</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[#6B6B80]">Price</span>
+                  <span class="text-[#22C55E] font-semibold">Free</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-[#6B6B80]">Downloads</span>
+                  <span class="text-[#F0F0F2] font-semibold">50M+</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.secretexit.turbodismount"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-lg border border-[#2A2A33] text-[#F0F0F2] hover:border-[rgba(245,114,0,0.4)] hover:text-[#FF8C12] transition-all"
+              >
+                Get on Google Play
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-8">
+          Mobile FAQ
+        </h2>
+
+        <div class="space-y-3">
+          {mobileFaqs.map((faq) => (
+            <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200 text-sm">
+                <span>{faq.q}</span>
+                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-4 text-sm text-[#B0B0BE] leading-relaxed border-t border-[#1E1E24]">
+                <p class="pt-4">{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA - play PC version -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(0,128,245,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
+        <h2 class="font-[Orbitron] text-xl font-bold uppercase tracking-wider mb-3">
+          Play on PC Now
+        </h2>
+        <p class="text-[#B0B0BE] mb-5 max-w-sm mx-auto text-sm">
+          Don't wait for mobile. TD2 is available on Steam — Windows 10/11, Steam Deck Verified, 96% positive reviews.
+        </p>
+        <a
+          href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+          style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
+        >
+          Get on Steam — $19.99
+        </a>
+        <p class="text-xs text-[#6B6B80] mt-3">30% launch discount available</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": mobileFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a,
+      },
+    })),
+  })} />
+
+</BaseLayout>

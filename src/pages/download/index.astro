@@ -1,0 +1,496 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Download Turbo Dismount 2 — Steam PC (System Requirements & Price)';
+const description = 'Get Turbo Dismount 2 on Steam for $19.99 (30% launch discount). Check system requirements, download size (1.05GB), and platform availability.';
+
+const quickInfo = [
+  { label: 'Price', value: '$19.99', note: '30% off: $13.99', color: '#F57200' },
+  { label: 'Platform', value: 'Steam', note: 'PC + Linux', color: '#0080F5' },
+  { label: 'Download Size', value: '1.05 GB', note: 'Fast install', color: '#22C55E' },
+  { label: 'Developer', value: 'Secret Exit Ltd', note: 'Finland', color: '#EAB308' },
+  { label: 'Release Date', value: 'Mar 13, 2026', note: 'Full release', color: '#E01C1C' },
+  { label: 'Reviews', value: '96% Positive', note: '542 reviews', color: '#A855F7' },
+];
+
+const sysReqMin = [
+  { label: 'OS', value: 'Windows 10 (64-bit)' },
+  { label: 'Processor', value: 'Intel Core 2 Duo' },
+  { label: 'Memory', value: '16 GB RAM' },
+  { label: 'Graphics', value: 'DirectX 11 compatible GPU' },
+  { label: 'DirectX', value: 'Version 11' },
+  { label: 'Storage', value: '4 GB available space' },
+];
+
+const sysReqRec = [
+  { label: 'OS', value: 'Windows 10 / 11 (64-bit)' },
+  { label: 'Processor', value: 'Intel Core i5 (4th gen+)' },
+  { label: 'Memory', value: '16 GB RAM' },
+  { label: 'Graphics', value: 'Dedicated GPU, DX11+' },
+  { label: 'DirectX', value: 'Version 11' },
+  { label: 'Storage', value: '10 GB available space' },
+];
+
+const downloadSteps = [
+  {
+    step: 1,
+    title: 'Open Steam',
+    desc: 'Launch the Steam client on your PC. Don\'t have Steam? Download it free at steampowered.com.',
+    link: { text: 'Download Steam', url: 'https://store.steampowered.com/about/' },
+  },
+  {
+    step: 2,
+    title: 'Search "Turbo Dismount 2"',
+    desc: 'Use the search bar at the top of the Steam store, or go directly via the link below.',
+    link: { text: 'Go to Steam page', url: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/' },
+  },
+  {
+    step: 3,
+    title: 'Click "Add to Cart" — $19.99',
+    desc: 'The launch discount brings the price to $13.99 (30% off). Limited-time offer.',
+    link: null,
+  },
+  {
+    step: 4,
+    title: 'Complete your purchase',
+    desc: 'Pay via credit card, PayPal, or any Steam-supported payment method. Works in 180+ countries.',
+    link: null,
+  },
+  {
+    step: 5,
+    title: 'Download and install (1.05 GB)',
+    desc: 'Steam automatically downloads and installs the game. Takes a few minutes on a typical connection.',
+    link: null,
+  },
+];
+
+const platforms = [
+  {
+    name: 'PC (Windows)',
+    status: 'available',
+    statusLabel: 'Available Now',
+    detail: 'Steam — Windows 10/11 64-bit',
+  },
+  {
+    name: 'Linux',
+    status: 'available',
+    statusLabel: 'Available (Steam Play)',
+    detail: 'Via Steam compatibility layer',
+  },
+  {
+    name: 'Steam Deck',
+    status: 'available',
+    statusLabel: 'Deck Verified',
+    detail: 'Fully playable on Steam Deck',
+  },
+  {
+    name: 'Mac',
+    status: 'soon',
+    statusLabel: 'Coming Soon',
+    detail: 'Planned post-launch release',
+  },
+  {
+    name: 'iOS / Android',
+    status: 'planned',
+    statusLabel: 'Planned',
+    detail: 'Mobile version in development',
+  },
+  {
+    name: 'Console (PS5 / Xbox)',
+    status: 'none',
+    statusLabel: 'No Plans',
+    detail: 'Not announced for consoles',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Is there a free trial or demo for Turbo Dismount 2?',
+    a: 'There is no free demo on Steam at this time. However, you can play the original browser-based Turbo Dismounting for free on our Play Online page to get a feel for the gameplay before buying.',
+  },
+  {
+    q: 'How long will the 30% launch discount last?',
+    a: 'The 30% launch discount is a limited-time offer. Secret Exit Ltd has not announced an end date, but launch discounts typically last 1-4 weeks. The regular price is $19.99.',
+  },
+  {
+    q: 'Can I get a refund if I change my mind?',
+    a: 'Yes. Steam\'s refund policy allows refunds within 14 days of purchase if you have played less than 2 hours. Request via Steam support at help.steampowered.com.',
+  },
+  {
+    q: 'Does Turbo Dismount 2 have DLC or microtransactions?',
+    a: 'No DLC or microtransactions have been announced. The base game includes the full experience, and Steam Workshop lets the community create and share content for free.',
+  },
+  {
+    q: 'Will Turbo Dismount 2 come to mobile (iOS/Android)?',
+    a: 'A mobile version is planned but no release date has been confirmed. The PC Steam version is the only way to play the full Turbo Dismount 2 right now.',
+  },
+  {
+    q: 'What is the file size after installation?',
+    a: 'The initial download is 1.05 GB. The recommended storage allocation is 10 GB to accommodate future updates and workshop content.',
+  },
+];
+
+const statusConfig = {
+  available: { color: '#22C55E', bg: 'rgba(34,197,94,0.1)', border: 'rgba(34,197,94,0.25)' },
+  soon: { color: '#EAB308', bg: 'rgba(234,179,8,0.08)', border: 'rgba(234,179,8,0.2)' },
+  planned: { color: '#0080F5', bg: 'rgba(0,128,245,0.08)', border: 'rgba(0,128,245,0.2)' },
+  none: { color: '#6B6B80', bg: 'rgba(107,107,128,0.08)', border: 'rgba(107,107,128,0.2)' },
+};
+---
+
+<BaseLayout title={title} description={description} canonicalUrl="https://turbodismount2.com/download/">
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Download Turbo Dismount 2 on Steam",
+    "description": "Step-by-step guide to purchasing and downloading Turbo Dismount 2 on Steam",
+    "totalTime": "PT10M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "19.99"
+    },
+    "step": downloadSteps.map((s) => ({
+      "@type": "HowToStep",
+      "position": s.step,
+      "name": s.title,
+      "text": s.desc,
+    })),
+  })} />
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Turbo Dismount 2",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows 10+",
+    "softwareVersion": "1.0",
+    "fileSize": "1.05 GB",
+    "downloadUrl": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/",
+    "author": {
+      "@type": "Organization",
+      "name": "Secret Exit Ltd",
+      "url": "https://secretexit.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "19.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "96",
+      "bestRating": "100",
+      "ratingCount": "542",
+      "reviewCount": "542"
+    },
+  })} />
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a,
+      },
+    })),
+  })} />
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-14 md:py-20">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #0D0D1A 0%, #1A0D2E 35%, #0D1200 70%, #0D0D0F 100%);"></div>
+    <div class="absolute top-1/2 right-1/4 w-[500px] h-[300px] opacity-15" style="background: radial-gradient(ellipse, rgba(168,85,247,0.4) 0%, transparent 70%);"></div>
+    <div class="absolute top-2/3 left-0 right-0 h-px opacity-20" style="background: linear-gradient(90deg, transparent 0%, rgba(168,85,247,0.5) 50%, transparent 100%); animation: speed-line 4s ease-in-out infinite;"></div>
+
+    <div class="container relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs text-[#6B6B80] mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">Download</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(245,114,0,0.3)] bg-[rgba(245,114,0,0.08)] text-[#FF8C12]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse"></span>
+            Now Available on Steam
+          </div>
+
+          <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
+            <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+              Download
+            </span>
+            <br />
+            <span class="text-[#F0F0F2]">Turbo Dismount 2</span>
+          </h1>
+
+          <p class="text-base md:text-lg text-[#B0B0BE] leading-relaxed mb-8">
+            The full sequel to the 70M+ download series is here.
+            Available on <strong class="text-[#F0F0F2]">Steam</strong> for PC and Linux —
+            1.05 GB download, fully manual driving, Steam Workshop, and 96% positive reviews.
+          </p>
+
+          <!-- Price + CTA -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+            <a
+              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+              style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 24px rgba(245,114,0,0.4);"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.141-.828 3.33-.236.995.499 1.806 1.476 1.806 1.773 0 3.14-1.868 3.14-4.566 0-2.386-1.716-4.054-4.163-4.054-2.835 0-4.498 2.126-4.498 4.323 0 .856.328 1.773.739 2.274.081.098.093.185.068.284-.075.314-.242.995-.275 1.134-.044.183-.145.222-.334.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+              </svg>
+              Get on Steam — $19.99
+            </a>
+            <div class="text-left">
+              <div class="flex items-baseline gap-2">
+                <span class="text-xl font-bold text-[#22C55E]">$13.99</span>
+                <span class="text-sm text-[#6B6B80] line-through">$19.99</span>
+              </div>
+              <span class="text-xs text-[#22C55E] font-semibold">30% launch discount</span>
+            </div>
+          </div>
+          <p class="text-xs text-[#6B6B80]">Limited-time launch discount. Regular price $19.99.</p>
+        </div>
+
+        <!-- Quick Info Card -->
+        <div class="rounded-2xl border border-[#2A2A33] bg-[#141417] overflow-hidden" style="box-shadow: 0 4px 32px rgba(0,0,0,0.4);">
+          <div class="px-6 py-4 border-b border-[#2A2A33] bg-[#0D0D0F]">
+            <h2 class="text-sm font-semibold text-[#F0F0F2] uppercase tracking-wider">Game Info</h2>
+          </div>
+          <div class="divide-y divide-[#1E1E24]">
+            {quickInfo.map((item) => (
+              <div class="flex items-center justify-between px-6 py-3.5">
+                <span class="text-sm text-[#6B6B80]">{item.label}</span>
+                <div class="text-right">
+                  <span class="text-sm font-semibold text-[#F0F0F2]">{item.value}</span>
+                  {item.note && <span class="block text-xs text-[#6B6B80]">{item.note}</span>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- System Requirements -->
+  <section class="py-14 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+          System Requirements
+        </h2>
+        <p class="text-[#B0B0BE] text-sm mb-8">
+          PC (Windows). The game runs on most modern computers — only 1.05 GB download.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Minimum -->
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+            <div class="flex items-center gap-2 px-6 py-4 border-b border-[#2A2A33] bg-[#0D0D0F]">
+              <div class="w-2 h-2 rounded-full bg-[#EAB308]"></div>
+              <h3 class="text-sm font-bold text-[#F0F0F2] uppercase tracking-wider">Minimum</h3>
+            </div>
+            <div class="divide-y divide-[#1E1E24]">
+              {sysReqMin.map((row) => (
+                <div class="grid grid-cols-5 gap-2 px-6 py-3">
+                  <span class="col-span-2 text-xs font-semibold text-[#6B6B80] uppercase tracking-wide self-start pt-0.5">{row.label}</span>
+                  <span class="col-span-3 text-sm text-[#B0B0BE]">{row.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Recommended -->
+          <div class="rounded-xl border border-[rgba(245,114,0,0.25)] bg-[#141417] overflow-hidden">
+            <div class="flex items-center gap-2 px-6 py-4 border-b border-[rgba(245,114,0,0.2)] bg-[rgba(245,114,0,0.04)]">
+              <div class="w-2 h-2 rounded-full bg-[#F57200]"></div>
+              <h3 class="text-sm font-bold text-[#F0F0F2] uppercase tracking-wider">Recommended</h3>
+            </div>
+            <div class="divide-y divide-[#1E1E24]">
+              {sysReqRec.map((row) => (
+                <div class="grid grid-cols-5 gap-2 px-6 py-3">
+                  <span class="col-span-2 text-xs font-semibold text-[#6B6B80] uppercase tracking-wide self-start pt-0.5">{row.label}</span>
+                  <span class="col-span-3 text-sm text-[#B0B0BE]">{row.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs text-[#6B6B80] mt-4">
+          Linux is supported via Steam Play. Mac version is planned but not yet available.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Download Steps -->
+  <section class="py-14 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+          How to Download
+        </h2>
+        <p class="text-[#B0B0BE] text-sm mb-8">Get up and running in under 10 minutes.</p>
+
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-[18px] top-8 bottom-8 w-px bg-[#2A2A33] hidden sm:block"></div>
+
+          <div class="space-y-4">
+            {downloadSteps.map((item) => (
+              <div class="flex items-start gap-5">
+                <!-- Step number -->
+                <div class="relative z-10 shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-[Orbitron] font-bold text-sm text-[#F57200]" style="background: #141417; border: 2px solid rgba(245,114,0,0.4);">
+                  {item.step}
+                </div>
+                <!-- Content -->
+                <div class="flex-1 rounded-xl border border-[#2A2A33] bg-[#141417] p-5">
+                  <h3 class="text-[#F0F0F2] font-semibold mb-1">{item.title}</h3>
+                  <p class="text-sm text-[#6B6B80] leading-relaxed mb-2">{item.desc}</p>
+                  {item.link && (
+                    <a
+                      href={item.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 text-xs font-semibold text-[#FF8C12] hover:text-[#FFAA44] transition-colors duration-200"
+                    >
+                      {item.link.text}
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Availability -->
+  <section class="py-14 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
+          Platform Availability
+        </h2>
+        <p class="text-[#B0B0BE] text-sm mb-8">
+          Turbo Dismount 2 is currently a PC-first release. Console and mobile versions are not yet available.
+        </p>
+
+        <div class="space-y-2.5">
+          {platforms.map((platform) => {
+            const cfg = statusConfig[platform.status];
+            return (
+              <div class="flex items-center justify-between px-5 py-4 rounded-xl border bg-[#141417]" style={`border-color: ${cfg.border};`}>
+                <div>
+                  <span class="font-semibold text-[#F0F0F2]">{platform.name}</span>
+                  <span class="block text-xs text-[#6B6B80] mt-0.5">{platform.detail}</span>
+                </div>
+                <span
+                  class="px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wide whitespace-nowrap"
+                  style={`color: ${cfg.color}; background: ${cfg.bg}; border: 1px solid ${cfg.border};`}
+                >
+                  {platform.statusLabel}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-14 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider text-center mb-10">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
+                <span>{faq.q}</span>
+                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-4 text-sm text-[#B0B0BE] leading-relaxed border-t border-[#1E1E24]">
+                <p class="pt-4">{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-14 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(168,85,247,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
+        <!-- Decorative -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 opacity-10" style="background: radial-gradient(ellipse, rgba(245,114,0,0.5) 0%, transparent 70%);"></div>
+
+        <div class="relative z-10">
+          <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-3">
+            Ready to Play?
+          </h2>
+          <p class="text-[#B0B0BE] mb-2 max-w-md mx-auto text-sm">
+            Join thousands of players already enjoying 96% positive reviews on Steam.
+            1.05 GB download, fully manual driving, Workshop modding, and more.
+          </p>
+          <p class="text-xs text-[#6B6B80] mb-7">
+            Developed by Secret Exit Ltd (Finland) — released March 13, 2026
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+              style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 24px rgba(245,114,0,0.4);"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.141-.828 3.33-.236.995.499 1.806 1.476 1.806 1.773 0 3.14-1.868 3.14-4.566 0-2.386-1.716-4.054-4.163-4.054-2.835 0-4.498 2.126-4.498 4.323 0 .856.328 1.773.739 2.274.081.098.093.185.068.284-.075.314-.242.995-.275 1.134-.044.183-.145.222-.334.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+              </svg>
+              Get on Steam — $19.99
+            </a>
+            <a
+              href="/play-online/"
+              class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-[#F0F0F2] rounded-xl border border-[#2A2A33] hover:border-[rgba(245,114,0,0.4)] bg-[#141417] hover:bg-[#1E1E24] transition-all duration-300"
+            >
+              Play Free in Browser
+            </a>
+          </div>
+          <p class="text-xs text-[#6B6B80] mt-4">
+            30% launch discount active — limited time. Steam refund policy applies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
