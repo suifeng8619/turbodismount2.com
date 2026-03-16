@@ -63,7 +63,7 @@ const performanceTips = [
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] opacity-10" style="background: radial-gradient(ellipse, rgba(245,114,0,0.4) 0%, transparent 70%);"></div>
 
     <div class="container relative z-10">
-      <nav class="mb-6 text-sm text-[#6B6B80]" aria-label="Breadcrumb">
+      <nav class="mb-6 text-sm text-[#8888A0]" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2">
           <li><a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a></li>
           <li><span class="text-[#2A2A33]">/</span></li>
@@ -88,11 +88,11 @@ const performanceTips = [
       <!-- Quick stats -->
       <div class="flex flex-wrap gap-3">
         <div class="px-4 py-2 rounded-lg border border-[#2A2A33] bg-[#141417] text-sm">
-          <span class="text-[#6B6B80]">Download size: </span>
+          <span class="text-[#8888A0]">Download size: </span>
           <span class="text-[#F0F0F2] font-semibold">~1.05 GB</span>
         </div>
         <div class="px-4 py-2 rounded-lg border border-[#2A2A33] bg-[#141417] text-sm">
-          <span class="text-[#6B6B80]">Platform: </span>
+          <span class="text-[#8888A0]">Platform: </span>
           <span class="text-[#F0F0F2] font-semibold">Windows 10/11 64-bit</span>
         </div>
         <div class="px-4 py-2 rounded-lg border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.08)] text-sm">
@@ -117,13 +117,13 @@ const performanceTips = [
             </div>
             <div>
               <div class="font-[Orbitron] font-bold text-sm uppercase tracking-wider text-[#EAB308]">Minimum</div>
-              <div class="text-xs text-[#6B6B80]">Runs the game at low-medium settings</div>
+              <div class="text-xs text-[#8888A0]">Runs the game at low-medium settings</div>
             </div>
           </div>
           <div class="p-6 space-y-4">
             {minSpecs.map((spec) => (
               <div class="flex items-start justify-between gap-4 py-2 border-b border-[#1E1E24] last:border-0">
-                <span class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80] shrink-0 w-16">{spec.label}</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#8888A0] shrink-0 w-16">{spec.label}</span>
                 <span class="text-sm text-[#F0F0F2] text-right">{spec.value}</span>
               </div>
             ))}
@@ -140,13 +140,13 @@ const performanceTips = [
             </div>
             <div>
               <div class="font-[Orbitron] font-bold text-sm uppercase tracking-wider text-[#FF8C12]">Recommended</div>
-              <div class="text-xs text-[#6B6B80]">Smooth gameplay at high settings</div>
+              <div class="text-xs text-[#8888A0]">Smooth gameplay at high settings</div>
             </div>
           </div>
           <div class="p-6 space-y-4">
             {recSpecs.map((spec) => (
               <div class="flex items-start justify-between gap-4 py-2 border-b border-[#1E1E24] last:border-0">
-                <span class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80] shrink-0 w-16">{spec.label}</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-[#8888A0] shrink-0 w-16">{spec.label}</span>
                 <span class="text-sm text-[#F0F0F2] text-right">{spec.value}</span>
               </div>
             ))}
@@ -159,15 +159,15 @@ const performanceTips = [
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
           <div class="font-[Orbitron] font-bold text-2xl text-[#F57200] mb-1">1.05 GB</div>
-          <div class="text-xs text-[#6B6B80] uppercase tracking-wider">Installed game size</div>
+          <div class="text-xs text-[#8888A0] uppercase tracking-wider">Installed game size</div>
         </div>
         <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
           <div class="font-[Orbitron] font-bold text-2xl text-[#0080F5] mb-1">4 GB</div>
-          <div class="text-xs text-[#6B6B80] uppercase tracking-wider">Minimum free space</div>
+          <div class="text-xs text-[#8888A0] uppercase tracking-wider">Minimum free space</div>
         </div>
         <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
           <div class="font-[Orbitron] font-bold text-2xl text-[#EAB308] mb-1">10 GB</div>
-          <div class="text-xs text-[#6B6B80] uppercase tracking-wider">Recommended (with Workshop)</div>
+          <div class="text-xs text-[#8888A0] uppercase tracking-wider">Recommended (with Workshop)</div>
         </div>
       </div>
     </div>
@@ -185,51 +185,51 @@ const performanceTips = [
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-[#2A2A33] bg-[#1E1E24]">
-                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Platform</th>
-                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Status</th>
-                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Notes</th>
+                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#8888A0]">Platform</th>
+                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#8888A0]">Status</th>
+                <th class="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wider text-[#8888A0]">Notes</th>
               </tr>
             </thead>
             <tbody>
               <tr class="border-b border-[#1E1E24] bg-[#141417]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">Windows 10 64-bit</td>
                 <td class="px-5 py-3"><span class="text-[#22C55E] font-semibold">Available</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">Full Release v1.0 — March 13, 2026</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">Full Release v1.0 — March 13, 2026</td>
               </tr>
               <tr class="border-b border-[#1E1E24] bg-[#0D0D0F]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">Windows 11 64-bit</td>
                 <td class="px-5 py-3"><span class="text-[#22C55E] font-semibold">Available</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">Fully supported</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">Fully supported</td>
               </tr>
               <tr class="border-b border-[#1E1E24] bg-[#141417]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">Steam Deck (SteamOS)</td>
                 <td class="px-5 py-3"><span class="text-[#22C55E] font-semibold">Verified</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">Steam Deck Verified badge — optimized controls and UI</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">Steam Deck Verified badge — optimized controls and UI</td>
               </tr>
               <tr class="border-b border-[#1E1E24] bg-[#0D0D0F]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">Linux</td>
                 <td class="px-5 py-3"><span class="text-[#EAB308] font-semibold">Via Proton</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">Works through Steam Play/Proton (not natively tested)</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">Works through Steam Play/Proton (not natively tested)</td>
               </tr>
               <tr class="border-b border-[#1E1E24] bg-[#141417]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">macOS</td>
                 <td class="px-5 py-3"><span class="text-[#0080F5] font-semibold">Coming Soon</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">Confirmed in roadmap, no release date announced</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">Confirmed in roadmap, no release date announced</td>
               </tr>
               <tr class="border-b border-[#1E1E24] bg-[#0D0D0F]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">iOS</td>
                 <td class="px-5 py-3"><span class="text-[#0080F5] font-semibold">Planned</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">After PC Full Release, no date announced</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">After PC Full Release, no date announced</td>
               </tr>
               <tr class="border-b border-[#1E1E24] bg-[#141417]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">Android</td>
                 <td class="px-5 py-3"><span class="text-[#0080F5] font-semibold">Planned</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">After PC Full Release, no date announced</td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">After PC Full Release, no date announced</td>
               </tr>
               <tr class="bg-[#0D0D0F]">
                 <td class="px-5 py-3 text-[#F0F0F2] font-medium">PS5 / Xbox / Switch</td>
-                <td class="px-5 py-3"><span class="text-[#6B6B80] font-semibold">No Plans</span></td>
-                <td class="px-5 py-3 text-[#6B6B80] text-xs">No console version confirmed or announced</td>
+                <td class="px-5 py-3"><span class="text-[#8888A0] font-semibold">No Plans</span></td>
+                <td class="px-5 py-3 text-[#8888A0] text-xs">No console version confirmed or announced</td>
               </tr>
             </tbody>
           </table>
@@ -276,7 +276,7 @@ const performanceTips = [
             <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200 text-sm">
                 <span>{faq.q}</span>
-                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
               </summary>

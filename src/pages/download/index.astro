@@ -134,7 +134,7 @@ const statusConfig = {
   available: { color: '#22C55E', bg: 'rgba(34,197,94,0.1)', border: 'rgba(34,197,94,0.25)' },
   soon: { color: '#EAB308', bg: 'rgba(234,179,8,0.08)', border: 'rgba(234,179,8,0.2)' },
   planned: { color: '#0080F5', bg: 'rgba(0,128,245,0.08)', border: 'rgba(0,128,245,0.2)' },
-  none: { color: '#6B6B80', bg: 'rgba(107,107,128,0.08)', border: 'rgba(107,107,128,0.2)' },
+  none: { color: '#8888A0', bg: 'rgba(107,107,128,0.08)', border: 'rgba(107,107,128,0.2)' },
 };
 ---
 
@@ -206,14 +206,14 @@ const statusConfig = {
   })} />
 
   <!-- Hero Section -->
-  <section class="relative overflow-hidden py-14 md:py-20">
+  <section class="relative overflow-hidden py-16 md:py-24">
     <div class="absolute inset-0" style="background: linear-gradient(135deg, #0D0D1A 0%, #1A0D2E 35%, #0D1200 70%, #0D0D0F 100%);"></div>
     <div class="absolute top-1/2 right-1/4 w-[500px] h-[300px] opacity-15" style="background: radial-gradient(ellipse, rgba(168,85,247,0.4) 0%, transparent 70%);"></div>
     <div class="absolute top-2/3 left-0 right-0 h-px opacity-20" style="background: linear-gradient(90deg, transparent 0%, rgba(168,85,247,0.5) 50%, transparent 100%); animation: speed-line 4s ease-in-out infinite;"></div>
 
     <div class="container relative z-10">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-xs text-[#6B6B80] mb-8" aria-label="Breadcrumb">
+      <nav class="flex items-center gap-2 text-xs text-[#8888A0] mb-8" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
         <span>/</span>
         <span class="text-[#B0B0BE]">Download</span>
@@ -258,12 +258,12 @@ const statusConfig = {
             <div class="text-left">
               <div class="flex items-baseline gap-2">
                 <span class="text-xl font-bold text-[#22C55E]">$13.99</span>
-                <span class="text-sm text-[#6B6B80] line-through">$19.99</span>
+                <span class="text-sm text-[#8888A0] line-through">$19.99</span>
               </div>
               <span class="text-xs text-[#22C55E] font-semibold">30% launch discount</span>
             </div>
           </div>
-          <p class="text-xs text-[#6B6B80]">Limited-time launch discount. Regular price $19.99.</p>
+          <p class="text-xs text-[#8888A0]">Limited-time launch discount. Regular price $19.99.</p>
         </div>
 
         <!-- Quick Info Card -->
@@ -274,10 +274,10 @@ const statusConfig = {
           <div class="divide-y divide-[#1E1E24]">
             {quickInfo.map((item) => (
               <div class="flex items-center justify-between px-6 py-3.5">
-                <span class="text-sm text-[#6B6B80]">{item.label}</span>
+                <span class="text-sm text-[#8888A0]">{item.label}</span>
                 <div class="text-right">
                   <span class="text-sm font-semibold text-[#F0F0F2]">{item.value}</span>
-                  {item.note && <span class="block text-xs text-[#6B6B80]">{item.note}</span>}
+                  {item.note && <span class="block text-xs text-[#8888A0]">{item.note}</span>}
                 </div>
               </div>
             ))}
@@ -288,7 +288,7 @@ const statusConfig = {
   </section>
 
   <!-- System Requirements -->
-  <section class="py-14 border-t border-[#2A2A33]">
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
       <div class="max-w-4xl mx-auto">
         <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
@@ -308,7 +308,7 @@ const statusConfig = {
             <div class="divide-y divide-[#1E1E24]">
               {sysReqMin.map((row) => (
                 <div class="grid grid-cols-5 gap-2 px-6 py-3">
-                  <span class="col-span-2 text-xs font-semibold text-[#6B6B80] uppercase tracking-wide self-start pt-0.5">{row.label}</span>
+                  <span class="col-span-2 text-xs font-semibold text-[#8888A0] uppercase tracking-wide self-start pt-0.5">{row.label}</span>
                   <span class="col-span-3 text-sm text-[#B0B0BE]">{row.value}</span>
                 </div>
               ))}
@@ -324,7 +324,7 @@ const statusConfig = {
             <div class="divide-y divide-[#1E1E24]">
               {sysReqRec.map((row) => (
                 <div class="grid grid-cols-5 gap-2 px-6 py-3">
-                  <span class="col-span-2 text-xs font-semibold text-[#6B6B80] uppercase tracking-wide self-start pt-0.5">{row.label}</span>
+                  <span class="col-span-2 text-xs font-semibold text-[#8888A0] uppercase tracking-wide self-start pt-0.5">{row.label}</span>
                   <span class="col-span-3 text-sm text-[#B0B0BE]">{row.value}</span>
                 </div>
               ))}
@@ -332,7 +332,7 @@ const statusConfig = {
           </div>
         </div>
 
-        <p class="text-xs text-[#6B6B80] mt-4">
+        <p class="text-xs text-[#8888A0] mt-4">
           Linux is supported via Steam Play. Mac version is planned but not yet available.
         </p>
       </div>
@@ -340,7 +340,7 @@ const statusConfig = {
   </section>
 
   <!-- How to Download Steps -->
-  <section class="py-14 border-t border-[#2A2A33]">
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
@@ -362,7 +362,7 @@ const statusConfig = {
                 <!-- Content -->
                 <div class="flex-1 rounded-xl border border-[#2A2A33] bg-[#141417] p-5">
                   <h3 class="text-[#F0F0F2] font-semibold mb-1">{item.title}</h3>
-                  <p class="text-sm text-[#6B6B80] leading-relaxed mb-2">{item.desc}</p>
+                  <p class="text-sm text-[#8888A0] leading-relaxed mb-2">{item.desc}</p>
                   {item.link && (
                     <a
                       href={item.link.url}
@@ -386,7 +386,7 @@ const statusConfig = {
   </section>
 
   <!-- Platform Availability -->
-  <section class="py-14 border-t border-[#2A2A33]">
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
@@ -403,7 +403,7 @@ const statusConfig = {
               <div class="flex items-center justify-between px-5 py-4 rounded-xl border bg-[#141417]" style={`border-color: ${cfg.border};`}>
                 <div>
                   <span class="font-semibold text-[#F0F0F2]">{platform.name}</span>
-                  <span class="block text-xs text-[#6B6B80] mt-0.5">{platform.detail}</span>
+                  <span class="block text-xs text-[#8888A0] mt-0.5">{platform.detail}</span>
                 </div>
                 <span
                   class="px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wide whitespace-nowrap"
@@ -420,7 +420,7 @@ const statusConfig = {
   </section>
 
   <!-- FAQ Section -->
-  <section class="py-14 border-t border-[#2A2A33]">
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider text-center mb-10">
@@ -432,7 +432,7 @@ const statusConfig = {
             <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
                 <span>{faq.q}</span>
-                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
               </summary>
@@ -447,7 +447,7 @@ const statusConfig = {
   </section>
 
   <!-- Final CTA -->
-  <section class="py-14 border-t border-[#2A2A33]">
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
       <div class="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center max-w-3xl mx-auto" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(168,85,247,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
         <!-- Decorative -->
@@ -461,7 +461,7 @@ const statusConfig = {
             Join thousands of players already enjoying 96% positive reviews on Steam.
             1.05 GB download, fully manual driving, Workshop modding, and more.
           </p>
-          <p class="text-xs text-[#6B6B80] mb-7">
+          <p class="text-xs text-[#8888A0] mb-7">
             Developed by Secret Exit Ltd (Finland) — released March 13, 2026
           </p>
 
@@ -485,7 +485,7 @@ const statusConfig = {
               Play Free in Browser
             </a>
           </div>
-          <p class="text-xs text-[#6B6B80] mt-4">
+          <p class="text-xs text-[#8888A0] mt-4">
             30% launch discount active — limited time. Steam refund policy applies.
           </p>
         </div>

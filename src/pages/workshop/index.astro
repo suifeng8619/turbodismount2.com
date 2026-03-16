@@ -251,7 +251,7 @@ const faqs = [
 
     <div class="container relative z-10">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-xs text-[#6B6B80] mb-8" aria-label="Breadcrumb">
+      <nav class="flex items-center gap-2 text-xs text-[#8888A0] mb-8" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a>
         <span>/</span>
         <span class="text-[#B0B0BE]">Workshop</span>
@@ -330,7 +330,7 @@ const faqs = [
             <p class="text-sm text-[#B0B0BE] leading-relaxed mb-4">{type.description}</p>
 
             <div class="space-y-1.5">
-              <p class="text-xs text-[#6B6B80] uppercase tracking-wider mb-2">Examples</p>
+              <p class="text-xs text-[#8888A0] uppercase tracking-wider mb-2">Examples</p>
               {type.examples.map((ex) => (
                 <div class="flex items-center gap-2 text-xs text-[#B0B0BE]">
                   <span class="w-1 h-1 rounded-full shrink-0" style={`background: ${type.color};`}></span>
@@ -343,8 +343,8 @@ const faqs = [
 
         <!-- The "All the above" summary card -->
         <div class="sm:col-span-2 lg:col-span-3 p-6 rounded-xl border border-dashed border-[#2A2A33] bg-[rgba(245,114,0,0.03)] text-center">
-          <p class="text-sm text-[#6B6B80] mb-2">Every creation type uses the same Unity-based tools that Secret Exit uses internally.</p>
-          <p class="text-xs text-[#6B6B80] italic">
+          <p class="text-sm text-[#8888A0] mb-2">Every creation type uses the same Unity-based tools that Secret Exit uses internally.</p>
+          <p class="text-xs text-[#8888A0] italic">
             "All of our game levels are built with the same tools we give to Workshop creators." — Secret Exit Ltd
           </p>
         </div>
@@ -372,7 +372,7 @@ const faqs = [
           </svg>
         </a>
       </div>
-      <p class="text-sm text-[#6B6B80] mb-10 ml-4">
+      <p class="text-sm text-[#8888A0] mb-10 ml-4">
         Notable Workshop creations from the TD community. All free to subscribe on Steam Workshop.
       </p>
 
@@ -395,7 +395,7 @@ const faqs = [
                 {creation.name}
               </h3>
               <div class="flex items-center gap-3 mt-1.5">
-                <span class="text-xs text-[#6B6B80]">by {creation.creator}</span>
+                <span class="text-xs text-[#8888A0]">by {creation.creator}</span>
                 <span class="px-2 py-0.5 text-xs rounded-md bg-[#1E1E24] text-[#B0B0BE] border border-[#2A2A33]">{creation.type}</span>
               </div>
             </div>
@@ -458,7 +458,7 @@ const faqs = [
       <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-3">
         Known Creators
       </h2>
-      <p class="text-sm text-[#6B6B80] mb-10">Active Workshop creators with confirmed published content.</p>
+      <p class="text-sm text-[#8888A0] mb-10">Active Workshop creators with confirmed published content.</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {knownCreators.map((creator) => (
@@ -472,7 +472,7 @@ const faqs = [
             <p class="text-xs text-[#F57200] uppercase tracking-wider mb-3">{creator.specialty}</p>
             <p class="text-sm text-[#B0B0BE] leading-relaxed mb-3">{creator.description}</p>
             <div class="pt-3 border-t border-[#2A2A33]">
-              <p class="text-xs text-[#6B6B80] uppercase tracking-wider mb-1">Notable Work</p>
+              <p class="text-xs text-[#8888A0] uppercase tracking-wider mb-1">Notable Work</p>
               <p class="text-xs text-[#B0B0BE]">{creator.notable}</p>
             </div>
           </div>
@@ -488,14 +488,14 @@ const faqs = [
         <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-3">
           Workshop vs TD1
         </h2>
-        <p class="text-sm text-[#6B6B80] mb-8">How Turbo Dismount 2 Workshop compares to the first game's modding tools.</p>
+        <p class="text-sm text-[#8888A0] mb-8">How Turbo Dismount 2 Workshop compares to the first game's modding tools.</p>
 
         <div class="overflow-x-auto rounded-xl border border-[#2A2A33]">
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-[#2A2A33]" style="background: #141417;">
-                <th class="text-left px-5 py-4 text-xs font-semibold text-[#6B6B80] uppercase tracking-wider w-1/3">Feature</th>
-                <th class="text-left px-5 py-4 text-xs font-semibold text-[#6B6B80] uppercase tracking-wider w-1/3">
+                <th class="text-left px-5 py-4 text-xs font-semibold text-[#8888A0] uppercase tracking-wider w-1/3">Feature</th>
+                <th class="text-left px-5 py-4 text-xs font-semibold text-[#8888A0] uppercase tracking-wider w-1/3">
                   <span class="text-[#B0B0BE]">Turbo Dismount 1</span>
                 </th>
                 <th class="text-left px-5 py-4 text-xs font-semibold text-[#F57200] uppercase tracking-wider w-1/3">
@@ -507,7 +507,7 @@ const faqs = [
               {td1vsTd2.map((row, i) => (
                 <tr class={`border-b border-[#1E1E24] ${i % 2 === 0 ? 'bg-[#0D0D0F]' : 'bg-[#141417]'}`}>
                   <td class="px-5 py-4 font-medium text-[#F0F0F2]">{row.aspect}</td>
-                  <td class="px-5 py-4 text-[#6B6B80]">{row.td1}</td>
+                  <td class="px-5 py-4 text-[#8888A0]">{row.td1}</td>
                   <td class="px-5 py-4 text-[#B0B0BE]">
                     <span class="text-[#22C55E] font-medium">{row.td2}</span>
                   </td>
@@ -533,7 +533,7 @@ const faqs = [
             <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
                 <span>{faq.q}</span>
-                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
               </summary>
@@ -597,7 +597,7 @@ const faqs = [
             </a>
           </div>
 
-          <p class="text-xs text-[#6B6B80] mt-5">Workshop requires owning Turbo Dismount 2 on Steam</p>
+          <p class="text-xs text-[#8888A0] mt-5">Workshop requires owning Turbo Dismount 2 on Steam</p>
         </div>
       </div>
     </div>

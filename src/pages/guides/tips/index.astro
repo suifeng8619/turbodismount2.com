@@ -148,7 +148,7 @@ const breadcrumbSchema = {
   <section class="relative py-12 md:py-16 border-b border-[#2A2A33]" style="background: linear-gradient(180deg, #001A0A 0%, #0D0D0F 100%);">
     <div class="container">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-sm text-[#6B6B80] mb-6" aria-label="Breadcrumb">
+      <nav class="flex items-center gap-2 text-sm text-[#8888A0] mb-6" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
         <span>/</span>
         <a href="/guides/" class="hover:text-[#FF8C12] transition-colors duration-200">Guides</a>
@@ -161,9 +161,9 @@ const breadcrumbSchema = {
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[rgba(34,197,94,0.12)] text-[#22C55E] border border-[rgba(34,197,94,0.25)]">
           Intermediate
         </span>
-        <span class="text-sm text-[#6B6B80]">Updated: March 2026</span>
+        <span class="text-sm text-[#8888A0]">Updated: March 2026</span>
         <span class="text-[#2A2A33]">|</span>
-        <span class="text-sm text-[#6B6B80]">Read time: 6 min</span>
+        <span class="text-sm text-[#8888A0]">Read time: 6 min</span>
       </div>
 
       <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
@@ -190,7 +190,7 @@ const breadcrumbSchema = {
         <details class="group lg:hidden rounded-xl border border-[#2A2A33] bg-[#141417] mb-8 overflow-hidden">
           <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-medium">
             <span class="font-semibold">Table of Contents</span>
-            <svg class="w-4 h-4 text-[#6B6B80] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-4 h-4 text-[#8888A0] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
@@ -321,7 +321,7 @@ const breadcrumbSchema = {
               ].map(([label, desc]) => (
                 <div class="rounded-lg bg-[rgba(0,128,245,0.05)] border border-[rgba(0,128,245,0.1)] p-3">
                   <p class="font-semibold text-[#2E9EFF] text-xs mb-0.5">{label}</p>
-                  <p class="text-[#6B6B80] text-xs">{desc}</p>
+                  <p class="text-[#8888A0] text-xs">{desc}</p>
                 </div>
               ))}
             </div>
@@ -495,9 +495,9 @@ const breadcrumbSchema = {
               <a href={link.href} class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200">
                 <div class="flex-1 min-w-0">
                   <p class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 text-sm">{link.label}</p>
-                  <p class="text-xs text-[#6B6B80] mt-0.5 leading-relaxed">{link.desc}</p>
+                  <p class="text-xs text-[#8888A0] mt-0.5 leading-relaxed">{link.desc}</p>
                 </div>
-                <svg class="w-4 h-4 text-[#6B6B80] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-4 h-4 text-[#8888A0] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
@@ -512,7 +512,7 @@ const breadcrumbSchema = {
         <div class="sticky top-20">
           <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
             <div class="px-4 py-3 border-b border-[#2A2A33] bg-[#1E1E24]">
-              <p class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Contents</p>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#8888A0]">Contents</p>
             </div>
             <nav aria-label="Article table of contents">
               <ol class="py-3">
@@ -533,18 +533,18 @@ const breadcrumbSchema = {
 
           <!-- Quick stats -->
           <div class="mt-4 rounded-xl border border-[#2A2A33] bg-[#141417] p-4">
-            <p class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80] mb-3">Guide Stats</p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#8888A0] mb-3">Guide Stats</p>
             <div class="space-y-2 text-sm">
               <div class="flex justify-between">
-                <span class="text-[#6B6B80]">Tips covered</span>
+                <span class="text-[#8888A0]">Tips covered</span>
                 <span class="text-[#F0F0F2] font-mono font-bold">15</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-[#6B6B80]">Sections</span>
+                <span class="text-[#8888A0]">Sections</span>
                 <span class="text-[#F0F0F2] font-mono font-bold">7</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-[#6B6B80]">Difficulty</span>
+                <span class="text-[#8888A0]">Difficulty</span>
                 <span class="text-[#22C55E] font-semibold text-xs">Intermediate</span>
               </div>
             </div>

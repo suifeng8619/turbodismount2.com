@@ -181,7 +181,7 @@ const itemListSchema = {
 
     <div class="container relative z-10">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-xs text-[#6B6B80] mb-8" aria-label="Breadcrumb">
+      <nav class="flex items-center gap-2 text-xs text-[#8888A0] mb-8" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a>
         <span>/</span>
         <a href="/database/" class="hover:text-[#FF8C12] transition-colors">Database</a>
@@ -208,7 +208,7 @@ const itemListSchema = {
           Find the right vehicle for every situation.
         </p>
 
-        <p class="text-xs text-[#6B6B80] mt-4 italic">
+        <p class="text-xs text-[#8888A0] mt-4 italic">
           Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.
         </p>
       </div>
@@ -232,9 +232,9 @@ const itemListSchema = {
             <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-2 flex items-center gap-3">
               <span class="w-1 h-7 rounded-full" style={`background: ${color};`}></span>
               {cat}
-              <span class="text-sm font-normal text-[#6B6B80]">({catVehicles.length} vehicles)</span>
+              <span class="text-sm font-normal text-[#8888A0]">({catVehicles.length} vehicles)</span>
             </h2>
-            <p class="text-sm text-[#6B6B80] mb-8 ml-4">
+            <p class="text-sm text-[#8888A0] mb-8 ml-4">
               {cat === 'Cars' && 'Standard road vehicles ranging from sedans to high-performance racers.'}
               {cat === 'Trucks' && 'Heavy-duty vehicles built for durability and raw impact force.'}
               {cat === 'Special Vehicles' && 'Unique non-standard vehicles with distinctive physics and abilities.'}
@@ -257,7 +257,7 @@ const itemListSchema = {
                     <h3 class="font-[Orbitron] text-lg font-bold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 uppercase tracking-wide">
                       {v.name}
                     </h3>
-                    <p class="text-xs text-[#6B6B80] mt-0.5 uppercase tracking-wider">{v.type}</p>
+                    <p class="text-xs text-[#8888A0] mt-0.5 uppercase tracking-wider">{v.type}</p>
                   </div>
 
                   <!-- Stat Bars -->
@@ -307,18 +307,18 @@ const itemListSchema = {
 
                   <!-- Special Ability -->
                   <div class="mb-3 pb-3 border-b border-[#2A2A33]">
-                    <p class="text-xs text-[#6B6B80] uppercase tracking-wider mb-1">Special Ability</p>
+                    <p class="text-xs text-[#8888A0] uppercase tracking-wider mb-1">Special Ability</p>
                     <p class="text-sm text-[#B0B0BE]">{v.specialAbility}</p>
                   </div>
 
                   <!-- Recommended For -->
                   <div>
-                    <p class="text-xs text-[#6B6B80] uppercase tracking-wider mb-1">Best For</p>
+                    <p class="text-xs text-[#8888A0] uppercase tracking-wider mb-1">Best For</p>
                     <p class="text-sm text-[#B0B0BE]">{v.recommendedFor}</p>
                   </div>
 
                   {v.note && (
-                    <p class="text-xs text-[#6B6B80] italic mt-3 pt-3 border-t border-[#1E1E24]">
+                    <p class="text-xs text-[#8888A0] italic mt-3 pt-3 border-t border-[#1E1E24]">
                       Source: {v.note}
                     </p>
                   )}
@@ -347,7 +347,7 @@ const itemListSchema = {
                 {item.vehicle.slice(0, 2).toUpperCase()}
               </div>
               <div>
-                <p class="text-xs text-[#6B6B80] uppercase tracking-wider mb-0.5">{item.mode}</p>
+                <p class="text-xs text-[#8888A0] uppercase tracking-wider mb-0.5">{item.mode}</p>
                 <p class="text-sm font-bold text-[#F0F0F2]">{item.vehicle}</p>
                 <p class="text-xs text-[#B0B0BE] mt-1">{item.reason}</p>
               </div>
@@ -417,7 +417,7 @@ const itemListSchema = {
             <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
                 <span>{faq.q}</span>
-                <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
               </summary>

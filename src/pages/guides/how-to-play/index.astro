@@ -51,7 +51,7 @@ const gameModes = [
     name: 'Chill Mode',
     desc: 'No objectives, no timers. Drive around, crash things, and experiment with the physics sandbox. Good for learning how vehicles handle before tackling scored levels.',
     badge: 'Sandbox',
-    badgeColor: '#6B6B80',
+    badgeColor: '#8888A0',
   },
 ];
 
@@ -158,7 +158,7 @@ const breadcrumbSchema = {
   <section class="relative py-12 md:py-16 border-b border-[#2A2A33]" style="background: linear-gradient(180deg, #1A0A00 0%, #0D0D0F 100%);">
     <div class="container">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 text-sm text-[#6B6B80] mb-6" aria-label="Breadcrumb">
+      <nav class="flex items-center gap-2 text-sm text-[#8888A0] mb-6" aria-label="Breadcrumb">
         <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
         <span>/</span>
         <a href="/guides/" class="hover:text-[#FF8C12] transition-colors duration-200">Guides</a>
@@ -171,9 +171,9 @@ const breadcrumbSchema = {
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[rgba(245,114,0,0.12)] text-[#FF8C12] border border-[rgba(245,114,0,0.25)]">
           Beginner
         </span>
-        <span class="text-sm text-[#6B6B80]">Updated: March 2026</span>
+        <span class="text-sm text-[#8888A0]">Updated: March 2026</span>
         <span class="text-[#2A2A33]">|</span>
-        <span class="text-sm text-[#6B6B80]">Read time: 8 min</span>
+        <span class="text-sm text-[#8888A0]">Read time: 8 min</span>
       </div>
 
       <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
@@ -199,7 +199,7 @@ const breadcrumbSchema = {
         <details class="group lg:hidden rounded-xl border border-[#2A2A33] bg-[#141417] mb-8 overflow-hidden">
           <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-semibold">
             <span>Table of Contents</span>
-            <svg class="w-4 h-4 text-[#6B6B80] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-[#8888A0] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
@@ -309,7 +309,7 @@ const breadcrumbSchema = {
             </table>
           </div>
 
-          <p class="text-xs text-[#6B6B80] mt-3">Default bindings as of v1.0. All keys can be remapped in Settings &gt; Controls.</p>
+          <p class="text-xs text-[#8888A0] mt-3">Default bindings as of v1.0. All keys can be remapped in Settings &gt; Controls.</p>
         </section>
 
         <!-- Section: Vehicle Physics -->
@@ -339,9 +339,9 @@ const breadcrumbSchema = {
           <div class="mt-6 p-5 rounded-xl border-l-4 border-[#0080F5] bg-[rgba(0,128,245,0.06)]" role="note">
             <p class="text-sm font-semibold text-[#2E9EFF] uppercase tracking-wider mb-3">Vehicle Selection Guidance</p>
             <ul class="space-y-2 text-sm text-[#B0B0BE]">
-              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Ranger</span><span class="text-[#6B6B80] mx-1">—</span>Balanced stats, forgiving handling. Best starting vehicle.</li>
-              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Wedge</span><span class="text-[#6B6B80] mx-1">—</span>High top speed, fragile body. Good for Racing mode on open tracks.</li>
-              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Heavy Trucks</span><span class="text-[#6B6B80] mx-1">—</span>High mass, lower speed. Excels at pushing through obstacle courses.</li>
+              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Ranger</span><span class="text-[#8888A0] mx-1">—</span>Balanced stats, forgiving handling. Best starting vehicle.</li>
+              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Wedge</span><span class="text-[#8888A0] mx-1">—</span>High top speed, fragile body. Good for Racing mode on open tracks.</li>
+              <li class="flex items-start gap-2"><span class="text-[#2E9EFF] shrink-0">Heavy Trucks</span><span class="text-[#8888A0] mx-1">—</span>High mass, lower speed. Excels at pushing through obstacle courses.</li>
             </ul>
           </div>
         </section>
@@ -408,7 +408,7 @@ const breadcrumbSchema = {
             ].map(([title, desc]) => (
               <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
                 <p class="font-semibold text-[#F0F0F2] text-sm mb-1">{title}</p>
-                <p class="text-xs text-[#6B6B80] leading-relaxed">{desc}</p>
+                <p class="text-xs text-[#8888A0] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -482,7 +482,7 @@ const breadcrumbSchema = {
               <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
                 <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
                   <span>{faq.q}</span>
-                  <svg class="w-5 h-5 text-[#6B6B80] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                   </svg>
                 </summary>
@@ -507,9 +507,9 @@ const breadcrumbSchema = {
               <a href={link.href} class="group flex items-center gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200">
                 <div class="flex-1 min-w-0">
                   <p class="font-semibold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200 text-sm">{link.label}</p>
-                  <p class="text-xs text-[#6B6B80] mt-0.5 leading-relaxed">{link.desc}</p>
+                  <p class="text-xs text-[#8888A0] mt-0.5 leading-relaxed">{link.desc}</p>
                 </div>
-                <svg class="w-4 h-4 text-[#6B6B80] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-4 h-4 text-[#8888A0] group-hover:text-[#F57200] shrink-0 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
@@ -524,7 +524,7 @@ const breadcrumbSchema = {
         <div class="sticky top-20">
           <div class="rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
             <div class="px-4 py-3 border-b border-[#2A2A33] bg-[#1E1E24]">
-              <p class="text-xs font-semibold uppercase tracking-wider text-[#6B6B80]">Contents</p>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#8888A0]">Contents</p>
             </div>
             <nav aria-label="Article table of contents">
               <ol class="py-3">
@@ -555,7 +555,7 @@ const breadcrumbSchema = {
             >
               $19.99 on Steam
             </a>
-            <p class="text-xs text-[#6B6B80] mt-2">30% launch discount available</p>
+            <p class="text-xs text-[#8888A0] mt-2">30% launch discount available</p>
           </div>
         </div>
       </aside>
