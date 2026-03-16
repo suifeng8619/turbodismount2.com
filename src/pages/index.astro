@@ -262,6 +262,54 @@ const stats = [
     </div>
   </section>
 
+  <!-- Development History (data from research reports 01, 03, 09) -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6">
+          The Journey
+        </h2>
+        <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+          <p>
+            The original <strong class="text-[#F0F0F2]">Turbo Dismount</strong> launched on Steam in May 2014, followed by iOS (September 2014) and
+            Android (November 2014). Built by <strong class="text-[#F0F0F2]">Secret Exit Ltd</strong>, a small Finnish studio founded in 2006 in Helsinki,
+            it became a viral sensation — accumulating over <strong class="text-[#F57200]">71 million downloads</strong> across all platforms, with
+            50 million+ on Android alone.
+          </p>
+          <p>
+            The game's popularity was fueled by major YouTubers including <strong class="text-[#F0F0F2]">PewDiePie</strong>,
+            <strong class="text-[#F0F0F2]">Jacksepticeye</strong>, and <strong class="text-[#F0F0F2]">Markiplier</strong> — who even created
+            custom levels in the Steam Workshop. On TikTok, Turbo Dismount content has generated videos with
+            <strong class="text-[#F57200]">19.2 million views</strong>.
+          </p>
+          <p>
+            Development of Turbo Dismount 2 took <strong class="text-[#F0F0F2]">over 8 years</strong>. The game was
+            <a href="/news/" class="text-[#FF8C12] hover:text-[#FFAA44]">announced in August 2024</a>,
+            entered <strong class="text-[#F0F0F2]">Early Access on January 23, 2025</strong>, and after a 14-month
+            testing period (including "The BIG Update" in February 2026 and an Open Beta in early March), reached
+            <a href="/download/" class="text-[#FF8C12] hover:text-[#FFAA44]">Full Release on March 13, 2026</a>.
+            The release was delayed from the original February 27 target to ensure quality.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { year: '2014', event: 'Original TD launches on Steam' },
+            { year: '2024', event: 'TD2 announced for Steam' },
+            { year: '2025', event: 'Early Access begins' },
+            { year: '2026', event: 'Full Release v1.0' },
+          ].map((item) => (
+            <div class="p-4 rounded-xl border border-[#2A2A33] bg-[#141417] text-center">
+              <div class="font-[Orbitron] text-lg font-bold text-[#F57200]">{item.year}</div>
+              <div class="text-xs text-[#8888A0] mt-1">{item.event}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
   <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
