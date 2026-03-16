@@ -29,7 +29,7 @@
   /* --- 文字色系 --- */
   --color-turbo-text: #F0F0F2;
   --color-turbo-text-secondary: #B0B0BE;
-  --color-turbo-text-muted: #6B6B80;
+  --color-turbo-text-muted: #8888A0;
 
   /* --- 字体 --- */
   --font-display: 'Orbitron', 'Arial Black', sans-serif;
@@ -126,6 +126,33 @@ details > summary {
 }
 details > summary::-webkit-details-marker {
   display: none;
+}
+
+/* Table scroll indicator for mobile */
+.table-scroll-wrapper {
+  position: relative;
+}
+.table-scroll-wrapper::after {
+  content: '← Scroll →';
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #8888A0;
+  padding: 0.5rem 0;
+}
+@media (min-width: 768px) {
+  .table-scroll-wrapper::after {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* --- Speed Line Decoration --- */
