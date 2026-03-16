@@ -168,7 +168,7 @@ const relatedGames = [
           </div>
 
           <!-- Loading placeholder + iframe -->
-          <div class="relative" style="height: 600px;">
+          <div class="relative" style="aspect-ratio: 16/9; min-height: 360px;">
             <!-- Loading state -->
             <div id="game-loading" class="absolute inset-0 flex flex-col items-center justify-center z-10 bg-[#141417]">
               <div class="w-12 h-12 rounded-full border-2 border-[#2A2A33] border-t-[#F57200] animate-spin mb-4"></div>
@@ -424,5 +424,22 @@ const relatedGames = [
       </div>
     </div>
   </section>
+
+<script>
+  // T01: Hide loading spinner when iframe finishes loading.
+  // sandbox attribute blocks inline onload, so we use addEventListener here instead.
+  document.getElementById('game-iframe')?.addEventListener('load', () => {
+    const loading = document.getElementById('game-loading');
+    if (loading) loading.classList.add('hidden');
+  });
+
+  // Fallback: auto-hide after 8 seconds in case the load event is delayed.
+  setTimeout(() => {
+    const loading = document.getElementById('game-loading');
+    if (loading && !loading.classList.contains('hidden')) {
+      loading.classList.add('hidden');
+    }
+  }, 8000);
+</script>
 
 </BaseLayout>
