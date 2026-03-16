@@ -109,7 +109,7 @@ const stats = [
           style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 24px rgba(245,114,0,0.4);"
         >
           Start Playing
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </a>
@@ -117,7 +117,7 @@ const stats = [
           href="/play-online/"
           class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-[#F0F0F2] rounded-xl border border-[#2A2A33] hover:border-[rgba(245,114,0,0.4)] bg-[#141417] hover:bg-[#1E1E24] transition-all duration-300"
         >
-          <svg class="w-5 h-5 text-[#F57200]" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-[#F57200]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M8 5v14l11-7z"/>
           </svg>
           Play Online Free
@@ -162,7 +162,7 @@ const stats = [
             </h3>
             <p class="text-sm text-[#8888A0] leading-relaxed">{feature.desc}</p>
             <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <svg class="w-5 h-5 text-[#F57200]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-[#F57200]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </div>
@@ -210,7 +210,7 @@ const stats = [
             'Steam Deck verified',
           ].map((feature) => (
             <div class="flex items-center gap-2 text-sm">
-              <svg class="w-4 h-4 text-[#22C55E] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-[#22C55E] shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
               <span class="text-[#B0B0BE]">{feature}</span>
@@ -234,7 +234,7 @@ const stats = [
             <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
               <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
                 <span>{faq.q}</span>
-                <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
               </summary>
