@@ -65,7 +65,7 @@ const featuredCreations: FeaturedCreation[] = [
     name: "Codeman's Turbo Dismount Levels",
     creator: 'Codeman',
     type: 'Level Collection',
-    description: 'One of the most subscribed Workshop collections, featuring multiple polished levels with varied themes. Codeman has been an active creator since the original Turbo Dismount, bringing years of level design experience to TD2.',
+    description: 'One of the highly subscribed Workshop collections, featuring multiple polished levels with varied themes. Codeman has been an active creator since the original Turbo Dismount, bringing years of level design experience to TD2.',
     workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
     highlight: 'Most Subscribed',
   },
@@ -317,10 +317,8 @@ const faqs = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {creationTypes.map((type) => (
           <div
-            class="group p-6 rounded-xl border bg-[#141417] hover:bg-[#1E1E24] transition-all duration-300 hover:-translate-y-1"
-            style={`border-color: #2A2A33; --hover-border: ${type.color}44;`}
-            onmouseenter={`this.style.borderColor='${type.color}44'`}
-            onmouseleave="this.style.borderColor='#2A2A33'"
+            class="group p-6 rounded-xl border bg-[#141417] hover:bg-[#1E1E24] transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(245,114,0,0.3)]"
+            style={`border-color: #2A2A33;`}
           >
             <!-- Color accent bar -->
             <div class="w-full h-1 rounded-full mb-5" style={`background: linear-gradient(90deg, ${type.color}, ${type.color}44);`}></div>
@@ -429,9 +427,9 @@ const faqs = [
 
         <div class="space-y-4">
           {steps.map((step) => (
-            <div class="flex gap-5 p-6 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.2)] transition-colors duration-200">
+            <div class="group flex gap-5 p-6 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.2)] transition-colors duration-200">
               <div class="shrink-0">
-                <div class="font-[Orbitron] text-2xl font-black text-[#2A2A33] group-hover:text-[#F57200]">
+                <div class="font-[Orbitron] text-2xl font-black text-[rgba(245,114,0,0.4)] group-hover:text-[#F57200]">
                   {step.number}
                 </div>
               </div>
