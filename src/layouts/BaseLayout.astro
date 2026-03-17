@@ -39,7 +39,17 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonical} />
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVNT0YNE9E"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CVNT0YNE9E');
+  </script>
+
   <!-- DNS Prefetch for third-party domains -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://store.steampowered.com" />
   <link rel="dns-prefetch" href="https://steamcommunity.com" />
   <link rel="dns-prefetch" href="https://www.crazygames.com" />
