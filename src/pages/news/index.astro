@@ -378,6 +378,35 @@ const typeLabel: Record<string, string> = {
     </div>
   </section>
 
+  <!-- Known Issues (data from research report 03 — user reviews) -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">Known Issues (v1.0)</h2>
+        <p class="text-sm text-[#B0B0BE] mb-6">Community-reported issues from Steam reviews and discussions. The developers are actively patching — check Steam News for the latest fixes.</p>
+        <div class="space-y-3">
+          {[
+            { category: 'Camera', issue: 'Camera sometimes stutters and locks to an area outside the map. Reported on multiple levels.', status: 'Under investigation' },
+            { category: 'Timer', issue: 'Timer occasionally starts too early, even while the ragdoll is still being crushed by a vehicle.', status: 'Under investigation' },
+            { category: 'Traffic AI', issue: 'NPC traffic behavior is unstable — vehicles sometimes collide with each other and break the level design (e.g., T-Junction).', status: 'Under investigation' },
+            { category: 'Windshield', issue: 'Windshield collision missing on certain vehicles (e.g., Bandit).', status: 'Reported' },
+            { category: 'Ragdoll', issue: 'Ragdoll feet twitch during animation sequences. Ragdoll can clip into ground causing physics glitches.', status: 'Reported' },
+            { category: 'Sprint End', issue: 'Sprint ends prematurely when vehicle gets stuck, even if ragdoll is still in motion. Players want a manual end-sprint option.', status: 'Feature request' },
+          ].map((item) => (
+            <div class="flex items-start gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417]">
+              <span class="shrink-0 px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider bg-[rgba(234,179,8,0.12)] text-[#EAB308] mt-0.5">{item.category}</span>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{item.issue}</p>
+                <p class="text-xs text-[#8888A0] mt-1">Status: {item.status}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-[#8888A0] mt-4 italic">Source: Steam Community reviews and discussions (research report 03). Last verified: March 2026.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Community Announcements -->
   <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">
