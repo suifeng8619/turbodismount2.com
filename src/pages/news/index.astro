@@ -462,6 +462,16 @@ const typeLabel: Record<string, string> = {
     </div>
   </section>
 
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+      { "@type": "ListItem", "position": 2, "name": "News", "item": "https://turbodismount2.com/news/" }
+    ]
+  })} />
+
   <!-- Schema: NewsArticle -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",

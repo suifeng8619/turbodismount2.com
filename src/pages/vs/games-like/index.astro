@@ -483,6 +483,16 @@ const ratingColor = (score: number) => {
     </div>
   </section>
 
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Games Like Turbo Dismount", "item": "https://turbodismount2.com/vs/games-like/" }
+    ]
+  })} />
+
   <!-- Related Pages -->
   <section class="py-12 md:py-16 border-t border-[#2A2A33]">
     <div class="container">

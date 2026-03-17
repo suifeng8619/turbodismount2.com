@@ -140,6 +140,16 @@ const statusConfig = {
 
 <BaseLayout title={title} description={description} canonicalUrl="https://turbodismount2.com/download/">
 
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Download", "item": "https://turbodismount2.com/download/" }
+    ]
+  })} />
+
   <!-- HowTo Schema -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
