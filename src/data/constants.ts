@@ -8,7 +8,7 @@ export const GAME = {
   releaseDate: '2026-03-13',
   releaseDateHuman: 'March 13, 2026',
   reviewScore: '96',
-  reviewCount: '542',
+  reviewCount: '551',
   downloadSize: '1.05 GB',
   developer: 'Secret Exit Ltd',
   developerUrl: 'https://secretexit.com/',
