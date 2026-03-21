@@ -102,7 +102,7 @@ const mobileFaqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage="/og-mobile.png">
 
   <!-- Hero -->
   <section class="relative overflow-hidden py-16 md:py-24">
@@ -513,6 +513,118 @@ const mobileFaqs = [
               </div>
             </details>
           ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Original Turbo Dismount on Mobile: The Numbers -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Original Turbo Dismount on Mobile — By the Numbers
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] p-4 text-center">
+            <div class="font-[Orbitron] font-black text-2xl text-[#F57200] mb-1">71M+</div>
+            <div class="text-xs text-[#8888A0]">Total Downloads</div>
+          </div>
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] p-4 text-center">
+            <div class="font-[Orbitron] font-black text-2xl text-[#F57200] mb-1">4.6/5</div>
+            <div class="text-xs text-[#8888A0]">App Store Rating</div>
+          </div>
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] p-4 text-center">
+            <div class="font-[Orbitron] font-black text-2xl text-[#F57200] mb-1">Sep 2014</div>
+            <div class="text-xs text-[#8888A0]">iOS Launch</div>
+          </div>
+          <div class="rounded-xl border border-[#2A2A33] bg-[#141417] p-4 text-center">
+            <div class="font-[Orbitron] font-black text-2xl text-[#F57200] mb-1">Nov 2014</div>
+            <div class="text-xs text-[#8888A0]">Android Launch</div>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+          <p>
+            The original Turbo Dismount launched on iOS in <strong class="text-[#F0F0F2]">September 2014</strong> and Android in <strong class="text-[#F0F0F2]">November 2014</strong>. Within two weeks of its iOS debut, it cracked the Top 10 free apps chart and stayed there for months, fueled by YouTube Let's Play videos and word-of-mouth sharing. On Android, it surpassed 50 million installs on Google Play alone, with an additional 21 million+ on iOS, bringing the combined total past 71 million downloads.
+          </p>
+          <p>
+            The mobile version was free-to-play with optional ad removal and vehicle packs as in-app purchases. This accessible pricing model was a major driver of adoption — players could experience the full ragdoll physics sandbox without paying anything upfront. Secret Exit maintained regular updates with new levels, vehicles, and seasonal content that kept the community engaged for years after launch.
+          </p>
+          <p>
+            Both versions remain available today. You can still download <a href="https://apps.apple.com/app/turbo-dismount/id490913956" target="_blank" rel="noopener noreferrer" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">Turbo Dismount on the App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.secretexit.turbodismount" target="_blank" rel="noopener noreferrer" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">Turbo Dismount on Google Play</a> for free. While the graphics and physics are a generation behind TD2, they offer the same core crash-test gameplay loop that made the franchise famous.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Original TD vs TD2 Mobile: What to Expect -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Original TD vs TD2 Mobile — What Will Change?
+        </h2>
+
+        <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+          <p>
+            The original Turbo Dismount mobile used a simplified version of the PC physics engine, with lower polygon counts, pre-baked lighting, and a limited set of vehicles and levels compared to the desktop release. Touch controls mapped the camera and launch actions to swipe and tap gestures, which worked well for the arcade-style gameplay.
+          </p>
+          <p>
+            Turbo Dismount 2 is built on <strong class="text-[#F0F0F2]">Unity 6.3</strong>, which includes significant mobile rendering improvements: GPU-driven rendering, adaptive performance scaling, and native touch input APIs. This means the mobile port should be able to deliver substantially better visuals and physics fidelity than the original — closer to the PC experience rather than a stripped-down version.
+          </p>
+          <p>
+            Key differences players can expect from a TD2 mobile release include:
+          </p>
+          <ul class="space-y-2 ml-4">
+            <li class="flex items-start gap-2">
+              <span class="text-[#F57200] mt-1 shrink-0">&#9656;</span>
+              <span><strong class="text-[#F0F0F2]">Next-gen ragdoll physics</strong> — TD2's improved soft-body deformation and vehicle damage system, running on mobile GPUs with adaptive quality scaling</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#F57200] mt-1 shrink-0">&#9656;</span>
+              <span><strong class="text-[#F0F0F2]">More content at launch</strong> — TD2 PC shipped with 20+ vehicles and 8 levels; the mobile version will likely include all base content from the PC release</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#F57200] mt-1 shrink-0">&#9656;</span>
+              <span><strong class="text-[#F0F0F2]">User-created content</strong> — while Steam Workshop won't be available on mobile, Secret Exit may implement a cross-platform content sharing system for community levels and vehicles</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#F57200] mt-1 shrink-0">&#9656;</span>
+              <span><strong class="text-[#F0F0F2]">Touch-optimized controls</strong> — Unity 6.3's enhanced touch input system allows for more precise camera control, launch angle adjustment, and slow-motion replay scrubbing via touch gestures</span>
+            </li>
+          </ul>
+          <p>
+            No official screenshots or gameplay footage from the mobile build have been shown. Everything above is based on the technology stack and developer statements about mobile being a post-launch priority.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why TD2 Mobile Is Worth the Wait -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl">
+        <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-6">
+          Why Turbo Dismount 2 Mobile Is Worth the Wait
+        </h2>
+
+        <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
+          <p>
+            Mobile gaming hardware has advanced dramatically since the original TD launched in 2014. The iPhone 6 that ran the first mobile TD had a dual-core 1.4GHz CPU and 1GB of RAM. Today's mobile devices — like the iPhone 16 with its 6-core A18 chip or the Samsung Galaxy S25 with Snapdragon 8 Elite — have console-class GPU performance that can handle TD2's advanced physics simulations.
+          </p>
+          <p>
+            Secret Exit's decision to delay the mobile release until after the PC version is stable follows the same strategy they used with the original game. The PC version of TD launched in <time datetime="2014-01-20">January 2014</time>, followed by iOS in <time datetime="2014-09">September</time> and Android in <time datetime="2014-11">November</time> — roughly an 8-to-10-month gap. If TD2 follows a similar timeline from its Full Release on <time datetime="2026-03-13">March 13, 2026</time>, a mobile version could realistically arrive in <strong class="text-[#F0F0F2]">late 2026 or early 2027</strong>.
+          </p>
+          <p>
+            The 96% positive review rating on Steam demonstrates that TD2's core gameplay loop — the satisfying ragdoll physics, creative level design, and replay-driven scoring — is already well-tuned. A mobile port of an already-polished game is far better than a rushed simultaneous launch. For the 71 million players who enjoyed the original on their phones, the sequel is shaping up to be a significant upgrade in every dimension.
+          </p>
+          <p>
+            In the meantime, you can <a href="/play-online/" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">play the original in your browser</a>, download the <a href="https://apps.apple.com/app/turbo-dismount/id490913956" target="_blank" rel="noopener noreferrer" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">original on iOS</a> or <a href="https://play.google.com/store/apps/details?id=com.secretexit.turbodismount" target="_blank" rel="noopener noreferrer" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">Android</a> for free, or <a href="/download/" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">get TD2 on Steam</a> for the full next-gen experience today.
+          </p>
         </div>
       </div>
     </div>
