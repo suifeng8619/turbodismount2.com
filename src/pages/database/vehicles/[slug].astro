@@ -343,17 +343,35 @@ const faqSchema = vehicle.faqs.length > 0 ? {
           See {vehicle.name} in Action
         </h2>
 
-        <div class="relative rounded-xl overflow-hidden border border-[#2A2A33] aspect-video bg-[#0D0D0F]">
-          <lite-youtube videoid="_eY5eaJG-1s" playlabel={`Play Turbo Dismount 2 ${vehicle.name} gameplay`}>
-            <a href="https://www.youtube.com/watch?v=_eY5eaJG-1s" class="lty-playbtn" title={`Play Turbo Dismount 2 ${vehicle.name} gameplay`}>
-              <span class="lyt-visually-hidden">Play</span>
-            </a>
-          </lite-youtube>
-          <noscript>
-            <a href="https://www.youtube.com/watch?v=_eY5eaJG-1s" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg" alt={`Turbo Dismount 2 ${vehicle.name} gameplay trailer`} class="w-full h-full object-cover" loading="lazy" width="1280" height="720" />
-            </a>
-          </noscript>
+        <div class="relative rounded-xl overflow-hidden border border-[#2A2A33] bg-[#141417]" style="aspect-ratio: 16/9;">
+          <iframe
+            id={`trailer-${vehicle.slug}`}
+            class="absolute inset-0 w-full h-full hidden"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+          <button
+            id={`trailer-btn-${vehicle.slug}`}
+            class="absolute inset-0 w-full h-full flex flex-col items-center justify-center cursor-pointer group z-10"
+            style="background: linear-gradient(180deg, rgba(13,13,15,0.3) 0%, rgba(13,13,15,0.7) 100%);"
+            aria-label={`Play Turbo Dismount 2 ${vehicle.name} gameplay trailer`}
+          >
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style="background: rgba(245,114,0,0.9); box-shadow: 0 0 32px rgba(245,114,0,0.5);">
+              <svg class="w-7 h-7 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <span class="mt-4 text-sm font-medium text-[#B0B0BE] group-hover:text-white transition-colors duration-200">Watch Gameplay Trailer</span>
+          </button>
+          <img
+            src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg"
+            alt={`Turbo Dismount 2 ${vehicle.name} gameplay trailer thumbnail`}
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            width="1280"
+            height="720"
+          />
         </div>
 
         <p class="text-xs text-[#8888A0] mt-3 italic">
@@ -431,4 +449,17 @@ const faqSchema = vehicle.faqs.length > 0 ? {
       </div>
     </div>
   </section>
+
+  <!-- Lite YouTube loader -->
+  <script define:vars={{ slug: vehicle.slug }}>
+    document.getElementById(`trailer-btn-${slug}`)?.addEventListener('click', () => {
+      const iframe = document.getElementById(`trailer-${slug}`);
+      const btn = document.getElementById(`trailer-btn-${slug}`);
+      if (iframe && btn) {
+        iframe.src = 'https://www.youtube-nocookie.com/embed/_eY5eaJG-1s?autoplay=1&rel=0';
+        iframe.classList.remove('hidden');
+        btn.classList.add('hidden');
+      }
+    });
+  </script>
 </BaseLayout>
