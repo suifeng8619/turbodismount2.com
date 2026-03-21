@@ -1,0 +1,19 @@
+# turbodismount2.com
+
+> Unofficial fan wiki and guide site for Turbo Dismount 2 — a comedy physics racing sandbox game by Secret Exit Ltd.
+
+## Pages
+
+- [Home](https://turbodismount2.com/): Wiki homepage with game overview, stats, and quick links
+- [How to Play](https://turbodismount2.com/guides/how-to-play/): Complete beginner's guide — controls, game modes, scoring
+- [Tips & Tricks](https://turbodismount2.com/guides/tips/): 15 pro strategies for higher scores
+- [Vehicle Database](https://turbodismount2.com/database/vehicles/): All vehicles with speed, handling, durability ratings
+- [Level Guide](https://turbodismount2.com/database/levels/): Every level walkthrough with high score tips
+- [Workshop](https://turbodismount2.com/workshop/): Best community mods, maps, and custom levels
+- [News & Updates](https://turbodismount2.com/news/): Patch notes, roadmap, development timeline
+- [Download](https://turbodismount2.com/download/): How to buy on Steam, system requirements
+- [Play Online](https://turbodismount2.com/play-online/): Free browser version of original Turbo Dismount
+- [FAQ](https://turbodismount2.com/faq/): 25+ common questions answered
+- [System Requirements](https://turbodismount2.com/system-requirements/): PC specs checker
+- [Mobile](https://turbodismount2.com/mobile/): iOS/Android release date tracking
+- [Games Like TD2](https://turbodismount2.com/vs/games-like/): 12+ physics destruction alternatives compared
