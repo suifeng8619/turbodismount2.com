@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { GAME } from '../../data/constants';
 
 const title = 'Download Turbo Dismount 2 — Price & System Requirements';
-const description = `Get Turbo Dismount 2 on Steam for ${GAME.price} (${GAME.discountPercent}% launch discount). Check system requirements, download size (1.05GB), and platform availability.`;
+const description = 'Download Turbo Dismount 2 on Steam — step-by-step guide. Currently ' + GAME.salePrice + ' with ' + GAME.discountPercent + '% launch discount. Check system requirements and platform availability.';
 
 const quickInfo = [
   { label: 'Price', value: GAME.price, note: `${GAME.discountPercent}% off: ${GAME.salePrice}`, color: '#F57200' },
@@ -495,7 +495,7 @@ const statusConfig = {
             1.05 GB download, fully manual driving, Workshop modding, and more.
           </p>
           <p class="text-xs text-[#8888A0] mb-7">
-            Developed by Secret Exit Ltd (Finland) — released March 13, 2026
+            Developed by Secret Exit Ltd (Finland) — released <time datetime="2026-03-13">March 13, 2026</time>
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -550,7 +550,7 @@ const statusConfig = {
             </div>
             <span class="mt-3 text-xs font-medium text-[#B0B0BE] group-hover:text-white transition-colors">Watch Trailer</span>
           </button>
-          <img src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg" alt="Turbo Dismount 2 gameplay trailer" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <img src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg" alt="Turbo Dismount 2 gameplay trailer" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1280" height="720" />
         </div>
       </div>
     </div>

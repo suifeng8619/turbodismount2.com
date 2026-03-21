@@ -43,11 +43,15 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
   <link rel="canonical" href={canonical} />
 
-  <!-- DNS Prefetch for third-party domains -->
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-  <link rel="dns-prefetch" href="https://store.steampowered.com" />
-  <link rel="dns-prefetch" href="https://steamcommunity.com" />
-  <link rel="dns-prefetch" href="https://www.crazygames.com" />
+  <!-- Preconnect for third-party domains -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://store.steampowered.com" />
+  <link rel="preconnect" href="https://steamcommunity.com" />
+  <link rel="preconnect" href="https://www.crazygames.com" />
+  <link rel="preconnect" href="https://shared.st.dl.eccdnx.com" />
+  <link rel="preconnect" href="https://cdn.fastly.steamstatic.com" />
+  <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com" />
+  <link rel="preconnect" href="https://img.youtube.com" />
 
   <!-- Fonts (non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -79,6 +83,12 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="Turbo Dismount 2 Updates" href="/feed.xml" />
 
   <!-- Schema.org - WebSite (homepage only) -->
   {isHome && <script type="application/ld+json" set:html={JSON.stringify({

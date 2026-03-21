@@ -56,6 +56,19 @@ const faqs = [
   },
 ];
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Play Turbo Dismount Online Free",
+  "description": "Play Turbo Dismounting in your browser — no download needed.",
+  "step": howToSteps.map((item) => ({
+    "@type": "HowToStep",
+    "name": item.title,
+    "text": item.desc,
+    "position": item.step,
+  })),
+};
+
 const relatedGames = [
   {
     title: 'Happy Wheels',
@@ -109,6 +122,9 @@ const relatedGames = [
       },
     })),
   })} />
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden py-16 md:py-24">
