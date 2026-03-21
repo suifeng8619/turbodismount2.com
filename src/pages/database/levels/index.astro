@@ -224,6 +224,16 @@ const faqs = [
                     ))}
                   </div>
                   <p class="text-xs text-[#8888A0] mt-1">{level.difficulty}/5</p>
+
+                  <a
+                    href={`/database/levels/${level.slug}/`}
+                    class="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-[#FF8C12] hover:text-[#FFAA44] transition-colors duration-200"
+                  >
+                    Full Guide
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>

@@ -1,0 +1,434 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { vehicles } from '../../../data/vehicles';
+import { officialLevels } from '../../../data/levels';
+import { GAME } from '../../../data/constants';
+
+export function getStaticPaths() {
+  return vehicles.map((v, i) => ({
+    params: { slug: v.slug },
+    props: {
+      vehicle: v,
+      index: i,
+      prev: i > 0 ? vehicles[i - 1] : null,
+      next: i < vehicles.length - 1 ? vehicles[i + 1] : null,
+    },
+  }));
+}
+
+const { vehicle, index, prev, next } = Astro.props;
+
+const seoTitle = `${vehicle.name} — Turbo Dismount 2 Vehicle Stats & Guide`;
+const seoDescription = `Turbo Dismount 2 ${vehicle.name} (${vehicle.type}) — Speed ${vehicle.speed}/10, Handling ${vehicle.handling}/10, Durability ${vehicle.durability}/10. ${vehicle.recommendedFor}. Community stats and tips.`;
+const canonicalUrl = `https://turbodismount2.com/database/vehicles/${vehicle.slug}/`;
+
+const sameCategory = vehicles.filter(v => v.category === vehicle.category);
+
+const bestLevelData = vehicle.bestLevels
+  .map(slug => officialLevels.find(l => l.slug === slug))
+  .filter(Boolean);
+
+const hasExtendedContent = vehicle.description.length > 0;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: seoTitle,
+  description: seoDescription,
+  image: 'https://turbodismount2.com/og-vehicles.png',
+  author: { '@type': 'Organization', name: 'turbodismount2.com' },
+  publisher: { '@type': 'Organization', name: 'turbodismount2.com' },
+  datePublished: '2026-03-21',
+  dateModified: '2026-03-21',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://turbodismount2.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Vehicles', item: 'https://turbodismount2.com/database/vehicles/' },
+    { '@type': 'ListItem', position: 3, name: vehicle.name, item: canonicalUrl },
+  ],
+};
+
+const faqSchema = vehicle.faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: vehicle.faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+} : null;
+---
+
+<BaseLayout title={seoTitle} description={seoDescription} ogImage="/og-vehicles.png" canonicalUrl={canonicalUrl} type="article">
+  <!-- Article Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <!-- FAQPage Schema -->
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #1A0A00 0%, #2D1200 40%, #0D0D0F 80%, #080D18 100%);"></div>
+    <img src="https://shared.st.dl.eccdnx.com/store_item_assets/steam/apps/2280350/header.jpg?t=1773497496" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none select-none" loading="eager" width="460" height="215" />
+    <div class="absolute top-1/2 left-1/4 w-[600px] h-[300px] opacity-15" style="background: radial-gradient(ellipse, rgba(245,114,0,0.4) 0%, transparent 70%);"></div>
+
+    <div class="container relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs text-[#8888A0] mb-8" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors">Home</a>
+        <span>/</span>
+        <a href="/database/" class="hover:text-[#FF8C12] transition-colors">Database</a>
+        <span>/</span>
+        <a href="/database/vehicles/" class="hover:text-[#FF8C12] transition-colors">Vehicles</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">{vehicle.name}</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        {vehicle.badge && (
+          <span
+            class="inline-block px-3 py-1 mb-4 rounded-md text-xs font-bold uppercase tracking-wider"
+            style={`background: ${vehicle.badgeColor}22; color: ${vehicle.badgeColor}; border: 1px solid ${vehicle.badgeColor}44;`}
+          >
+            {vehicle.badge}
+          </span>
+        )}
+
+        <h1 class="font-[Orbitron] font-black text-3xl md:text-5xl uppercase tracking-wider leading-tight mb-4">
+          <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent">
+            Turbo Dismount 2
+          </span>
+          <br />
+          <span class="text-[#F0F0F2]">{vehicle.name}</span>
+        </h1>
+
+        <p class="text-base md:text-lg text-[#B0B0BE] mb-2">
+          {vehicle.type} — {vehicle.category}
+        </p>
+
+        <p class="text-sm text-[#B0B0BE] leading-relaxed max-w-2xl">
+          {vehicle.specialAbility}. Recommended for: {vehicle.recommendedFor}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Visualization -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+          <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+          Performance Stats
+        </h2>
+
+        <div class="space-y-5">
+          <!-- Speed -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-semibold text-[#F0F0F2] uppercase tracking-wider">Speed</span>
+              <span class="text-sm font-bold text-[#F57200] font-[Orbitron]">{vehicle.speed}/10</span>
+            </div>
+            <div class="h-2.5 rounded-full bg-[#1E1E24] overflow-hidden">
+              <div
+                class="h-full rounded-full"
+                style={`width: ${vehicle.speed * 10}%; background: #F57200;`}
+              ></div>
+            </div>
+          </div>
+
+          <!-- Handling -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-semibold text-[#F0F0F2] uppercase tracking-wider">Handling</span>
+              <span class="text-sm font-bold text-[#EAB308] font-[Orbitron]">{vehicle.handling}/10</span>
+            </div>
+            <div class="h-2.5 rounded-full bg-[#1E1E24] overflow-hidden">
+              <div
+                class="h-full rounded-full"
+                style={`width: ${vehicle.handling * 10}%; background: #EAB308;`}
+              ></div>
+            </div>
+          </div>
+
+          <!-- Durability -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-semibold text-[#F0F0F2] uppercase tracking-wider">Durability</span>
+              <span class="text-sm font-bold text-[#22C55E] font-[Orbitron]">{vehicle.durability}/10</span>
+            </div>
+            <div class="h-2.5 rounded-full bg-[#1E1E24] overflow-hidden">
+              <div
+                class="h-full rounded-full"
+                style={`width: ${vehicle.durability * 10}%; background: #22C55E;`}
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs text-[#8888A0] mt-4 italic">
+          Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Comparison Table -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+          <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+          {vehicle.category} Comparison
+        </h2>
+
+        <div class="overflow-x-auto rounded-xl border border-[#2A2A33]">
+          <p class="text-xs text-[#8888A0] px-4 py-2 bg-[#0D0D0F] sm:hidden">&larr; Scroll &rarr;</p>
+          <table class="w-full text-sm min-w-[400px]">
+            <thead>
+              <tr class="bg-[#0D0D0F]">
+                <th class="text-left px-4 py-3 text-[#8888A0] text-xs uppercase tracking-wider font-semibold">Name</th>
+                <th class="text-center px-4 py-3 text-[#F57200] text-xs uppercase tracking-wider font-semibold">Speed</th>
+                <th class="text-center px-4 py-3 text-[#EAB308] text-xs uppercase tracking-wider font-semibold">Handling</th>
+                <th class="text-center px-4 py-3 text-[#22C55E] text-xs uppercase tracking-wider font-semibold">Durability</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sameCategory.map((v, i) => {
+                const isCurrent = v.slug === vehicle.slug;
+                return (
+                  <tr class={`border-t border-[#1E1E24] transition-colors hover:bg-[#1E1E24] ${isCurrent ? 'border-l-2 border-l-[#F57200]' : ''} ${i % 2 === 0 ? 'bg-[#0D0D0F]' : 'bg-[#141417]'} ${isCurrent ? '!bg-[rgba(245,114,0,0.05)]' : ''}`}>
+                    <td class="px-4 py-2.5">
+                      {isCurrent ? (
+                        <span class="font-bold text-[#F57200]">{v.name}</span>
+                      ) : (
+                        <a href={`/database/vehicles/${v.slug}/`} class="font-medium text-[#F0F0F2] hover:text-[#FF8C12] transition-colors">{v.name}</a>
+                      )}
+                    </td>
+                    <td class="text-center px-4 py-2.5 font-bold text-[#F57200]">{v.speed}</td>
+                    <td class="text-center px-4 py-2.5 font-bold text-[#EAB308]">{v.handling}</td>
+                    <td class="text-center px-4 py-2.5 font-bold text-[#22C55E]">{v.durability}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Ability & Recommended For -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+          <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+          Special Ability
+        </h2>
+
+        <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417] mb-6">
+          <p class="text-[#F0F0F2] leading-relaxed">{vehicle.specialAbility}</p>
+        </div>
+
+        {hasExtendedContent && (
+          <div class="prose prose-invert max-w-none mb-8">
+            {vehicle.description.split('\n\n').map(paragraph => (
+              <p class="text-sm text-[#B0B0BE] leading-relaxed mb-4">{paragraph}</p>
+            ))}
+          </div>
+        )}
+
+        <div class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
+          <p class="text-xs text-[#8888A0] uppercase tracking-wider mb-2">Recommended For</p>
+          <p class="text-sm text-[#F0F0F2]">{vehicle.recommendedFor}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Levels -->
+  {bestLevelData.length > 0 && (
+    <section class="py-10 border-t border-[#2A2A33]">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+            <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+            Best Levels for {vehicle.name}
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {bestLevelData.map(level => level && (
+              <a
+                href={`/database/levels/${level.slug}/`}
+                class="p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200 block group"
+              >
+                <h3 class="font-bold text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors mb-1">{level.name}</h3>
+                <p class="text-xs text-[#8888A0] mb-2">{level.theme} — {level.type}</p>
+                <p class="text-xs text-[#B0B0BE]">Difficulty: {level.difficulty}/5</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Tips -->
+  {vehicle.tips.length > 0 && (
+    <section class="py-10 border-t border-[#2A2A33]">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+            <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+            Tips for {vehicle.name}
+          </h2>
+
+          <div class="space-y-3">
+            {vehicle.tips.map((tip, i) => (
+              <div class="flex gap-4 p-4 rounded-xl border border-[#2A2A33] bg-[#141417]">
+                <div class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-[Orbitron] text-white" style="background: linear-gradient(135deg, #F57200, #C95A00);">
+                  {i + 1}
+                </div>
+                <p class="text-sm text-[#B0B0BE] leading-relaxed">{tip}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ -->
+  {vehicle.faqs.length > 0 && (
+    <section class="py-10 border-t border-[#2A2A33]">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+            <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+            {vehicle.name} FAQ
+          </h2>
+
+          <div class="space-y-3">
+            {vehicle.faqs.map(faq => (
+              <details class="group rounded-xl border border-[#2A2A33] bg-[#141417] overflow-hidden">
+                <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[#F0F0F2] font-medium hover:bg-[#1E1E24] transition-colors duration-200">
+                  <span>{faq.q}</span>
+                  <svg class="w-5 h-5 text-[#8888A0] shrink-0 ml-4 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                </summary>
+                <div class="px-6 pb-4 text-sm text-[#B0B0BE] leading-relaxed border-t border-[#1E1E24]">
+                  <p class="pt-4">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Video Section -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+          <span class="w-1 h-6 rounded-full bg-[#F57200]"></span>
+          See {vehicle.name} in Action
+        </h2>
+
+        <div class="relative rounded-xl overflow-hidden border border-[#2A2A33] aspect-video bg-[#0D0D0F]">
+          <lite-youtube videoid="_eY5eaJG-1s" playlabel={`Play Turbo Dismount 2 ${vehicle.name} gameplay`}>
+            <a href="https://www.youtube.com/watch?v=_eY5eaJG-1s" class="lty-playbtn" title={`Play Turbo Dismount 2 ${vehicle.name} gameplay`}>
+              <span class="lyt-visually-hidden">Play</span>
+            </a>
+          </lite-youtube>
+          <noscript>
+            <a href="https://www.youtube.com/watch?v=_eY5eaJG-1s" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg" alt={`Turbo Dismount 2 ${vehicle.name} gameplay trailer`} class="w-full h-full object-cover" loading="lazy" width="1280" height="720" />
+            </a>
+          </noscript>
+        </div>
+
+        <p class="text-xs text-[#8888A0] mt-3 italic">
+          Turbo Dismount 2 official gameplay trailer. All vehicles are available from the start.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation: Prev / All / Next -->
+  <section class="py-10 border-t border-[#2A2A33]">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-stretch justify-between gap-3">
+          <!-- Previous -->
+          <div class="flex-1">
+            {prev && (
+              <a href={`/database/vehicles/${prev.slug}/`} class="flex flex-col p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200 h-full">
+                <span class="text-xs text-[#8888A0] mb-1">&larr; Previous</span>
+                <span class="text-sm font-bold text-[#F0F0F2]">{prev.name}</span>
+                <span class="text-xs text-[#8888A0]">{prev.type}</span>
+              </a>
+            )}
+          </div>
+
+          <!-- All Vehicles -->
+          <div class="flex items-center">
+            <a href="/database/vehicles/" class="px-5 py-3 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200 text-sm font-semibold text-[#F0F0F2] whitespace-nowrap">
+              All Vehicles
+            </a>
+          </div>
+
+          <!-- Next -->
+          <div class="flex-1">
+            {next && (
+              <a href={`/database/vehicles/${next.slug}/`} class="flex flex-col items-end p-4 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-200 h-full text-right">
+                <span class="text-xs text-[#8888A0] mb-1">Next &rarr;</span>
+                <span class="text-sm font-bold text-[#F0F0F2]">{next.name}</span>
+                <span class="text-xs text-[#8888A0]">{next.type}</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-10">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-[#B0B0BE] mb-4 text-sm">
+          All vehicles are available from the start in Turbo Dismount 2.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a
+            href={GAME.steamUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+            style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
+          >
+            Get on Steam — {GAME.price}
+          </a>
+          <a
+            href="/guides/tips/"
+            class="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-[#F0F0F2] rounded-xl border border-[#2A2A33] hover:border-[rgba(245,114,0,0.4)] bg-[#141417] hover:bg-[#1E1E24] transition-all duration-300"
+          >
+            Tips & Tricks
+            <svg class="w-4 h-4 text-[#F57200]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
