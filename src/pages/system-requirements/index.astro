@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GAME } from '../../data/constants';
 
 const title = 'Turbo Dismount 2 System Requirements — Can You Run It?';
 const description = 'Turbo Dismount 2 PC system requirements. Minimum: Core 2 Duo, 16GB RAM. Only 1.05GB download. Check if your PC can run TD2.';
@@ -369,13 +370,13 @@ const performanceTips = [
           1.05 GB download. Runs on almost any PC from 2012 onward. Steam Deck Verified.
         </p>
         <a
-          href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+          href={GAME.steamUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
           style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
         >
-          Get on Steam — $19.99
+          Get on Steam — {GAME.price}
         </a>
       </div>
     </div>
@@ -412,7 +413,7 @@ const performanceTips = [
       "price": "19.99",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
-      "url": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+      "url": GAME.steamUrl
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -443,7 +444,7 @@ const performanceTips = [
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <a href="/download/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
           <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">Download TD2</h3>
-          <p class="text-sm text-[#8888A0]">Get it on Steam — $13.99 with launch discount</p>
+          <p class="text-sm text-[#8888A0]">Get it on Steam — {GAME.salePrice} with launch discount</p>
         </a>
         <a href="/guides/how-to-play/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
           <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">How to Play</h3>

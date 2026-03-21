@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GAME } from '../../data/constants';
 
 const title = 'Turbo Dismount 2 Mobile — iOS & Android Release Date & News';
 const description = 'When is Turbo Dismount 2 coming to mobile? Track iOS and Android release date. Play the original Turbo Dismount free on mobile now.';
@@ -10,15 +11,15 @@ const platformStatus = [
     status: 'Available',
     statusType: 'available',
     detail: 'Full Release v1.0 — March 13, 2026',
-    url: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/',
-    urlLabel: 'Buy on Steam — $19.99',
+    url: GAME.steamUrl,
+    urlLabel: `Buy on Steam — ${GAME.price}`,
   },
   {
     platform: 'Steam Deck (SteamOS)',
     status: 'Available',
     statusType: 'available',
     detail: 'Steam Deck Verified — optimized controls and UI',
-    url: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/',
+    url: GAME.steamUrl,
     urlLabel: 'Buy on Steam',
   },
   {
@@ -92,7 +93,7 @@ const mobileFaqs = [
   },
   {
     q: 'Will Turbo Dismount 2 mobile be free?',
-    a: 'No pricing has been announced for the mobile version. The original mobile TD was free with ads and optional purchases. TD2 on PC is $19.99. Mobile pricing will likely differ from the PC version — but nothing has been confirmed.',
+    a: `No pricing has been announced for the mobile version. The original mobile TD was free with ads and optional purchases. TD2 on PC is ${GAME.price}. Mobile pricing will likely differ from the PC version — but nothing has been confirmed.`,
   },
   {
     q: 'Will the mobile version have Steam Workshop?',
@@ -526,15 +527,15 @@ const mobileFaqs = [
           Don't wait for mobile. TD2 is available on Steam — Windows 10/11, Steam Deck Verified, 96% positive reviews.
         </p>
         <a
-          href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+          href={GAME.steamUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
           style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 100%); box-shadow: 0 4px 20px rgba(245,114,0,0.35);"
         >
-          Get on Steam — $19.99
+          Get on Steam — {GAME.price}
         </a>
-        <p class="text-xs text-[#8888A0] mt-3">30% launch discount available</p>
+        <p class="text-xs text-[#8888A0] mt-3">{GAME.discountPercent}% launch discount available</p>
       </div>
     </div>
   </section>

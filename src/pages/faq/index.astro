@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GAME } from '../../data/constants';
 
 const title = 'Turbo Dismount 2 FAQ — 25+ Common Questions Answered';
 const description = 'Answers to the most common Turbo Dismount 2 questions. Price, platforms, system requirements, mobile release, Workshop, mods, and more.';
@@ -37,15 +38,15 @@ const faqCategories = [
     questions: [
       {
         q: 'How much does Turbo Dismount 2 cost?',
-        a: 'Turbo Dismount 2 costs $19.99 USD on Steam. A 30% launch discount is currently available, bringing the price to $13.99 USD. Prices in other currencies are set by Steam based on regional pricing. There is no subscription or additional platform fee beyond the one-time purchase.',
+        a: `Turbo Dismount 2 costs ${GAME.price} USD on Steam. A ${GAME.discountPercent}% launch discount is currently available, bringing the price to ${GAME.salePrice} USD. Prices in other currencies are set by Steam based on regional pricing. There is no subscription or additional platform fee beyond the one-time purchase.`,
       },
       {
         q: 'Is there a free version or free trial?',
-        a: 'There is no free version of Turbo Dismount 2. The original Turbo Dismount (2014) is available free on iOS and Android. You can play a browser-based version of the original for free on our Play Online page (turbodismount2.com/play-online/) — no download needed. Turbo Dismount 2 itself costs $19.99 on Steam (currently 30% off at $13.99).',
+        a: `There is no free version of Turbo Dismount 2. The original Turbo Dismount (2014) is available free on iOS and Android. You can play a browser-based version of the original for free on our Play Online page (turbodismount2.com/play-online/) — no download needed. Turbo Dismount 2 itself costs ${GAME.price} on Steam (currently ${GAME.discountPercent}% off at ${GAME.salePrice}).`,
       },
       {
         q: 'Where can I buy Turbo Dismount 2?',
-        a: 'Turbo Dismount 2 is sold exclusively on Steam (store.steampowered.com/app/2280350). It is not currently available on console storefronts, the Epic Games Store, GOG, or any other PC launcher. Key reseller sites may carry Steam keys, but verify these are from reputable sellers.',
+        a: `Turbo Dismount 2 is sold exclusively on Steam (store.steampowered.com/app/${GAME.steamAppId}). It is not currently available on console storefronts, the Epic Games Store, GOG, or any other PC launcher. Key reseller sites may carry Steam keys, but verify these are from reputable sellers.`,
       },
       {
         q: 'Does Turbo Dismount 2 have in-game purchases?',

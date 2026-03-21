@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GAME } from '../../data/constants';
 
 const title = 'Turbo Dismount 2 News — Updates, Patch Notes & Roadmap';
 const description = 'Latest Turbo Dismount 2 news, patch notes, and development roadmap. Track updates from Secret Exit. Full release March 2026.';
@@ -216,7 +217,7 @@ const typeLabel: Record<string, string> = {
             <div class="text-xs text-[#8888A0] uppercase tracking-wider mt-1">Steam Positive</div>
             <div class="text-xs text-[#8888A0] mt-0.5">542 reviews</div>
             <a
-              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              href={GAME.steamUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-block mt-4 px-5 py-2 text-sm font-bold text-white rounded-lg transition-all hover:-translate-y-0.5"
@@ -557,7 +558,7 @@ const typeLabel: Record<string, string> = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <a href="/download/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
           <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">Download TD2</h3>
-          <p class="text-sm text-[#8888A0]">Get it on Steam — $13.99 with launch discount</p>
+          <p class="text-sm text-[#8888A0]">Get it on Steam — {GAME.salePrice} with launch discount</p>
         </a>
         <a href="/workshop/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
           <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">Workshop</h3>

@@ -264,7 +264,7 @@ const statusConfig = {
           <!-- Price + CTA -->
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
             <a
-              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              href={GAME.steamUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
@@ -273,17 +273,17 @@ const statusConfig = {
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.141-.828 3.33-.236.995.499 1.806 1.476 1.806 1.773 0 3.14-1.868 3.14-4.566 0-2.386-1.716-4.054-4.163-4.054-2.835 0-4.498 2.126-4.498 4.323 0 .856.328 1.773.739 2.274.081.098.093.185.068.284-.075.314-.242.995-.275 1.134-.044.183-.145.222-.334.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
               </svg>
-              Get on Steam — $19.99
+              Get on Steam — {GAME.price}
             </a>
             <div class="text-left">
               <div class="flex items-baseline gap-2">
-                <span class="text-xl font-bold text-[#22C55E]">$13.99</span>
-                <span class="text-sm text-[#8888A0] line-through">$19.99</span>
+                <span class="text-xl font-bold text-[#22C55E]">{GAME.salePrice}</span>
+                <span class="text-sm text-[#8888A0] line-through">{GAME.price}</span>
               </div>
-              <span class="text-xs text-[#22C55E] font-semibold">30% launch discount</span>
+              <span class="text-xs text-[#22C55E] font-semibold">{GAME.discountPercent}% launch discount</span>
             </div>
           </div>
-          <p class="text-xs text-[#8888A0]">Limited-time launch discount. Regular price $19.99.</p>
+          <p class="text-xs text-[#8888A0]">Limited-time launch discount. Regular price {GAME.price}.</p>
         </div>
 
         <!-- Quick Info Card -->
@@ -500,7 +500,7 @@ const statusConfig = {
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+              href={GAME.steamUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 px-8 py-3.5 text-base font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5"
@@ -509,7 +509,7 @@ const statusConfig = {
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.141-.828 3.33-.236.995.499 1.806 1.476 1.806 1.773 0 3.14-1.868 3.14-4.566 0-2.386-1.716-4.054-4.163-4.054-2.835 0-4.498 2.126-4.498 4.323 0 .856.328 1.773.739 2.274.081.098.093.185.068.284-.075.314-.242.995-.275 1.134-.044.183-.145.222-.334.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
               </svg>
-              Get on Steam — $19.99
+              Get on Steam — {GAME.price}
             </a>
             <a
               href="/play-online/"
@@ -519,7 +519,7 @@ const statusConfig = {
             </a>
           </div>
           <p class="text-xs text-[#8888A0] mt-4">
-            30% launch discount active — limited time. Steam refund policy applies.
+            {GAME.discountPercent}% launch discount active — limited time. Steam refund policy applies.
           </p>
         </div>
       </div>
