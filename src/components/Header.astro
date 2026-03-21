@@ -1,4 +1,6 @@
 ---
+import { GAME } from '../data/constants';
+
 const navItems = [
   { label: 'How to Play', href: '/guides/how-to-play/' },
   { label: 'Tips', href: '/guides/tips/' },
@@ -45,7 +47,7 @@ const currentPath = Astro.url.pathname;
     <div class="flex items-center gap-3">
       <!-- Steam CTA -->
       <a
-        href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+        href={GAME.steamUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg transition-all duration-300 hover:-translate-y-0.5"
@@ -90,13 +92,13 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
       <a
-        href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+        href={GAME.steamUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="mt-2 flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white rounded-lg"
         style="background: linear-gradient(135deg, #FF8C12 0%, #F57200 50%, #C95A00 100%);"
       >
-        Get on Steam — $13.99
+        Get on Steam — {GAME.salePrice}
       </a>
     </nav>
   </div>
