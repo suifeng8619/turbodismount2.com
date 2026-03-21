@@ -234,6 +234,8 @@ const ratingColor = (score: number) => {
       class="absolute inset-0 w-full h-full object-cover opacity-10"
       loading="eager"
       aria-hidden="true"
+      width="1280"
+      height="720"
     />
     <div class="absolute inset-0" style="background: linear-gradient(135deg, #0A1A0A 0%, #0D1A2E 40%, #0D0D0F 100%);"></div>
     <div class="absolute top-1/2 right-1/4 w-[500px] h-[300px] -translate-y-1/2 opacity-10" style="background: radial-gradient(ellipse, rgba(0,128,245,0.5) 0%, transparent 70%);"></div>
@@ -305,7 +307,7 @@ const ratingColor = (score: number) => {
             {games.map((game, i) => (
               <tr class={`border-b border-[#1E1E24] ${i % 2 === 0 ? 'bg-[#0D0D0F]' : 'bg-[#141417]'} hover:bg-[#1E1E24] transition-colors`}>
                 <td class="px-4 py-3">
-                  <a href={game.url} target="_blank" rel="noopener noreferrer" class="text-[#F0F0F2] hover:text-[#FF8C12] font-medium transition-colors">
+                  <a href={game.url} target="_blank" rel="noopener noreferrer nofollow" class="text-[#F0F0F2] hover:text-[#FF8C12] font-medium transition-colors">
                     {game.name}
                   </a>
                 </td>
@@ -388,7 +390,7 @@ const ratingColor = (score: number) => {
             <a
               href={game.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               class="flex items-center justify-between px-5 py-3 border-t border-[#2A2A33] text-xs text-[#8888A0] hover:text-[#FF8C12] hover:bg-[rgba(245,114,0,0.05)] transition-all"
             >
               <span>View game</span>
@@ -460,7 +462,7 @@ const ratingColor = (score: number) => {
           Play Turbo Dismount 2
         </h2>
         <p class="text-[#B0B0BE] mb-5 max-w-md mx-auto text-sm">
-          96% positive on Steam. $19.99 with Steam Workshop and 30+ languages. Full Release March 2026.
+          96% positive on Steam. $19.99 with Steam Workshop and 30+ languages. Full Release <time datetime="2026-03">March 2026</time>.
         </p>
         <a
           href="https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"

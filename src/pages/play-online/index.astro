@@ -136,6 +136,8 @@ const relatedGames = [
       class="absolute inset-0 w-full h-full object-cover opacity-10"
       loading="eager"
       aria-hidden="true"
+      width="1280"
+      height="720"
     />
 
     <div class="absolute top-1/2 left-1/4 w-[600px] h-[300px] opacity-15" style="background: radial-gradient(ellipse, rgba(245,114,0,0.4) 0%, transparent 70%);"></div>
@@ -252,7 +254,7 @@ const relatedGames = [
           <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <div class="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(245,114,0,0.3)] bg-[rgba(245,114,0,0.08)] text-[#FF8C12]">
-                New Release — March 2026
+                New Release — <time datetime="2026-03">March 2026</time>
               </div>
               <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider mb-3">
                 Looking for<br />Turbo Dismount 2?
@@ -293,6 +295,8 @@ const relatedGames = [
                 alt="Turbo Dismount 2 — available on Steam"
                 class="rounded-xl border border-[#2A2A33] w-full mb-4"
                 loading="lazy"
+                width="616"
+                height="353"
               />
               <p class="text-xs text-[#8888A0] uppercase tracking-wider font-semibold mb-3">TD2 vs Browser Version</p>
               {[
@@ -357,7 +361,7 @@ const relatedGames = [
             coverage from YouTubers like PewDiePie, Jacksepticeye, and Markiplier.
           </p>
           <p>
-            <strong class="text-[#F0F0F2]">Turbo Dismount 2</strong> (the full sequel) launched on Steam on March 13, 2026
+            <strong class="text-[#F0F0F2]">Turbo Dismount 2</strong> (the full sequel) launched on Steam on <time datetime="2026-03-13">March 13, 2026</time>
             after 8+ years of development. It features Unity 6.3 LTS, manual first-person driving, 6 game modes,
             and developer-grade <a href="/workshop/" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">Workshop tools</a>.
             Check the <a href="/guides/how-to-play/" class="text-[#FF8C12] hover:text-[#FFAA44] font-medium">How to Play guide</a>
@@ -435,7 +439,7 @@ const relatedGames = [
             <a
               href={game.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               class="group flex items-start gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-300"
             >
               <div class="shrink-0 w-10 h-10 rounded-lg bg-[#1E1E24] flex items-center justify-center border border-[#2A2A33]">

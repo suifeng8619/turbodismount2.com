@@ -42,6 +42,8 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <meta name="description" content={description} />
   <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
   <link rel="canonical" href={canonical} />
+  <link rel="alternate" hreflang="en" href={canonical} />
+  <link rel="alternate" hreflang="x-default" href={canonical} />
 
   <!-- Preconnect for third-party domains -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -98,6 +100,15 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     "name": "Turbo Dismount 2 Wiki & Guides",
     "url": siteUrl,
     "description": "Complete wiki, guides, vehicle database, and workshop resources for Turbo Dismount 2"
+  })} />}
+
+  <!-- Schema.org - Organization (homepage only) -->
+  {isHome && <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "turbodismount2.com",
+    "url": "https://turbodismount2.com",
+    "description": "Unofficial fan site providing guides, databases, and resources for Turbo Dismount 2"
   })} />}
 </head>
 <body class="min-h-screen flex flex-col">
