@@ -1,0 +1,13 @@
+{
+  "name": "Turbo Dismount 2 Wiki & Guides",
+  "short_name": "TD2 Wiki",
+  "description": "Complete wiki, guides, vehicle database, and workshop resources for Turbo Dismount 2",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0F",
+  "theme_color": "#0D0D0F",
+  "icons": [
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
