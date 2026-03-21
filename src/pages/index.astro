@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { GAME } from '../data/constants';
 
 const title = 'Turbo Dismount 2 Wiki, Guides & Vehicle Database';
 const description = 'Complete Turbo Dismount 2 resource — guides, vehicle database, level walkthroughs, Workshop creations, tips & tricks. Updated March 2026.';
@@ -64,7 +65,7 @@ const stats = [
 ];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} isHome={true}>
   <!-- Hero Section -->
   <section class="relative overflow-hidden py-20 md:py-28 lg:py-36">
     <!-- Background gradient -->
@@ -100,7 +101,7 @@ const stats = [
         </span>
         <br />
         <span class="text-[#F0F0F2] text-2xl md:text-3xl lg:text-4xl tracking-wide">
-          Wiki & Complete Guide
+          Wiki, Guides & Database
         </span>
       </h1>
 
@@ -153,7 +154,7 @@ const stats = [
   <section class="py-12 md:py-16">
     <div class="container">
       <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider text-center mb-4">
-        Everything You Need
+        Turbo Dismount 2 Resources
       </h2>
       <p class="text-center text-[#B0B0BE] mb-12 max-w-xl mx-auto">
         Comprehensive resources to help you master Turbo Dismount 2
@@ -288,7 +289,7 @@ const stats = [
     <div class="container">
       <div class="max-w-3xl mx-auto">
         <h2 class="font-[Orbitron] text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6">
-          The Journey
+          Turbo Dismount 2 Development History
         </h2>
         <div class="space-y-4 text-[#B0B0BE] leading-relaxed">
           <p>
@@ -433,20 +434,6 @@ const stats = [
     </div>
   </section>
 
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": quickFaqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.a,
-      },
-    })),
-  })} />
-
   <!-- VideoGame Schema -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -471,14 +458,14 @@ const stats = [
       "@type": "AggregateRating",
       "ratingValue": "96",
       "bestRating": "100",
-      "ratingCount": "542"
+      "ratingCount": GAME.reviewCount
     },
     "offers": {
       "@type": "Offer",
-      "price": "19.99",
+      "price": GAME.price.replace('$', ''),
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
-      "url": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+      "url": GAME.steamUrl
     }
   })} />
 

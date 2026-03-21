@@ -11,16 +11,20 @@ interface Props {
   type?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
+  isHome?: boolean;
+  noIndex?: boolean;
 }
 
 const {
   title,
   description,
-  ogImage = '/og-default.svg',
+  ogImage = '/og-default.png',
   canonicalUrl,
   type = 'website',
   publishedTime,
   modifiedTime,
+  isHome = false,
+  noIndex = false,
 } = Astro.props;
 
 const siteUrl = 'https://turbodismount2.com';
@@ -36,17 +40,8 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
   <link rel="canonical" href={canonical} />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVNT0YNE9E"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CVNT0YNE9E');
-  </script>
 
   <!-- DNS Prefetch for third-party domains -->
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -79,17 +74,20 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageFull} />
 
+  <!-- Theme color -->
+  <meta name="theme-color" content="#0D0D0F" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Schema.org - WebSite -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <!-- Schema.org - WebSite (homepage only) -->
+  {isHome && <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Turbo Dismount 2 Wiki & Guides",
     "url": siteUrl,
     "description": "Complete wiki, guides, vehicle database, and workshop resources for Turbo Dismount 2"
-  })} />
+  })} />}
 </head>
 <body class="min-h-screen flex flex-col">
   <Header />
@@ -97,5 +95,14 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <slot />
   </main>
   <Footer />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVNT0YNE9E"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CVNT0YNE9E');
+  </script>
 </body>
 </html>
