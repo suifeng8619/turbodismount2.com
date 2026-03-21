@@ -1,163 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { officialLevels, workshopLevels, generalTips, difficultyColors } from '../../../data/levels';
 
 const title = 'Turbo Dismount 2 Levels — Complete Map Guide & Walkthroughs';
 const description = 'Complete Turbo Dismount 2 level guide with walkthroughs and high score strategies. Every official level plus top Workshop maps like Super-Speed, Going Down, and Dismount Derby.';
-
-type Difficulty = 1 | 2 | 3 | 4 | 5;
-
-interface OfficialLevel {
-  name: string;
-  theme: string;
-  difficulty: Difficulty;
-  description: string;
-  highScoreTip: string;
-  type: string;
-  badge?: string;
-  badgeColor?: string;
-}
-
-interface WorkshopLevel {
-  name: string;
-  creator: string;
-  type: string;
-  description: string;
-  workshopUrl: string;
-}
-
-const officialLevels: OfficialLevel[] = [
-  {
-    name: 'Super-Speed',
-    theme: 'Floating Highway',
-    difficulty: 4,
-    description: 'The largest level in the game — a floating elevated highway with 4 lanes of AI traffic flowing at full speed. Designed for maximum carnage and chaos.',
-    highScoreTip: 'Use the Wedge vehicle for initial launch speed, aim for head-on AI collisions in the middle lanes for maximum impact scoring.',
-    type: 'Open World',
-    badge: 'Largest Level',
-    badgeColor: '#F57200',
-  },
-  {
-    name: 'Going Down',
-    theme: 'Elevator / Vertical',
-    difficulty: 3,
-    description: 'A vertical elevator-themed level where the action cascades downward through multiple floors. Known as one of the best high-score levels due to layered collision chains.',
-    highScoreTip: 'Position your character to clip every floor on the way down. Each contact adds to your combo multiplier — aim for unbroken contact chains.',
-    type: 'High Score',
-    badge: 'High Score Favorite',
-    badgeColor: '#22C55E',
-  },
-  {
-    name: 'Dismount Derby',
-    theme: 'Arena / Combat',
-    difficulty: 4,
-    description: 'A competitive arena-style level focused on vehicle-to-vehicle collisions and elimination. Multiple vehicles compete in a confined space.',
-    highScoreTip: 'Focus on T-bone collisions rather than head-on hits — side impacts transfer more rotational energy for better score multipliers.',
-    type: 'Arena Combat',
-  },
-  {
-    name: 'Mine Skydive Classic',
-    theme: 'Mine / Skydiving',
-    difficulty: 3,
-    description: 'A classic level combining a mine shaft drop with an open skydive sequence. The freefall section allows for significant speed buildup before impact.',
-    highScoreTip: 'Maximize your freefall distance before pulling into obstacles — velocity at impact is the key variable for score in this level.',
-    type: 'Skydive',
-  },
-  {
-    name: 'Daytona Speedway',
-    theme: 'Racing Circuit',
-    difficulty: 3,
-    description: 'An oval racing circuit inspired by the iconic American speedway. High-speed banked turns create opportunities for spectacular multi-vehicle incidents.',
-    highScoreTip: 'Use Pink Lightning for its sustained top speed. Target the tight banking turns where AI vehicles cluster before entering the straight.',
-    type: 'Racing Circuit',
-  },
-  {
-    name: 'Expressway',
-    theme: 'Freeway',
-    difficulty: 2,
-    description: 'A classic multi-lane freeway level with varied traffic density. Good introductory level that teaches the core collision mechanics.',
-    highScoreTip: 'Aim for the right-most lane at launch — traffic density is highest here, giving you the most collision opportunities in a single run.',
-    type: 'Freeway',
-    badge: 'Good for Beginners',
-    badgeColor: '#22C55E',
-  },
-  {
-    name: 'T-Junction',
-    theme: 'Intersection',
-    difficulty: 2,
-    description: 'A T-shaped intersection level where three streams of traffic converge. The crossing point creates consistent multi-vehicle pileup opportunities.',
-    highScoreTip: 'Time your launch to arrive at the intersection exactly when traffic from all three directions overlaps. The resulting chain reaction can clear an entire screen.',
-    type: 'Intersection',
-  },
-  {
-    name: 'Wobbles',
-    theme: 'Bumpy Terrain',
-    difficulty: 3,
-    description: 'An uneven, bumpy road surface that disrupts vehicle stability and creates unpredictable trajectories. Rewards creative use of the terrain geometry.',
-    highScoreTip: 'Use the Ranger or Sasquatch — their high durability means you survive the repeated terrain impacts while accumulating ongoing damage multipliers.',
-    type: 'Terrain Challenge',
-  },
-];
-
-const workshopLevels: WorkshopLevel[] = [
-  {
-    name: 'Highway Patrol Recreate',
-    creator: 'Community Creator',
-    type: 'Police Chase',
-    description: 'A faithful recreation of a high-speed police chase scenario. Includes patrol vehicles and detailed highway infrastructure.',
-    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
-  },
-  {
-    name: 'Crossy Road',
-    creator: 'Community Creator',
-    type: 'Cross-Platform Inspired',
-    description: 'Inspired by the mobile classic, this level reimagines Crossy Road as a physics-based dismount challenge with multiple lanes to cross.',
-    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
-  },
-  {
-    name: 'Hyperspeed Highway',
-    creator: 'Community Creator',
-    type: 'Extreme Speed',
-    description: 'A community-built highway level where all traffic moves at extreme speeds, creating near-instant massive collisions. For experienced players only.',
-    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
-  },
-  {
-    name: 'Atrocious Alley',
-    creator: 'Community Creator',
-    type: 'Urban Alley',
-    description: 'A tight urban alleyway packed with obstacles, traps, and hazards. Every run produces a different chain reaction of destruction.',
-    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
-  },
-  {
-    name: 'Road Trip',
-    creator: 'Community Creator',
-    type: 'Long Distance',
-    description: 'An extended route that takes you through varied terrain — city streets, rural roads, and highway sections in a single continuous level.',
-    workshopUrl: 'https://steamcommunity.com/workshop/browse/?appid=2280350',
-  },
-];
-
-const generalTips = [
-  {
-    title: 'Study AI Traffic Patterns First',
-    tip: 'Before optimizing your score, spend one run just observing where AI vehicles cluster and which lanes have the highest density. Traffic patterns repeat consistently.',
-  },
-  {
-    title: 'Replay is Your Best Teacher',
-    tip: 'The enhanced replay system in TD2 lets you review every collision in detail. After each run, watch the replay to identify which impacts scored well and which were wasted.',
-  },
-  {
-    title: 'Angle Matters More Than Speed Alone',
-    tip: 'A perpendicular (90-degree) hit transfers maximum energy. A glancing blow at 15 degrees might produce a dramatic visual but scores poorly. Aim to intercept traffic at right angles.',
-  },
-  {
-    title: 'Chain Reactions Multiply Scores',
-    tip: 'Single-vehicle collisions have a fixed score ceiling. Multi-vehicle chains where your primary hit causes secondary collisions between AI vehicles unlock major score multipliers.',
-  },
-  {
-    title: 'Level Height Adds Freefall Bonus',
-    tip: 'Levels with elevation — like Mine Skydive Classic and Going Down — reward you for freefall distance before impact. The velocity bonus from height is significant.',
-  },
-];
 
 const faqs = [
   {
@@ -181,19 +27,6 @@ const faqs = [
     a: 'The game does not display an official difficulty rating. The ratings on this page are community-based assessments of how challenging each level is to master and achieve a high score on. Beginner-friendly levels are marked accordingly.',
   },
 ];
-
-function renderStars(count: Difficulty) {
-  return Array.from({ length: 5 }, (_, i) => i < count ? '/' : '/').join('');
-}
-// Stars rendered via HTML in template, not this function
-
-const difficultyColors: Record<Difficulty, string> = {
-  1: '#22C55E',
-  2: '#86EFAC',
-  3: '#EAB308',
-  4: '#F97316',
-  5: '#E01C1C',
-};
 ---
 
 <BaseLayout title={title} description={description} ogImage="/og-levels.png">
@@ -220,9 +53,9 @@ const difficultyColors: Record<Difficulty, string> = {
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden py-16 md:py-24">
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, #050F1A 0%, #0A1F35 40%, #101025 80%, #080D18 100%);"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #1A0A00 0%, #2D1200 40%, #0D0D0F 80%, #080D18 100%);"></div>
     <img src="https://img.youtube.com/vi/_eY5eaJG-1s/maxresdefault.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none select-none" loading="eager" width="1280" height="720" />
-    <div class="absolute top-1/2 right-1/4 w-[500px] h-[250px] opacity-10" style="background: radial-gradient(ellipse, rgba(0,128,245,0.5) 0%, transparent 70%);"></div>
+    <div class="absolute top-1/2 right-1/4 w-[500px] h-[250px] opacity-10" style="background: radial-gradient(ellipse, rgba(245,114,0,0.4) 0%, transparent 70%);"></div>
 
     <div class="container relative z-10">
       <!-- Breadcrumb -->
@@ -235,7 +68,7 @@ const difficultyColors: Record<Difficulty, string> = {
       </nav>
 
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(0,128,245,0.3)] bg-[rgba(0,128,245,0.08)] text-[#2E9EFF]">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-5 text-xs font-semibold uppercase tracking-wider rounded-full border border-[rgba(245,114,0,0.3)] bg-[rgba(245,114,0,0.08)] text-[#FF8C12]">
           <span class="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse"></span>
           {officialLevels.length} Official + {workshopLevels.length} Featured Workshop Levels
         </div>
@@ -261,7 +94,7 @@ const difficultyColors: Record<Difficulty, string> = {
     <div class="container py-6">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
         <div>
-          <div class="font-[Orbitron] font-bold text-xl text-[#0080F5]">{officialLevels.length}</div>
+          <div class="font-[Orbitron] font-bold text-xl text-[#F57200]">{officialLevels.length}</div>
           <div class="text-xs text-[#8888A0] uppercase tracking-wider mt-1">Official Levels</div>
         </div>
         <div>
@@ -286,7 +119,7 @@ const difficultyColors: Record<Difficulty, string> = {
       <details class="group max-w-4xl mx-auto">
         <summary class="flex items-center justify-between cursor-pointer px-5 py-3 rounded-xl border border-[#2A2A33] bg-[#141417] hover:bg-[#1E1E24] transition-colors duration-200">
           <div class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-[#0080F5]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-5 h-5 text-[#F57200]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
             <span class="font-bold text-sm text-[#F0F0F2]">Quick Overview — All Levels by Difficulty</span>
@@ -405,7 +238,7 @@ const difficultyColors: Record<Difficulty, string> = {
     <div class="container">
       <div class="flex items-start justify-between flex-wrap gap-4 mb-3">
         <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider flex items-center gap-3">
-          <span class="w-1 h-7 rounded-full" style="background: #A855F7;"></span>
+          <span class="w-1 h-7 rounded-full" style="background: #22C55E;"></span>
           Popular Workshop Levels
         </h2>
         <a
@@ -428,27 +261,27 @@ const difficultyColors: Record<Difficulty, string> = {
             href={level.workshopUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(168,85,247,0.3)] hover:bg-[#1E1E24] transition-all duration-300 hover:-translate-y-1 block"
+            class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(34,197,94,0.3)] hover:bg-[#1E1E24] transition-all duration-300 hover:-translate-y-1 block"
           >
             <div class="flex items-start justify-between mb-3">
               <div>
-                <h3 class="font-bold text-[#F0F0F2] group-hover:text-[#A855F7] transition-colors duration-200">
+                <h3 class="font-bold text-[#F0F0F2] group-hover:text-[#22C55E] transition-colors duration-200">
                   {level.name}
                 </h3>
                 <p class="text-xs text-[#8888A0] mt-0.5">by {level.creator}</p>
               </div>
-              <svg class="w-4 h-4 text-[#8888A0] group-hover:text-[#A855F7] shrink-0 ml-2 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg class="w-4 h-4 text-[#8888A0] group-hover:text-[#22C55E] shrink-0 ml-2 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </div>
 
-            <span class="inline-block px-2 py-0.5 text-xs rounded-md mb-3" style="background: rgba(168,85,247,0.1); color: #A855F7; border: 1px solid rgba(168,85,247,0.2);">
+            <span class="inline-block px-2 py-0.5 text-xs rounded-md mb-3" style="background: rgba(34,197,94,0.1); color: #22C55E; border: 1px solid rgba(34,197,94,0.2);">
               {level.type}
             </span>
 
             <p class="text-sm text-[#B0B0BE] leading-relaxed">{level.description}</p>
 
-            <p class="text-xs text-[#A855F7] mt-3 font-medium">View on Steam Workshop &rarr;</p>
+            <p class="text-xs text-[#22C55E] mt-3 font-medium">View on Steam Workshop &rarr;</p>
           </a>
         ))}
       </div>
@@ -466,7 +299,7 @@ const difficultyColors: Record<Difficulty, string> = {
         <div class="space-y-4">
           {generalTips.map((item, i) => (
             <div class="flex gap-4 p-5 rounded-xl border border-[#2A2A33] bg-[#141417]">
-              <div class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-[Orbitron] text-white" style="background: linear-gradient(135deg, #0080F5, #2E9EFF);">
+              <div class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold font-[Orbitron] text-white" style="background: linear-gradient(135deg, #F57200, #FF8C12);">
                 {i + 1}
               </div>
               <div>
@@ -561,7 +394,7 @@ const difficultyColors: Record<Difficulty, string> = {
   <!-- CTA -->
   <section class="py-12 md:py-16">
     <div class="container">
-      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(0,128,245,0.1) 0%, rgba(245,114,0,0.1) 100%); border: 1px solid rgba(0,128,245,0.2);">
+      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(234,179,8,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
         <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-3">
           Play Every Level on Steam
         </h2>

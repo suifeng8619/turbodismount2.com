@@ -1,136 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { vehicles, bestFor, categories } from '../../../data/vehicles';
 
 const title = 'Turbo Dismount 2 Vehicles — Stats & Ratings';
 const description = 'All Turbo Dismount 2 vehicles with speed, handling, durability stats. Compare 12+ cars, trucks, and special vehicles side-by-side. Find the best vehicle for every game mode and high scores.';
-
-interface Vehicle {
-  name: string;
-  type: string;
-  category: 'Cars' | 'Trucks' | 'Special Vehicles';
-  speed: number;
-  handling: number;
-  durability: number;
-  specialAbility: string;
-  recommendedFor: string;
-  badge?: string;
-  badgeColor?: string;
-  note?: string;
-}
-
-const vehicles: Vehicle[] = [
-  {
-    name: 'Corley',
-    type: 'Standard Sedan',
-    category: 'Cars',
-    speed: 5,
-    handling: 7,
-    durability: 5,
-    specialAbility: 'Balanced all-rounder, predictable behavior',
-    recommendedFor: 'Learning the game, general play',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Pink Lightning',
-    type: 'Sports Car',
-    category: 'Cars',
-    speed: 8,
-    handling: 5,
-    durability: 3,
-    specialAbility: 'High-speed launch, quick acceleration',
-    recommendedFor: 'Distance records, high-speed crashes',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Golf R',
-    type: 'Sport Compact',
-    category: 'Cars',
-    speed: 7,
-    handling: 8,
-    durability: 5,
-    specialAbility: 'Excellent cornering and stability',
-    recommendedFor: 'Technical levels, precision driving',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Ranger',
-    type: 'Jeep / SUV',
-    category: 'Trucks',
-    speed: 5,
-    handling: 7,
-    durability: 8,
-    specialAbility: 'Off-road capable, survives heavy impacts',
-    recommendedFor: 'Beginners, obstacle courses',
-    badge: 'Beginner Pick',
-    badgeColor: '#22C55E',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Wedge',
-    type: 'Wedge Racer',
-    category: 'Cars',
-    speed: 10,
-    handling: 2,
-    durability: 2,
-    specialAbility: 'Maximum velocity, aerodynamic body',
-    recommendedFor: 'Max distance runs, open highways',
-    badge: 'Max Speed',
-    badgeColor: '#F57200',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Sasquatch',
-    type: 'Monster Truck',
-    category: 'Trucks',
-    speed: 3,
-    handling: 2,
-    durability: 10,
-    specialAbility: 'Crushes everything, near-indestructible',
-    recommendedFor: 'Survival runs, rampage modes',
-    badge: 'Max Durability',
-    badgeColor: '#EAB308',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Street Slicer',
-    type: 'Skateboard',
-    category: 'Special Vehicles',
-    speed: 5,
-    handling: 6,
-    durability: 1,
-    specialAbility: 'Low profile, unique physics behavior',
-    recommendedFor: 'Challenge runs, trick scores',
-    badge: 'Unique',
-    badgeColor: '#0080F5',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-  {
-    name: 'Token Bird',
-    type: 'Bird Vehicle',
-    category: 'Special Vehicles',
-    speed: 7,
-    handling: 4,
-    durability: 2,
-    specialAbility: 'Gliding ability, airborne maneuvers',
-    recommendedFor: 'Aerial challenges, creative runs',
-    badge: 'Unique',
-    badgeColor: '#0080F5',
-    note: 'Community-estimated relative stats — not official game values. Ratings are comparative 1-10 scales.',
-  },
-];
-
-const categories = ['Cars', 'Trucks', 'Special Vehicles'] as const;
-
-const bestFor = [
-  { mode: 'High Score Runs', vehicle: 'Wedge', reason: 'Maximum speed for massive collision energy' },
-  { mode: 'Distance Records', vehicle: 'Pink Lightning', reason: 'Fast launch + aerodynamic body for long slides' },
-  { mode: 'Obstacle Courses', vehicle: 'Ranger', reason: 'High durability survives multiple hits' },
-  { mode: 'Beginners', vehicle: 'Ranger', reason: 'Forgiving handling and tough construction' },
-  { mode: 'Survival Mode', vehicle: 'Sasquatch', reason: 'Near-indestructible, outlasts every obstacle' },
-  { mode: 'Technical Tracks', vehicle: 'Golf R', reason: 'Best handling for precise navigation' },
-  { mode: 'Creative Challenges', vehicle: 'Street Slicer', reason: 'Unique physics enable special trick opportunities' },
-  { mode: 'Aerial Levels', vehicle: 'Token Bird', reason: 'Gliding helps control trajectory mid-air' },
-];
 
 const faqs = [
   {
@@ -237,7 +110,7 @@ const itemListSchema = {
           <div class="text-xs text-[#8888A0] uppercase tracking-wider mt-1">Total Vehicles</div>
         </div>
         <div>
-          <div class="font-[Orbitron] font-bold text-xl text-[#0080F5]">{categories.length}</div>
+          <div class="font-[Orbitron] font-bold text-xl text-[#EAB308]">{categories.length}</div>
           <div class="text-xs text-[#8888A0] uppercase tracking-wider mt-1">Categories</div>
         </div>
         <div>
@@ -270,7 +143,7 @@ const itemListSchema = {
                 <th class="text-left px-4 py-3 text-[#8888A0] text-xs uppercase tracking-wider font-semibold">Vehicle</th>
                 <th class="text-left px-4 py-3 text-[#8888A0] text-xs uppercase tracking-wider font-semibold">Type</th>
                 <th class="text-center px-4 py-3 text-[#F57200] text-xs uppercase tracking-wider font-semibold">Speed</th>
-                <th class="text-center px-4 py-3 text-[#0080F5] text-xs uppercase tracking-wider font-semibold">Handling</th>
+                <th class="text-center px-4 py-3 text-[#EAB308] text-xs uppercase tracking-wider font-semibold">Handling</th>
                 <th class="text-center px-4 py-3 text-[#22C55E] text-xs uppercase tracking-wider font-semibold">Durability</th>
                 <th class="text-left px-4 py-3 text-[#8888A0] text-xs uppercase tracking-wider font-semibold">Best For</th>
               </tr>
@@ -281,7 +154,7 @@ const itemListSchema = {
                   <td class="px-4 py-2.5 font-medium text-[#F0F0F2]">{v.name}</td>
                   <td class="px-4 py-2.5 text-[#8888A0] text-xs">{v.category}</td>
                   <td class="text-center px-4 py-2.5 font-bold text-[#F57200]">{v.speed}</td>
-                  <td class="text-center px-4 py-2.5 font-bold text-[#0080F5]">{v.handling}</td>
+                  <td class="text-center px-4 py-2.5 font-bold text-[#EAB308]">{v.handling}</td>
                   <td class="text-center px-4 py-2.5 font-bold text-[#22C55E]">{v.durability}</td>
                   <td class="px-4 py-2.5 text-[#8888A0] text-xs">{v.recommendedFor}</td>
                 </tr>
@@ -301,9 +174,9 @@ const itemListSchema = {
       {categories.map((cat) => {
         const catVehicles = vehicles.filter(v => v.category === cat);
         const catColors = {
-          'Cars': '#0080F5',
+          'Cars': '#EAB308',
           'Trucks': '#EAB308',
-          'Special Vehicles': '#A855F7',
+          'Special Vehicles': '#E01C1C',
         };
         const color = catColors[cat];
         return (
@@ -359,12 +232,12 @@ const itemListSchema = {
                     <div>
                       <div class="flex justify-between items-center mb-1">
                         <span class="text-xs font-semibold text-[#B0B0BE] uppercase tracking-wider">Handling</span>
-                        <span class="text-xs font-bold text-[#0080F5]">{v.handling}/10</span>
+                        <span class="text-xs font-bold text-[#EAB308]">{v.handling}/10</span>
                       </div>
                       <div class="h-1.5 rounded-full bg-[#2A2A33] overflow-hidden">
                         <div
                           class="h-full rounded-full transition-all duration-500"
-                          style={`width: ${v.handling * 10}%; background: linear-gradient(90deg, #0080F5, #2E9EFF);`}
+                          style={`width: ${v.handling * 10}%; background: linear-gradient(90deg, #EAB308, #FACC15);`}
                         ></div>
                       </div>
                     </div>
@@ -517,7 +390,7 @@ const itemListSchema = {
   <!-- CTA -->
   <section class="py-12 md:py-16">
     <div class="container">
-      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(0,128,245,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
+      <div class="relative overflow-hidden rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(245,114,0,0.12) 0%, rgba(234,179,8,0.08) 100%); border: 1px solid rgba(245,114,0,0.2);">
         <h2 class="font-[Orbitron] text-lg md:text-xl font-bold uppercase tracking-wider mb-3">
           Test Every Vehicle on Steam
         </h2>
