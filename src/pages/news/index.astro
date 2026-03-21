@@ -133,6 +133,25 @@ const v1Features = [
   '30+ languages supported',
 ];
 
+/** Convert human-readable date strings to ISO datetime values for <time>. */
+const dateToIso = (d: string): string => {
+  const months: Record<string, string> = {
+    January: '01', February: '02', March: '03', April: '04',
+    May: '05', June: '06', July: '07', August: '08',
+    September: '09', October: '10', November: '11', December: '12',
+  };
+  // "March 13, 2026"
+  const full = d.match(/^(\w+)\s+(\d{1,2}),\s*(\d{4})$/);
+  if (full) return `${full[3]}-${months[full[1]]}-${full[2].padStart(2, '0')}`;
+  // "February 2026"
+  const monthYear = d.match(/^(\w+)\s+(\d{4})$/);
+  if (monthYear) return `${monthYear[2]}-${months[monthYear[1]]}`;
+  // "Early March 2026" — approximate to month
+  const prefixed = d.match(/^\w+\s+(\w+)\s+(\d{4})$/);
+  if (prefixed && months[prefixed[1]]) return `${prefixed[2]}-${months[prefixed[1]]}`;
+  return '';
+};
+
 const typeColor: Record<string, string> = {
   announce: '#EAB308',
   release: '#22C55E',
@@ -259,7 +278,7 @@ const typeLabel: Record<string, string> = {
 
               <div class="flex-1 min-w-0">
                 <div class="flex flex-wrap items-center gap-2 mb-1">
-                  <span class="text-xs font-semibold text-[#8888A0]">{item.date}</span>
+                  <span class="text-xs font-semibold text-[#8888A0]">{dateToIso(item.date) ? <time datetime={dateToIso(item.date)}>{item.date}</time> : item.date}</span>
                   {item.version && (
                     <span
                       class="px-2 py-0.5 text-xs font-bold rounded"
