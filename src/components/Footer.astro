@@ -1,4 +1,6 @@
 ---
+import { GAME } from '../data/constants';
+
 const footerLinks = {
   guides: [
     { label: 'How to Play', href: '/guides/how-to-play/' },
@@ -18,8 +20,8 @@ const footerLinks = {
     { label: 'News & Updates', href: '/news/' },
   ],
   community: [
-    { label: 'Steam Community', href: 'https://steamcommunity.com/app/2280350' },
-    { label: 'Steam Workshop', href: 'https://steamcommunity.com/app/2280350/workshop/' },
+    { label: 'Steam Community', href: GAME.steamCommunityUrl },
+    { label: 'Steam Workshop', href: GAME.workshopUrl },
     { label: 'Secret Exit (Dev)', href: 'https://secretexit.com/' },
     { label: 'Mobile Version', href: '/mobile/' },
   ],

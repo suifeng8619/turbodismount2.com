@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Turbo Dismount 2 Database — Vehicles, Levels & Stats';
+const description = 'Complete Turbo Dismount 2 database. Browse all vehicles with stats and ratings, explore every level with walkthroughs and high score tips.';
+
+const databases = [
+  {
+    href: '/database/vehicles/',
+    title: 'Vehicle Database',
+    subtitle: '8 Vehicles — Full Stats',
+    description: 'Complete stats for every vehicle in Turbo Dismount 2 — speed, handling, and durability ratings. Compare cars, trucks, and special vehicles. Find the best vehicle for each game mode.',
+    tags: ['Speed', 'Handling', 'Durability', 'Comparisons'],
+    tagColor: '#F57200',
+    accent: '#F57200',
+    stats: [
+      { label: 'Vehicles', value: '8' },
+      { label: 'Categories', value: '3' },
+      { label: 'Stats', value: '3 per vehicle' },
+    ],
+  },
+  {
+    href: '/database/levels/',
+    title: 'Level Database',
+    subtitle: 'Official & Workshop Maps',
+    description: 'Every official level with walkthroughs, difficulty ratings, and high score strategies. Plus the best community Workshop maps with direct subscribe links.',
+    tags: ['Walkthroughs', 'High Scores', 'Workshop Maps', 'Difficulty'],
+    tagColor: '#0080F5',
+    accent: '#0080F5',
+    stats: [
+      { label: 'Official', value: '8' },
+      { label: 'Workshop', value: '4+' },
+      { label: 'Modes', value: '6 types' },
+    ],
+  },
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://turbodismount2.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Database", "item": "https://turbodismount2.com/database/" },
+  ]
+};
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- Page Header -->
+  <section class="relative py-12 md:py-16 border-b border-[#2A2A33] overflow-hidden">
+    <img
+      src="https://shared.st.dl.eccdnx.com/store_item_assets/steam/apps/2280350/header.jpg?t=1773497496"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover opacity-[0.08]"
+      loading="eager"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, #0D001A 0%, #0D0D0F 100%);"></div>
+    <div class="container relative z-10">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-[#8888A0] mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#FF8C12] transition-colors duration-200">Home</a>
+        <span>/</span>
+        <span class="text-[#B0B0BE]">Database</span>
+      </nav>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[rgba(245,114,0,0.12)] text-[#F57200] border border-[rgba(245,114,0,0.25)]">
+          {databases.length} Databases
+        </span>
+        <span class="text-sm text-[#8888A0]">Updated: March 2026</span>
+      </div>
+
+      <h1 class="font-[Orbitron] font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider leading-tight mb-4">
+        Turbo Dismount 2
+        <span class="bg-gradient-to-r from-[#FFAA44] via-[#FF8C12] to-[#F57200] bg-clip-text text-transparent block mt-1">
+          Database
+        </span>
+      </h1>
+      <p class="max-w-2xl text-[#B0B0BE] text-base md:text-lg leading-relaxed">
+        Browse the complete Turbo Dismount 2 database. Vehicle stats and comparisons, level walkthroughs with high score strategies, and Workshop map guides.
+      </p>
+    </div>
+  </section>
+
+  <!-- Database Cards -->
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <div class="max-w-3xl mx-auto space-y-6">
+
+        {databases.map((db) => (
+          <a
+            href={db.href}
+            class="group block rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] hover:bg-[#1E1E24] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="p-6 md:p-8">
+              <!-- Title row -->
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <div>
+                  <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider text-[#F0F0F2] group-hover:text-[#FF8C12] transition-colors duration-200">
+                    {db.title}
+                  </h2>
+                  <p class="text-sm font-semibold mt-1" style={`color: ${db.accent};`}>
+                    {db.subtitle}
+                  </p>
+                </div>
+                <svg class="w-6 h-6 text-[#8888A0] group-hover:text-[#F57200] shrink-0 mt-1 transition-all duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+
+              <!-- Description -->
+              <p class="text-sm text-[#B0B0BE] leading-relaxed mb-4">
+                {db.description}
+              </p>
+
+              <!-- Quick Stats -->
+              <div class="flex flex-wrap gap-3 mb-4">
+                {db.stats.map((stat) => (
+                  <div class="px-3 py-1.5 rounded-lg border border-[#2A2A33] bg-[#0D0D0F] text-xs">
+                    <span class="text-[#8888A0]">{stat.label}: </span>
+                    <span class="text-[#F0F0F2] font-semibold">{stat.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {db.tags.map((tag) => (
+                  <span
+                    class="px-2.5 py-1 rounded-md text-xs font-medium"
+                    style={`background: ${db.tagColor}15; color: ${db.tagColor}; border: 1px solid ${db.tagColor}30;`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Resources -->
+  <section class="py-12 md:py-16 border-t border-[#2A2A33]">
+    <div class="container">
+      <h2 class="font-[Orbitron] text-xl md:text-2xl font-bold uppercase tracking-wider text-center mb-8">Related Resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        <a href="/guides/how-to-play/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
+          <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">How to Play</h3>
+          <p class="text-sm text-[#8888A0]">Complete beginner guide with controls</p>
+        </a>
+        <a href="/guides/tips/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
+          <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">Tips & Tricks</h3>
+          <p class="text-sm text-[#8888A0]">15 strategies for higher scores</p>
+        </a>
+        <a href="/workshop/" class="group p-5 rounded-xl border border-[#2A2A33] bg-[#141417] hover:border-[rgba(245,114,0,0.3)] transition-all duration-300">
+          <h3 class="font-bold text-[#F0F0F2] mb-1 group-hover:text-[#FF8C12]">Workshop</h3>
+          <p class="text-sm text-[#8888A0]">Best community-made content</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</BaseLayout>

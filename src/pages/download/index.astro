@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GAME } from '../../data/constants';
 
 const title = 'Download Turbo Dismount 2 — Price & System Requirements';
-const description = 'Get Turbo Dismount 2 on Steam for $19.99 (30% launch discount). Check system requirements, download size (1.05GB), and platform availability.';
+const description = `Get Turbo Dismount 2 on Steam for ${GAME.price} (${GAME.discountPercent}% launch discount). Check system requirements, download size (1.05GB), and platform availability.`;
 
 const quickInfo = [
-  { label: 'Price', value: '$19.99', note: '30% off: $13.99', color: '#F57200' },
+  { label: 'Price', value: GAME.price, note: `${GAME.discountPercent}% off: ${GAME.salePrice}`, color: '#F57200' },
   { label: 'Platform', value: 'Steam', note: 'PC + Linux', color: '#0080F5' },
   { label: 'Download Size', value: '1.05 GB', note: 'Fast install', color: '#22C55E' },
   { label: 'Developer', value: 'Secret Exit Ltd', note: 'Finland', color: '#EAB308' },
@@ -42,12 +43,12 @@ const downloadSteps = [
     step: 2,
     title: 'Search "Turbo Dismount 2"',
     desc: 'Use the search bar at the top of the Steam store, or go directly via the link below.',
-    link: { text: 'Go to Steam page', url: 'https://store.steampowered.com/app/2280350/Turbo_Dismount_2/' },
+    link: { text: 'Go to Steam page', url: GAME.steamUrl },
   },
   {
     step: 3,
-    title: 'Click "Add to Cart" — $19.99',
-    desc: 'The launch discount brings the price to $13.99 (30% off). Limited-time offer.',
+    title: `Click "Add to Cart" — ${GAME.price}`,
+    desc: `The launch discount brings the price to ${GAME.salePrice} (${GAME.discountPercent}% off). Limited-time offer.`,
     link: null,
   },
   {
@@ -110,7 +111,7 @@ const faqs = [
   },
   {
     q: 'How long will the 30% launch discount last?',
-    a: 'The 30% launch discount is a limited-time offer. Secret Exit Ltd has not announced an end date, but launch discounts typically last 1-4 weeks. The regular price is $19.99.',
+    a: `The ${GAME.discountPercent}% launch discount is a limited-time offer. Secret Exit Ltd has not announced an end date, but launch discounts typically last 1-4 weeks. The regular price is ${GAME.price}.`,
   },
   {
     q: 'Can I get a refund if I change my mind?',
@@ -179,7 +180,7 @@ const statusConfig = {
     "operatingSystem": "Windows 10+",
     "softwareVersion": "1.0",
     "fileSize": "1.05 GB",
-    "downloadUrl": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/",
+    "downloadUrl": GAME.steamUrl,
     "author": {
       "@type": "Organization",
       "name": "Secret Exit Ltd",
@@ -190,7 +191,7 @@ const statusConfig = {
       "price": "19.99",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
-      "url": "https://store.steampowered.com/app/2280350/Turbo_Dismount_2/"
+      "url": GAME.steamUrl
     },
     "aggregateRating": {
       "@type": "AggregateRating",
